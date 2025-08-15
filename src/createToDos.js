@@ -50,7 +50,7 @@ const toDo1 = createToDoObject(
   "01.01.0101",
   "AAA",
   "Only do the fart if the risk of a wet fart does not exceed 50%",
-  "false"
+  false
 );
 
 console.log(toDo1);
@@ -75,12 +75,15 @@ function createInputObject() {
   const title = document.getElementById("title");
   const description = document.getElementById("description");
   const dueDate = document.getElementById("dueDate");
+  const notes = document.getElementById("notes");
   // Add the values to the object
   inputObject = {
     priority: priority.value,
     title: title.value,
     description: description.value,
     dueDate: dueDate.value,
+    notes: notes.value,
+    checklist: false,
   };
   return inputObject;
 }
