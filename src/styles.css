@@ -25,7 +25,7 @@ div.content-wrap {
     display: flex;
 }
 
-#checkbox {
+.checkbox {
     display: block;
     margin: 0 auto;
 }

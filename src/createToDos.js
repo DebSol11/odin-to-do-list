@@ -1,4 +1,13 @@
-let arrayOfToDoObjects = [];
+let arrayOfToDoObjects = [
+  {
+    priority: "AAA",
+    title: "Movement",
+    description: "Some form of physical activity.",
+    dueDate: "every day",
+    notes: "Gradually increase intensity.",
+    checklist: false,
+  },
+];
 
 // factory function to create toDoObjects
 function createToDoObject(
@@ -25,7 +34,6 @@ const toDo1 = createToDoObject(
 arrayOfToDoObjects.push(toDo1);
 console.log(arrayOfToDoObjects);
 
-
 function createToDoObjectFromInput() {
   // Get the input elements
   const priority = document.getElementById("priority");
@@ -34,13 +42,20 @@ function createToDoObjectFromInput() {
   const dueDate = document.getElementById("dueDate");
   const notes = document.getElementById("notes");
   // Call the factory function and create a new instance of a to do object
-  const toDoObject = createToDoObject(priority.value, title.value, description.value, dueDate.value, notes.value, false)
+  const toDoObject = createToDoObject(
+    priority.value,
+    title.value,
+    description.value,
+    dueDate.value,
+    notes.value,
+    false
+  );
   // return the to do object
   return toDoObject;
 }
 
 function addToDoObjectFromInputToArray() {
-    arrayOfToDoObjects.push(createToDoObjectFromInput())
+  arrayOfToDoObjects.push(createToDoObjectFromInput());
 }
 
 const submitBtnListener = submitBtn.addEventListener("click", (event) => {
@@ -49,6 +64,4 @@ const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   console.log(arrayOfToDoObjects);
 });
 
-
 export { arrayOfToDoObjects, submitBtnListener };
-

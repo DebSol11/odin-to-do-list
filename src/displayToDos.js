@@ -1,8 +1,37 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
 
+// Selectors
+const tableBody = document.querySelector("tbody");
+
 function displayToDos() {
-  console.log("test");
-  console.log(arrayOfToDoObjects);
+  for (let i = 0; i < arrayOfToDoObjects.length; i++) {
+    let toDoElement = document.createElement("tr");
+    // toDoElement.classList.add(`toDoEntity${i}`);
+    const tdCheckbox = document.createElement("td");
+    toDoElement.appendChild(tdCheckbox);
+    const inputCheckbox = document.createElement("input");
+    inputCheckbox.setAttribute("type", "checkbox");
+    inputCheckbox.setAttribute("class", "checkbox");
+    inputCheckbox.setAttribute("name", "checkbox");
+    tdCheckbox.appendChild(inputCheckbox);
+    const tdPriority = document.createElement("td");
+    tdPriority.textContent = arrayOfToDoObjects[i].priority;
+    toDoElement.appendChild(tdPriority);
+    const tdTitle = document.createElement("td");
+    tdTitle.textContent = arrayOfToDoObjects[i].title;
+    toDoElement.appendChild(tdTitle);
+    const tdDescription = document.createElement("td");
+    tdDescription.textContent = arrayOfToDoObjects[i].description;
+    toDoElement.appendChild(tdDescription);
+    const tdDueDate = document.createElement("td");
+    tdDueDate.textContent = arrayOfToDoObjects[i].dueDate;
+    toDoElement.appendChild(tdDueDate);
+    const tdNotes = document.createElement("td");
+    tdNotes.textContent = arrayOfToDoObjects[i].notes;
+    toDoElement.appendChild(tdNotes);
+
+    tableBody.appendChild(toDoElement);
+  }
 }
 
-export {displayToDos};
+export { displayToDos };
