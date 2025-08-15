@@ -4,5 +4,6 @@
 import { submitBtnListener } from "./createToDos.js"
 import { displayToDos } from "./displayToDos.js";
 
-submitBtnListener;
 displayToDos();
+submitBtnListener;
+

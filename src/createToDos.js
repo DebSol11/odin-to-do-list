@@ -1,3 +1,5 @@
+import { displayToDos, clearTable } from "./displayToDos.js";
+
 let arrayOfToDoObjects = [
   {
     priority: "AAA",
@@ -61,6 +63,8 @@ function addToDoObjectFromInputToArray() {
 const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   addToDoObjectFromInputToArray();
+  clearTable();
+  displayToDos();
   console.log(arrayOfToDoObjects);
 });
 
