@@ -120,13 +120,23 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpa
 
 /***/ }),
 
+/***/ "./src/displayToDos.js":
+/*!*****************************!*\
+  !*** ./src/displayToDos.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   displayToDos: () => (/* binding */ displayToDos)\n/* harmony export */ });\n/* harmony import */ var _createToDos_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createToDos.js */ \"./src/createToDos.js\");\n\n\nfunction displayToDos() {\n  console.log(\"test\");\n  console.log(_createToDos_js__WEBPACK_IMPORTED_MODULE_0__.arrayOfToDoObjects);\n}\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvZGlzcGxheVRvRG9zLmpzIiwibWFwcGluZ3MiOiI7Ozs7O0FBQXNEOztBQUV0RDtBQUNBO0FBQ0EsY0FBYywrREFBa0I7QUFDaEMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9vZGluLXRvLWRvLWxpc3QvLi9zcmMvZGlzcGxheVRvRG9zLmpzPzQ5ZjkiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYXJyYXlPZlRvRG9PYmplY3RzIH0gZnJvbSBcIi4vY3JlYXRlVG9Eb3MuanNcIjtcblxuZnVuY3Rpb24gZGlzcGxheVRvRG9zKCkge1xuICBjb25zb2xlLmxvZyhcInRlc3RcIik7XG4gIGNvbnNvbGUubG9nKGFycmF5T2ZUb0RvT2JqZWN0cyk7XG59XG5cbmV4cG9ydCB7ZGlzcGxheVRvRG9zfTsiXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/displayToDos.js\n\n}");
+
+/***/ }),
+
 /***/ "./src/script.js":
 /*!***********************!*\
   !*** ./src/script.js ***!
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _toDoForm_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toDoForm.css */ \"./src/toDoForm.css\");\n/* harmony import */ var _createToDos_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createToDos.js */ \"./src/createToDos.js\");\n\n\n\n\n_createToDos_js__WEBPACK_IMPORTED_MODULE_2__.submitBtnListener;\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc2NyaXB0LmpzIiwibWFwcGluZ3MiOiI7Ozs7QUFBcUI7QUFDRTtBQUM2Qjs7QUFFcEQsOERBQWlCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vb2Rpbi10by1kby1saXN0Ly4vc3JjL3NjcmlwdC5qcz82OGIwIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBcIi4vc3R5bGVzLmNzc1wiXG5pbXBvcnQgXCIuL3RvRG9Gb3JtLmNzc1wiXG5pbXBvcnQgeyBzdWJtaXRCdG5MaXN0ZW5lciB9IGZyb20gXCIuL2NyZWF0ZVRvRG9zLmpzXCJcblxuc3VibWl0QnRuTGlzdGVuZXI7XG4iXSwibmFtZXMiOltdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/script.js\n\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _toDoForm_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toDoForm.css */ \"./src/toDoForm.css\");\n/* harmony import */ var _createToDos_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createToDos.js */ \"./src/createToDos.js\");\n/* harmony import */ var _displayToDos_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./displayToDos.js */ \"./src/displayToDos.js\");\n\n\n\n\n\n_createToDos_js__WEBPACK_IMPORTED_MODULE_2__.submitBtnListener;\n(0,_displayToDos_js__WEBPACK_IMPORTED_MODULE_3__.displayToDos)();\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvc2NyaXB0LmpzIiwibWFwcGluZ3MiOiI7Ozs7O0FBQXFCO0FBQ0U7QUFDNkI7QUFDSDs7QUFFakQsOERBQWlCO0FBQ2pCLDhEQUFZIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vb2Rpbi10by1kby1saXN0Ly4vc3JjL3NjcmlwdC5qcz82OGIwIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBcIi4vc3R5bGVzLmNzc1wiXG5pbXBvcnQgXCIuL3RvRG9Gb3JtLmNzc1wiXG5pbXBvcnQgeyBzdWJtaXRCdG5MaXN0ZW5lciB9IGZyb20gXCIuL2NyZWF0ZVRvRG9zLmpzXCJcbmltcG9ydCB7IGRpc3BsYXlUb0RvcyB9IGZyb20gXCIuL2Rpc3BsYXlUb0Rvcy5qc1wiO1xuXG5zdWJtaXRCdG5MaXN0ZW5lcjtcbmRpc3BsYXlUb0RvcygpO1xuIl0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/script.js\n\n}");
 
 /***/ }),
 
