@@ -49,5 +49,6 @@ const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   console.log(arrayOfToDoObjects);
 });
 
-export {submitBtnListener};
+
+export { arrayOfToDoObjects, submitBtnListener };
 
