@@ -26,7 +26,7 @@ arrayOfToDoObjects.push(toDo1);
 console.log(arrayOfToDoObjects);
 
 
-function createToDoObjectFromInput() {
+function createInputObject() {
   // Get the input elements
   const priority = document.getElementById("priority");
   const title = document.getElementById("title");
@@ -39,13 +39,13 @@ function createToDoObjectFromInput() {
   return toDoObject;
 }
 
-function addToDoObjectFromInputToArray() {
-    arrayOfToDoObjects.push(createToDoObjectFromInput())
+function addInputObjectToArray() {
+    arrayOfToDoObjects.push(createInputObject())
 }
 
-const submitBtnListener = submitBtn.addEventListener("click", (event) => {
+submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  addToDoObjectFromInputToArray();
+  addInputObjectToArray();
   console.log(arrayOfToDoObjects);
 });
 
