@@ -6,12 +6,23 @@
     <!-- <script src="createToDos.js" defer></script>
     <script src="displayToDos.js" defer></script> -->
     <script src="script.js" type="module" defer></script>
+    <script src="addProjects.js">
+      defer
+    </script>
     <link rel="stylesheet" href="toDoForm.css" />
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <title>odin-to-do-list</title>
   </head>
   <body>
     <div class="content-wrap">
+      <section id="projects">
+        <h1>Projects</h1>
+        <h3>Life</h3>
+        <form action="example.com/path" method="post">
+          <input type="text" id="project" name="project" placeholder="project name" />
+          <button type="submit" id="addProjectBtn">Add project</button>
+        </form>
+      </section>
       <table id="myTable">
         <thead>
           <tr>
@@ -24,16 +35,7 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr>
-            <td>
-              <input type="checkbox" id="checkbox" name="checkbox" />
-            </td>
-            <td>AAA</td>
-            <td>Hygieia</td>
-            <td>Greek goddess of health, cleanliness and hygiene.</td>
-            <td>every day</td>
-            <td>none</td>
-          </tr> -->
+          <!-- to do objects go here -->
         </tbody>
       </table>
       <form action="example.com/path" method="post" id="formToggle">
