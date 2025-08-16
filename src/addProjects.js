@@ -1,6 +1,5 @@
 const addProjectBtn = document.getElementById("addProjectBtn");
-const projectSection = document.querySelector("#projects");
-const addProjectForm = document.querySelector("#addProjectForm");
+const projectDisplayDiv = document.querySelector("#projectDisplay");
 
 const projectsArray = ["Life"];
 
@@ -19,6 +18,7 @@ const addProjectBtnListener = addProjectBtn.addEventListener(
   (event) => {
     event.preventDefault();
     addProjectInputToProjectsArray();
+    clearProjectsDisplayDiv();
     displayProjects();
     console.log(projectsArray);
   }
@@ -28,7 +28,13 @@ function displayProjects() {
   for (let i = 0; i < projectsArray.length; i++) {
     let newProject = document.createElement("h3");
     newProject.textContent = projectsArray[i];
-    projectSection.insertBefore(newProject, addProjectForm);
+    projectDisplayDiv.appendChild(newProject);
+  }
+}
+
+function clearProjectsDisplayDiv() {
+  while (projectDisplayDiv.hasChildNodes()) {
+    projectDisplayDiv.removeChild(projectDisplayDiv.firstChild);
   }
 }
 
