@@ -3,7 +3,9 @@
 // import "./toDoForm.css"
 import { submitBtnListener } from "./createToDos.js"
 import { displayToDos } from "./displayToDos.js";
+import { addProjectBtnListener } from "./addProjects.js";
 
 displayToDos();
 submitBtnListener;
+addProjectBtnListener;
 
