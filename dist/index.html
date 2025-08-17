@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="createToDos.js" defer></script>
+    <script src="displayToDos.js" defer></script> -->
+    <script src="b1bb3968ccf363bc6146.js" type="module" defer></script>
+    <link rel="stylesheet" href="26fd4dbfabe96b8ecf8e.css" />
+    <link rel="stylesheet" href="84bb4fc080631c2605f1.css" />
     <title>odin-to-do-list</title>
   <script defer src="main.js"></script></head>
   <body>
     <div class="content-wrap">
+      <section id="projects">
+        <h1>Projects</h1>
+        <div id="projectDisplay">
+          <h3>Life</h3>
+        </div>
+        <form action="example.com/path" method="post" id="addProjectForm">
+          <input
+            type="text"
+            id="project"
+            name="project"
+            placeholder="project name"
+          />
+          <button type="submit" id="addProjectBtn">Add project</button>
+        </form>
+      </section>
       <table id="myTable">
         <thead>
           <tr>
@@ -15,31 +35,31 @@
             <th>Title</th>
             <th>Description</th>
             <th>Due Date</th>
+            <th>Notes</th>
+            <th id="manipulateToDo"></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <input type="checkbox" id="checkbox" name="checkbox">
-            </td>
-            <td>AAA</td>
-            <td>Hygieia</td>
-            <td>Greek goddess of health, cleanliness and hygiene.</td>
-            <td>every day</td>
-          </tr>
+          <!-- to do objects go here -->
         </tbody>
       </table>
       <form action="example.com/path" method="post" id="formToggle">
         <label for="priority">Priority:</label>
-        <input type="text" id="priority" name="priority" placeholder="AAA...CCC" />
+        <select name="priority" id="priority">
+          <option value="AAA">AAA</option>
+          <option value="AA">AA</option>
+          <option value="A" selected>A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" placeholder="Who knows?" />
         <label for="description">Description:</label>
-        <input type="text" id="description" name="description" placeholder="Bla Kla Ja Sa koskd" />
+        <textarea name="description" id="description" rows="3"></textarea>
         <label for="dueDate">Due Date:</label>
         <input type="date" id="dueDate" name="dueDate" />
         <label for="notes">Notes:</label>
-        <input type="text" id="notes" name="notes" />
+        <textarea name="notes" id="notes" rows="5"></textarea>
         <button type="submit" id="submitBtn">Submit</button>
       </form>
     </div>
