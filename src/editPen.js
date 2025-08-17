@@ -9,7 +9,16 @@ const editPen0Listener = document.addEventListener("DOMContentLoaded", () => {
 
   editPen0.addEventListener("click", () => {
     console.log(arrayOfToDoObjects[0]);
-    alert("You clicked the editPen0");
+    const priority = document.getElementById("priority");
+    const title = document.getElementById("title");
+    const description = document.getElementById("description");
+    const dueDate = document.getElementById("dueDate");
+    const notes = document.getElementById("notes");
+    priority.value = arrayOfToDoObjects[0].priority;
+    title.value = arrayOfToDoObjects[0].title;
+    description.value = arrayOfToDoObjects[0].description;
+    dueDate.value = arrayOfToDoObjects[0].dueDate;
+    notes.value = arrayOfToDoObjects[0].notes;
   });
 });
 
