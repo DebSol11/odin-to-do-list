@@ -29,6 +29,13 @@ function displayToDos() {
     const tdNotes = document.createElement("td");
     tdNotes.textContent = arrayOfToDoObjects[i].notes;
     toDoElement.appendChild(tdNotes);
+    const tdEdit = document.createElement("td");
+    toDoElement.appendChild(tdEdit);
+    const editPenImg = document.createElement("img");
+    editPenImg.setAttribute("src", "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg");
+    editPenImg.setAttribute("alt", "Edit pen SVG");
+    editPenImg.setAttribute("id", `editPen${i}`);
+    tdEdit.appendChild(editPenImg);
 
     tableBody.appendChild(toDoElement);
   }
