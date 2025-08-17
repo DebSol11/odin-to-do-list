@@ -35,6 +35,7 @@ function displayToDos() {
     editPenImg.setAttribute("src", "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg");
     editPenImg.setAttribute("alt", "Edit pen SVG");
     editPenImg.setAttribute("id", `editPen${i}`);
+    editPenImg.classList.add("edit-pen");
     tdEdit.appendChild(editPenImg);
 
     tableBody.appendChild(toDoElement);

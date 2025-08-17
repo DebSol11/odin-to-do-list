@@ -4,10 +4,10 @@
 import { submitBtnListener } from "./createToDos.js"
 import { displayToDos } from "./displayToDos.js";
 import { addProjectBtnListener } from "./addProjects.js";
-import { editPen0Listener } from "./editPen.js";
+import { editPenListener } from "./editPen.js";
 
 displayToDos();
 submitBtnListener;
 addProjectBtnListener;
-editPen0Listener;
+editPenListener;
 
