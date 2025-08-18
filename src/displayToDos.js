@@ -1,5 +1,5 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { deleteToDoDOMListener, trashSymbolNodeListListener } from "./deleteToDo.js";
+import { trashSymbolNodeList, deleteToDoDOMListener, trashSymbolNodeListListener } from "./deleteToDo.js";
 import { editPenNodeListListener } from "./editPen.js";
 
 // Selectors
@@ -54,6 +54,7 @@ function displayToDos() {
 
     tableBody.appendChild(toDoElement);
   }
+  trashSymbolNodeList;
   trashSymbolNodeListListener();
   editPenNodeListListener();
 }
