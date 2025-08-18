@@ -1,4 +1,6 @@
 import { displayToDos, clearTable } from "./displayToDos.js";
+import { editPenNodeListListener } from "./editPen.js";
+
 
 let arrayOfToDoObjects = [
   {
@@ -65,6 +67,7 @@ const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   addToDoObjectFromInputToArray();
   clearTable();
   displayToDos();
+  editPenNodeListListener();
   console.log(arrayOfToDoObjects);
 });
 
