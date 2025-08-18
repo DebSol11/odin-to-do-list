@@ -1,5 +1,6 @@
 import { displayToDos, clearTable } from "./displayToDos.js";
 import { editPenNodeListListener } from "./editPen.js";
+// import { trashSymbolNodeListListener } from "./deleteToDo.js";
 
 
 let arrayOfToDoObjects = [
