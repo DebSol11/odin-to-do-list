@@ -29,14 +29,26 @@ function displayToDos() {
     const tdNotes = document.createElement("td");
     tdNotes.textContent = arrayOfToDoObjects[i].notes;
     toDoElement.appendChild(tdNotes);
-    const tdEdit = document.createElement("td");
-    toDoElement.appendChild(tdEdit);
+    const tdManipulate = document.createElement("td");
+    toDoElement.appendChild(tdManipulate);
     const editPenImg = document.createElement("img");
-    editPenImg.setAttribute("src", "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg");
+    editPenImg.setAttribute(
+      "src",
+      "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+    );
     editPenImg.setAttribute("alt", "Edit pen SVG");
     editPenImg.setAttribute("id", `editPen${i}`);
     editPenImg.classList.add("edit-pen");
-    tdEdit.appendChild(editPenImg);
+    tdManipulate.appendChild(editPenImg);
+    const deleteTrashImg = document.createElement("img");
+    deleteTrashImg.setAttribute(
+      "src",
+      "img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+    );
+    deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
+    deleteTrashImg.setAttribute("id", `trashSymbol${i}`);
+    deleteTrashImg.classList.add("trash-symbol");
+    tdManipulate.appendChild(deleteTrashImg);
 
     tableBody.appendChild(toDoElement);
   }
