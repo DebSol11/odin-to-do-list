@@ -1,5 +1,5 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { trashSymbolNodeList, deleteToDoDOMListener, trashSymbolNodeListListener } from "./deleteToDo.js";
+import { trashSymbolNodeList, deleteToDoDOMListener, deleteToDo, trashSymbolNodeListListener } from "./deleteToDo.js";
 import { editPenNodeListListener } from "./editPen.js";
 
 // Selectors
@@ -54,9 +54,20 @@ function displayToDos() {
 
     tableBody.appendChild(toDoElement);
   }
-  trashSymbolNodeList;
-  trashSymbolNodeListListener();
+  // trashSymbolNodeList;
+  trashSymbolNodeListListener2();
+  // trashSymbolNodeListListener();
   editPenNodeListListener();
+}
+
+// if it is declared in the deleteToDos.js imported here into displayToDo.js and than called, it somehow executes twice resulting in a unwanted behavior when the toDoElement with the index 0 is tried to be deleted without adding something else.
+function trashSymbolNodeListListener2() {
+const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
+  for (let i = 0; i < trashSymbolNodeList.length; i++) {
+    trashSymbolNodeList[i].addEventListener("click", () => {
+      deleteToDo(i);
+    });
+  }
 }
 
 function clearTable() {
