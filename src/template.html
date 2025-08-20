@@ -11,17 +11,20 @@
     <title>odin-to-do-list</title>
   </head>
   <body>
+    <h1>To Be List</h1>
     <div class="content-wrap">
       <section id="projects">
         <h1>Projects</h1>
         <div id="projectDisplay">
           <h3>Life</h3>
+          <h3>Work</h3>
+          <h3>Love</h3>
         </div>
         <form action="example.com/path" method="post" id="addProjectForm">
           <input
             type="text"
-            id="project"
-            name="project"
+            id="projectCreator"
+            name="projectCreator"
             placeholder="project name"
           />
           <button type="submit" id="addProjectBtn">Add project</button>
@@ -31,6 +34,7 @@
         <thead>
           <tr>
             <th>Checkbox</th>
+            <th>Project</th>
             <th>Priority</th>
             <th>Title</th>
             <th>Description</th>
@@ -44,6 +48,12 @@
         </tbody>
       </table>
       <form action="example.com/path" method="post" id="formToggle">
+        <label for="project">Project:</label>
+        <select name="project" id="project">
+          <option value="Life" selected>Life</option>
+          <option value="Work">Work</option>
+          <option value="Love">Love</option>
+        </select>
         <label for="priority">Priority:</label>
         <select name="priority" id="priority">
           <option value="AAA">AAA</option>

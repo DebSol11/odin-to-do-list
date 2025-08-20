@@ -2,9 +2,9 @@ import { displayToDos, clearTable } from "./displayToDos.js";
 import { editPenNodeListListener } from "./editPen.js";
 // import { trashSymbolNodeListListener } from "./deleteToDo.js";
 
-
 let arrayOfToDoObjects = [
   {
+    project: "Life",
     priority: "AAA",
     title: "Movement",
     description: "Some form of physical activity.",
@@ -16,6 +16,7 @@ let arrayOfToDoObjects = [
 
 // factory function to create toDoObjects
 function createToDoObject(
+  project,
   priority,
   title,
   description,
@@ -23,11 +24,12 @@ function createToDoObject(
   notes,
   checklist
 ) {
-  return { priority, title, description, dueDate, notes, checklist };
+  return { project, priority, title, description, dueDate, notes, checklist };
 }
 
 // test object
 const toDo1 = createToDoObject(
+  "Life",
   "AAA",
   "Fart",
   "A compression of air exiting the after thereby making a noticeable sound",
@@ -41,6 +43,7 @@ console.log(arrayOfToDoObjects);
 
 function createToDoObjectFromInput() {
   // Get the input elements
+  const project = document.getElementById("project");
   const priority = document.getElementById("priority");
   const title = document.getElementById("title");
   const description = document.getElementById("description");
@@ -48,6 +51,7 @@ function createToDoObjectFromInput() {
   const notes = document.getElementById("notes");
   // Call the factory function and create a new instance of a to do object
   const toDoObject = createToDoObject(
+    project.value,
     priority.value,
     title.value,
     description.value,

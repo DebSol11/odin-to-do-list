@@ -1,11 +1,11 @@
 const addProjectBtn = document.getElementById("addProjectBtn");
 const projectDisplayDiv = document.querySelector("#projectDisplay");
 
-const projectsArray = ["Life"];
+const projectsArray = ["Life", "Work", "Love"];
 
 function getProjectInputValue() {
-  const project = document.getElementById("project");
-  const projectInputValue = project.value;
+  const projectCreator = document.getElementById("projectCreator");
+  const projectInputValue = projectCreator.value;
   return projectInputValue;
 }
 

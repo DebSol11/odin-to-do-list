@@ -6,11 +6,13 @@ const editPenDOMListener = document.addEventListener("DOMContentLoaded", () => {
 });
 
 function editToDo(index) {
+  const project = document.getElementById("project");
   const priority = document.getElementById("priority");
   const title = document.getElementById("title");
   const description = document.getElementById("description");
   const dueDate = document.getElementById("dueDate");
   const notes = document.getElementById("notes");
+  project.value = arrayOfToDoObjects[index].project;
   priority.value = arrayOfToDoObjects[index].priority;
   title.value = arrayOfToDoObjects[index].title;
   description.value = arrayOfToDoObjects[index].description;

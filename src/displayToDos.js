@@ -16,6 +16,9 @@ function displayToDos() {
     inputCheckbox.setAttribute("class", "checkbox");
     inputCheckbox.setAttribute("name", "checkbox");
     tdCheckbox.appendChild(inputCheckbox);
+    const tdProject = document.createElement("td");
+    tdProject.textContent = arrayOfToDoObjects[i].project;
+    toDoElement.appendChild(tdProject);
     const tdPriority = document.createElement("td");
     tdPriority.textContent = arrayOfToDoObjects[i].priority;
     toDoElement.appendChild(tdPriority);
