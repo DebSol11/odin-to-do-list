@@ -1,5 +1,6 @@
 const addProjectBtn = document.getElementById("addProjectBtn");
 const projectDisplayDiv = document.querySelector("#projectDisplay");
+const selectorProjects = document.querySelector("#project");
 
 const projectsArray = ["Life", "Work", "Love"];
 
@@ -19,7 +20,9 @@ const addProjectBtnListener = addProjectBtn.addEventListener(
     event.preventDefault();
     addProjectInputToProjectsArray();
     clearProjectsDisplayDiv();
+    clearProjectsInForm();
     displayProjects();
+    displayProjectsInForm();
     console.log(projectsArray);
   }
 );
@@ -38,4 +41,21 @@ function clearProjectsDisplayDiv() {
   }
 }
 
-export { addProjectBtnListener };
+function displayProjectsInForm() {
+  for (let i = 0; i < projectsArray.length; i++) {
+    let ProjectInForm = document.createElement("option");
+    ProjectInForm.textContent = projectsArray[i];
+    ProjectInForm.setAttribute("value", `${projectsArray[i]}`);
+    selectorProjects.appendChild(ProjectInForm);
+  }
+}
+
+function clearProjectsInForm() {
+  while (selectorProjects.hasChildNodes()) {
+    selectorProjects.removeChild(selectorProjects.firstChild);
+  }
+}
+
+
+
+export { projectsArray, addProjectBtnListener };
