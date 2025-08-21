@@ -10,7 +10,7 @@ let arrayOfToDoObjects = [
     description: "Some form of physical activity.",
     dueDate: "every day",
     notes: "Gradually increase intensity.",
-    checklist: false,
+    checklist: true,
   },
 ];
 

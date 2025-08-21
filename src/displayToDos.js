@@ -1,5 +1,10 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { trashSymbolNodeList, deleteToDoDOMListener, deleteToDo, trashSymbolNodeListListener } from "./deleteToDo.js";
+import {
+  trashSymbolNodeList,
+  deleteToDoDOMListener,
+  deleteToDo,
+  trashSymbolNodeListListener,
+} from "./deleteToDo.js";
 import { editPenNodeListListener } from "./editPen.js";
 
 // Selectors
@@ -7,65 +12,141 @@ const tableBody = document.querySelector("tbody");
 
 function displayToDos() {
   for (let i = 0; i < arrayOfToDoObjects.length; i++) {
-    let toDoElement = document.createElement("tr");
-    // toDoElement.classList.add(`toDoEntity${i}`);
-    const tdCheckbox = document.createElement("td");
-    toDoElement.appendChild(tdCheckbox);
-    const inputCheckbox = document.createElement("input");
-    inputCheckbox.setAttribute("type", "checkbox");
-    inputCheckbox.setAttribute("class", "checkbox");
-    inputCheckbox.setAttribute("name", "checkbox");
-    tdCheckbox.appendChild(inputCheckbox);
-    const tdProject = document.createElement("td");
-    tdProject.textContent = arrayOfToDoObjects[i].project;
-    toDoElement.appendChild(tdProject);
-    const tdPriority = document.createElement("td");
-    tdPriority.textContent = arrayOfToDoObjects[i].priority;
-    toDoElement.appendChild(tdPriority);
-    const tdTitle = document.createElement("td");
-    tdTitle.textContent = arrayOfToDoObjects[i].title;
-    toDoElement.appendChild(tdTitle);
-    const tdDescription = document.createElement("td");
-    tdDescription.textContent = arrayOfToDoObjects[i].description;
-    toDoElement.appendChild(tdDescription);
-    const tdDueDate = document.createElement("td");
-    tdDueDate.textContent = arrayOfToDoObjects[i].dueDate;
-    toDoElement.appendChild(tdDueDate);
-    const tdNotes = document.createElement("td");
-    tdNotes.textContent = arrayOfToDoObjects[i].notes;
-    toDoElement.appendChild(tdNotes);
-    const tdManipulate = document.createElement("td");
-    toDoElement.appendChild(tdManipulate);
-    const editPenImg = document.createElement("img");
-    editPenImg.setAttribute(
-      "src",
-      "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-    );
-    editPenImg.setAttribute("alt", "Edit pen SVG");
-    editPenImg.setAttribute("id", `editPen${i}`);
-    editPenImg.classList.add("edit-pen");
-    tdManipulate.appendChild(editPenImg);
-    const deleteTrashImg = document.createElement("img");
-    deleteTrashImg.setAttribute(
-      "src",
-      "img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-    );
-    deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
-    deleteTrashImg.setAttribute("id", `trashSymbol${i}`);
-    deleteTrashImg.classList.add("trash-symbol");
-    tdManipulate.appendChild(deleteTrashImg);
+    // import this from it's own function in the checkbox.js for development it's okay to do it here.
+    if (arrayOfToDoObjects[i].checklist == true) {
+      let toDoElement = document.createElement("tr");
+      const tdCheckbox = document.createElement("td");
+      toDoElement.appendChild(tdCheckbox);
+      const inputCheckbox = document.createElement("input");
+      inputCheckbox.setAttribute("checked", "");
+      inputCheckbox.setAttribute("type", "checkbox");
+      inputCheckbox.setAttribute("class", "checkbox");
+      inputCheckbox.setAttribute("name", "checkbox");
+      tdCheckbox.appendChild(inputCheckbox);
 
-    tableBody.appendChild(toDoElement);
+      const tdProject = document.createElement("td");
+      const sProject = document.createElement("s");
+      sProject.textContent = arrayOfToDoObjects[i].project;
+      tdProject.appendChild(sProject);
+      toDoElement.appendChild(tdProject);
+
+      const tdPriority = document.createElement("td");
+      const sPriority = document.createElement("s");
+      sPriority.textContent = arrayOfToDoObjects[i].priority;
+      tdPriority.appendChild(sPriority);
+      toDoElement.appendChild(tdPriority);
+
+      const tdTitle = document.createElement("td");
+      const sTitle = document.createElement("s");
+      sTitle.textContent = arrayOfToDoObjects[i].title;
+      tdTitle.appendChild(sTitle);
+      toDoElement.appendChild(tdTitle);
+
+      const tdDescription = document.createElement("td");
+      const sDescription = document.createElement("s");
+      sDescription.textContent = arrayOfToDoObjects[i].description;
+      tdDescription.appendChild(sDescription);
+      toDoElement.appendChild(tdDescription);
+
+      const tdDueDate = document.createElement("td");
+      const sDueDate = document.createElement("s");
+      sDueDate.textContent = arrayOfToDoObjects[i].dueDate;
+      tdDueDate.appendChild(sDueDate);
+      toDoElement.appendChild(tdDueDate);
+
+      const tdNotes = document.createElement("td");
+      const sNotes = document.createElement("s");
+      sNotes.textContent = arrayOfToDoObjects[i].notes;
+      tdNotes.appendChild(sNotes);
+      toDoElement.appendChild(tdNotes);
+const tdManipulate = document.createElement("td");
+      toDoElement.appendChild(tdManipulate);
+      const editPenImg = document.createElement("img");
+      editPenImg.setAttribute(
+        "src",
+        "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+      );
+      editPenImg.setAttribute("alt", "Edit pen SVG");
+      editPenImg.setAttribute("id", `editPen${i}`);
+      editPenImg.classList.add("edit-pen");
+      tdManipulate.appendChild(editPenImg);
+      const deleteTrashImg = document.createElement("img");
+      deleteTrashImg.setAttribute(
+        "src",
+        "img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+      );
+      deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
+      deleteTrashImg.setAttribute("id", `trashSymbol${i}`);
+      deleteTrashImg.classList.add("trash-symbol");
+      tdManipulate.appendChild(deleteTrashImg);
+
+      tableBody.appendChild(toDoElement);
+
+      trashSymbolNodeListListener2();
+      editPenNodeListListener();
+    } else {
+      let toDoElement = document.createElement("tr");
+      // toDoElement.classList.add(`toDoEntity${i}`);
+      const tdCheckbox = document.createElement("td");
+      toDoElement.appendChild(tdCheckbox);
+      const inputCheckbox = document.createElement("input");
+      inputCheckbox.setAttribute("type", "checkbox");
+      inputCheckbox.setAttribute("class", "checkbox");
+      inputCheckbox.setAttribute("name", "checkbox");
+      tdCheckbox.appendChild(inputCheckbox);
+      const tdProject = document.createElement("td");
+      tdProject.textContent = arrayOfToDoObjects[i].project;
+      toDoElement.appendChild(tdProject);
+      const tdPriority = document.createElement("td");
+      tdPriority.textContent = arrayOfToDoObjects[i].priority;
+      toDoElement.appendChild(tdPriority);
+      const tdTitle = document.createElement("td");
+      tdTitle.textContent = arrayOfToDoObjects[i].title;
+      toDoElement.appendChild(tdTitle);
+      const tdDescription = document.createElement("td");
+      tdDescription.textContent = arrayOfToDoObjects[i].description;
+      toDoElement.appendChild(tdDescription);
+      const tdDueDate = document.createElement("td");
+      tdDueDate.textContent = arrayOfToDoObjects[i].dueDate;
+      toDoElement.appendChild(tdDueDate);
+      const tdNotes = document.createElement("td");
+      tdNotes.textContent = arrayOfToDoObjects[i].notes;
+      toDoElement.appendChild(tdNotes);
+      const tdManipulate = document.createElement("td");
+      toDoElement.appendChild(tdManipulate);
+      const editPenImg = document.createElement("img");
+      editPenImg.setAttribute(
+        "src",
+        "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+      );
+      editPenImg.setAttribute("alt", "Edit pen SVG");
+      editPenImg.setAttribute("id", `editPen${i}`);
+      editPenImg.classList.add("edit-pen");
+      tdManipulate.appendChild(editPenImg);
+      const deleteTrashImg = document.createElement("img");
+      deleteTrashImg.setAttribute(
+        "src",
+        "img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+      );
+      deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
+      deleteTrashImg.setAttribute("id", `trashSymbol${i}`);
+      deleteTrashImg.classList.add("trash-symbol");
+      tdManipulate.appendChild(deleteTrashImg);
+
+      tableBody.appendChild(toDoElement);
+
+      trashSymbolNodeListListener2();
+      editPenNodeListListener();
+    }
+    // trashSymbolNodeList;
+
+    // trashSymbolNodeListListener();
   }
-  // trashSymbolNodeList;
-  trashSymbolNodeListListener2();
-  // trashSymbolNodeListListener();
-  editPenNodeListListener();
 }
 
 // if it is declared in the deleteToDos.js imported here into displayToDo.js and than called, it somehow executes twice resulting in a unwanted behavior when the toDoElement with the index 0 is tried to be deleted without adding something else.
 function trashSymbolNodeListListener2() {
-const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
+  const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
   for (let i = 0; i < trashSymbolNodeList.length; i++) {
     trashSymbolNodeList[i].addEventListener("click", () => {
       deleteToDo(i);
