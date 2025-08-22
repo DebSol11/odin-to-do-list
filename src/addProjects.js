@@ -1,9 +1,12 @@
+// Selectors
 const addProjectBtn = document.getElementById("addProjectBtn");
 const projectDisplayDiv = document.querySelector("#projectDisplay");
 const selectorProjects = document.querySelector("#project");
 
+// Array
 const projectsArray = ["Life", "Work", "Love"];
 
+// Functions
 function getProjectInputValue() {
   const projectCreator = document.getElementById("projectCreator");
   const projectInputValue = projectCreator.value;
@@ -13,19 +16,6 @@ function getProjectInputValue() {
 function addProjectInputToProjectsArray() {
   projectsArray.push(getProjectInputValue());
 }
-
-const addProjectBtnListener = addProjectBtn.addEventListener(
-  "click",
-  (event) => {
-    event.preventDefault();
-    addProjectInputToProjectsArray();
-    clearProjectsDisplayDiv();
-    clearProjectsInForm();
-    displayProjects();
-    displayProjectsInForm();
-    console.log(projectsArray);
-  }
-);
 
 function displayProjects() {
   for (let i = 0; i < projectsArray.length; i++) {
@@ -56,6 +46,19 @@ function clearProjectsInForm() {
   }
 }
 
+// Event listeners
+const addProjectBtnListener = addProjectBtn.addEventListener(
+  "click",
+  (event) => {
+    event.preventDefault();
+    addProjectInputToProjectsArray();
+    clearProjectsDisplayDiv();
+    clearProjectsInForm();
+    displayProjects();
+    displayProjectsInForm();
+    console.log(projectsArray);
+  }
+);
 
-
+// Export
 export { projectsArray, addProjectBtnListener };

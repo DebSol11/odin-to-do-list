@@ -1,7 +1,8 @@
+// Import
 import { displayToDos, clearTable } from "./displayToDos.js";
 import { editPenNodeListListener } from "./editPen.js";
-// import { trashSymbolNodeListListener } from "./deleteToDo.js";
 
+// Array containing the to do objects
 let arrayOfToDoObjects = [
   {
     project: "Life",
@@ -14,7 +15,7 @@ let arrayOfToDoObjects = [
   },
 ];
 
-// factory function to create toDoObjects
+// Factory function to create toDoObjects
 function createToDoObject(
   project,
   priority,
@@ -27,7 +28,7 @@ function createToDoObject(
   return { project, priority, title, description, dueDate, notes, checklist };
 }
 
-// test object
+// Test object
 const toDo1 = createToDoObject(
   "Life",
   "AAA",
@@ -37,10 +38,10 @@ const toDo1 = createToDoObject(
   "Only do the fart if the risk of a wet fart does not exceed 50%",
   false
 );
-
 arrayOfToDoObjects.push(toDo1);
 console.log(arrayOfToDoObjects);
 
+// Functions
 function createToDoObjectFromInput() {
   // Get the input elements
   const project = document.getElementById("project");
@@ -67,6 +68,7 @@ function addToDoObjectFromInputToArray() {
   arrayOfToDoObjects.push(createToDoObjectFromInput());
 }
 
+// Event listeners
 const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   addToDoObjectFromInputToArray();
@@ -76,4 +78,5 @@ const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   console.log(arrayOfToDoObjects);
 });
 
+// Export
 export { arrayOfToDoObjects, submitBtnListener };

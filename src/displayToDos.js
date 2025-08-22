@@ -1,31 +1,23 @@
+// Import
 import { arrayOfToDoObjects } from "./createToDos.js";
-import {
-  deleteToDoDOMListener,
-  deleteToDo,
-  trashSymbolNodeListListener,
-} from "./deleteToDo.js";
+import { listenForTrashSymbolClick } from "./deleteToDo.js";
 import { editPenNodeListListener } from "./editPen.js";
 
 // Selectors
 const tableBody = document.querySelector("tbody");
 
-
+// Functions
 function displayToDos() {
   for (let i = 0; i < arrayOfToDoObjects.length; i++) {
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
-    
     if (arrayOfToDoObjects[i].checklist == true) {
       displayCrossedToDo(i);
-      // editPenNodeListListener();
     } else {
       displayNormalToDo(i);
-      // trashSymbolNodeListListener2();
-      // editPenNodeListListener();
     }
   }
-// const trashSymbolArray = Array.from(trashSymbolNodeList);
-// console.log(trashSymbolArray);
-listenForTrashSymbolClick();
+  listenForTrashSymbolClick();
+  editPenNodeListListener();
 }
 
 function displayCrossedToDo(index) {
@@ -97,9 +89,9 @@ function displayCrossedToDo(index) {
   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
   deleteTrashImg.classList.add("trash-symbol");
   tdManipulate.appendChild(deleteTrashImg);
-  
+
   tableBody.appendChild(toDoElement);
-};
+}
 
 function displayNormalToDo(index) {
   let toDoElement = document.createElement("tr");
@@ -159,19 +151,6 @@ function displayNormalToDo(index) {
   tdManipulate.appendChild(deleteTrashImg);
 
   tableBody.appendChild(toDoElement);
-};
-
-
-
-// if it is declared in the deleteToDos.js imported here into displayToDo.js and than called, it somehow executes twice resulting in a unwanted behavior when the toDoElement with the index 0 is tried to be deleted without adding something else.
-function listenForTrashSymbolClick() {
-  const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
-  for (let j = 0; j < trashSymbolNodeList.length; j++) {
-    trashSymbolNodeList[j].addEventListener("click", (event) => {
-      console.log(event);
-      deleteToDo(j);
-    });
-  }
 }
 
 function clearTable() {
@@ -184,4 +163,5 @@ function clearTable() {
   }
 }
 
+// Export
 export { displayToDos, clearTable, listenForTrashSymbolClick };
