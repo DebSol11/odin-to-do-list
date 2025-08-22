@@ -1,7 +1,8 @@
 // Import
 import { arrayOfToDoObjects } from "./createToDos.js";
 import { listenForTrashSymbolClick } from "./deleteToDo.js";
-import { editPenNodeListListener } from "./editPen.js";
+import { listenForEditPenClick } from "./editPen.js";
+import { listenForCheckBoxClick } from "./checkbox.js";
 
 // Selectors
 const tableBody = document.querySelector("tbody");
@@ -17,7 +18,8 @@ function displayToDos() {
     }
   }
   listenForTrashSymbolClick();
-  editPenNodeListListener();
+  listenForEditPenClick();
+  listenForCheckBoxClick();
 }
 
 function displayCrossedToDo(index) {
