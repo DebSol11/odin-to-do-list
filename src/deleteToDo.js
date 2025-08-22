@@ -1,7 +1,7 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
 import { displayToDos, clearTable } from "./displayToDos.js";
 
-const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
+// const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
 
 // We need to wrap the click eventListener here in a DOMContentLoaded eventListener, because otherwise it does not wok as intended. The DOM object would not be loaded jet and throw an error.
 const deleteToDoDOMListener = document.addEventListener(
@@ -34,7 +34,6 @@ function trashSymbolNodeListListener() {
 }
 
 export {
-  trashSymbolNodeList,
   deleteToDoDOMListener,
   deleteToDo,
   trashSymbolNodeListListener,

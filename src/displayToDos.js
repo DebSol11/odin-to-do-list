@@ -1,6 +1,5 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
 import {
-  trashSymbolNodeList,
   deleteToDoDOMListener,
   deleteToDo,
   trashSymbolNodeListListener,
@@ -10,9 +9,11 @@ import { editPenNodeListListener } from "./editPen.js";
 // Selectors
 const tableBody = document.querySelector("tbody");
 
+
 function displayToDos() {
   for (let i = 0; i < arrayOfToDoObjects.length; i++) {
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
+    
     if (arrayOfToDoObjects[i].checklist == true) {
       displayCrossedToDo(i);
       // editPenNodeListListener();
@@ -22,6 +23,9 @@ function displayToDos() {
       // editPenNodeListListener();
     }
   }
+// const trashSymbolArray = Array.from(trashSymbolNodeList);
+// console.log(trashSymbolArray);
+listenForTrashSymbolClick();
 }
 
 function displayCrossedToDo(index) {
