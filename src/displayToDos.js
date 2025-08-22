@@ -3,6 +3,8 @@ import { arrayOfToDoObjects } from "./createToDos.js";
 import { listenForTrashSymbolClick } from "./deleteToDo.js";
 import { listenForEditPenClick } from "./editPen.js";
 import { listenForCheckBoxClick } from "./checkbox.js";
+import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
+import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 
 // Selectors
 const tableBody = document.querySelector("tbody");
@@ -74,19 +76,13 @@ function displayCrossedToDo(index) {
   const tdManipulate = document.createElement("td");
   toDoElement.appendChild(tdManipulate);
   const editPenImg = document.createElement("img");
-  editPenImg.setAttribute(
-    "src",
-    "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-  );
+  editPenImg.src = editPenImage;
   editPenImg.setAttribute("alt", "Edit pen SVG");
   editPenImg.setAttribute("id", `editPen${index}`);
   editPenImg.classList.add("edit-pen");
   tdManipulate.appendChild(editPenImg);
   const deleteTrashImg = document.createElement("img");
-  deleteTrashImg.setAttribute(
-    "src",
-    "img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-  );
+  deleteTrashImg.src = trashSymbolImage;
   deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
   deleteTrashImg.classList.add("trash-symbol");
@@ -134,19 +130,13 @@ function displayNormalToDo(index) {
   const tdManipulate = document.createElement("td");
   toDoElement.appendChild(tdManipulate);
   const editPenImg = document.createElement("img");
-  editPenImg.setAttribute(
-    "src",
-    "img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-  );
+  editPenImg.src = editPenImage;
   editPenImg.setAttribute("alt", "Edit pen SVG");
   editPenImg.setAttribute("id", `editPen${index}`);
   editPenImg.classList.add("edit-pen");
   tdManipulate.appendChild(editPenImg);
   const deleteTrashImg = document.createElement("img");
-  deleteTrashImg.setAttribute(
-    "src",
-    "img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-  );
+  deleteTrashImg.src = trashSymbolImage;
   deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
   deleteTrashImg.classList.add("trash-symbol");

@@ -1,11 +1,5 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
 
-// This can maybe be kicked out of the code, if it works without it in the npm run dev environment!
-// We need to wrap the click eventListener here in a DOMContentLoaded eventListener, because otherwise it does not wok as intended. The DOM object would not be loaded jet and throw an error.
-const editPenDOMListener = document.addEventListener("DOMContentLoaded", () => {
-  listenForEditPenClick();
-});
-
 function editToDo(index) {
   const project = document.getElementById("project");
   const priority = document.getElementById("priority");
@@ -30,4 +24,4 @@ function listenForEditPenClick() {
   }
 }
 
-export { editPenDOMListener, listenForEditPenClick };
+export { listenForEditPenClick };
