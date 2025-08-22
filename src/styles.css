@@ -29,3 +29,7 @@ div.content-wrap {
     display: block;
     margin: 0 auto;
 }
+
+.greyed {
+    color: rgb(182, 182, 182);
+}

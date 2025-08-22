@@ -27,6 +27,7 @@ function displayToDos() {
 function displayCrossedToDo(index) {
   let toDoElement = document.createElement("tr");
   toDoElement.classList.add(`toDoEntity${index}`);
+  toDoElement.classList.add("greyed")
 
   const tdCheckbox = document.createElement("td");
   toDoElement.appendChild(tdCheckbox);
