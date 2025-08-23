@@ -20,7 +20,6 @@ function displayToDos() {
       displayNormalToDo(i);
     }
   }
-  displayToDoButton();
   listenForTrashSymbolClick();
   listenForEditPenClick();
   listenForCheckBoxClick();

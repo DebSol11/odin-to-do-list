@@ -1,13 +1,16 @@
-import { tableBody } from "./displayToDos";
-
 function displayToDoButton() {
-  let tableRow = document.createElement("tr");
-  tableBody.appendChild(tableRow);
-  
+  const divContentWrap = document.querySelector(".content-wrap")
   let toDoBtn = document.createElement("button");
   toDoBtn.textContent = "Add to do";
   toDoBtn.setAttribute("id", "toDoBtn");
-  ta.appendChild(toDoBtn);
+  divContentWrap.appendChild(toDoBtn);
 }
 
-export { displayToDoButton };
+function listenForAddToDoBtnClick() {
+  const toDoBtn = document.querySelector("#toDoBtn")
+  toDoBtn.addEventListener("click", () => {
+    
+  });
+}
+
+export { displayToDoButton, listenForAddToDoBtnClick };
