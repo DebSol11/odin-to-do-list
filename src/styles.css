@@ -29,3 +29,13 @@ div.content-wrap {
     display: block;
     margin: 0 auto;
 }
+
+.greyed {
+    color: rgb(199, 199, 199)
+}
+
+#toDoBtn {
+    display: block;
+    margin: 0 auto;
+}
+

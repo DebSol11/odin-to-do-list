@@ -68,12 +68,13 @@ function addToDoObjectFromInputToArray() {
 }
 
 // Event listeners
-const submitBtnListener = submitBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  addToDoObjectFromInputToArray();
-  clearTable();
-  displayToDos();
-});
+// const submitBtnListener = submitBtn.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   addToDoObjectFromInputToArray();
+//   clearTable();
+//   displayToDos();
+// });
 
 // Export
-export { arrayOfToDoObjects, submitBtnListener };
+export { arrayOfToDoObjects };
+// export { submitBtnListener};

@@ -5,6 +5,7 @@ import { listenForEditPenClick } from "./editPen.js";
 import { listenForCheckBoxClick } from "./checkbox.js";
 import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
+import { displayToDoButton } from "./addToDo.js";
 
 // Selectors
 const tableBody = document.querySelector("tbody");
@@ -19,6 +20,7 @@ function displayToDos() {
       displayNormalToDo(i);
     }
   }
+  displayToDoButton();
   listenForTrashSymbolClick();
   listenForEditPenClick();
   listenForCheckBoxClick();
@@ -27,6 +29,7 @@ function displayToDos() {
 function displayCrossedToDo(index) {
   let toDoElement = document.createElement("tr");
   toDoElement.classList.add(`toDoEntity${index}`);
+  toDoElement.classList.add("greyed")
 
   const tdCheckbox = document.createElement("td");
   toDoElement.appendChild(tdCheckbox);
@@ -156,4 +159,4 @@ function clearTable() {
 }
 
 // Export
-export { displayToDos, clearTable, listenForTrashSymbolClick };
+export { tableBody, displayToDos, clearTable, listenForTrashSymbolClick };
