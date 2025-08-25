@@ -67,14 +67,35 @@ function addToDoObjectFromInputToArray() {
   arrayOfToDoObjects.push(createToDoObjectFromInput());
 }
 
+function clearTheForm() {
+  // You may consider to use prototypal inheritance with factories when your mind is fresh
+  // more information: https://www.theodinproject.com/lessons/node-path-javascript-factory-functions-and-the-module-pattern
+  // And/ or have a look at getters and setters and see if this concept can be incorporated here
+  // more information: https://javascript.info/property-accessors
+  // But for now just repeat the code :D
+  let project = document.getElementById("project");
+  let priority = document.getElementById("priority");
+  const title = document.getElementById("title");
+  const description = document.getElementById("description");
+  const dueDate = document.getElementById("dueDate");
+  const notes = document.getElementById("notes");
+  // Set the input fields to empty strings again
+  project.value = "Life";
+  priority.value = "AA";
+  title.value = "";
+  description.value = "";
+  dueDate.value = "";
+  notes.value = "";
+}
+
 // Event listeners
 const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   addToDoObjectFromInputToArray();
   clearTable();
   displayToDos();
+  clearTheForm();
 });
 
 // Export
 export { arrayOfToDoObjects, submitBtnListener };
-

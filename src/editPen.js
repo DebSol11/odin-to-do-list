@@ -1,4 +1,5 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
+import { addToDoFormModal } from "./addToDo.js";
 
 function editToDo(index) {
   const project = document.getElementById("project");
@@ -20,6 +21,9 @@ function listenForEditPenClick() {
   for (let i = 0; i < editPenNodeList.length; i++) {
     editPenNodeList[i].addEventListener("click", () => {
       editToDo(i);
+      addToDoFormModal.classList.add("active");
+      addToDoFormModal.classList.add("open");
+      addToDoFormModal.style.display = "block";
     });
   }
 }

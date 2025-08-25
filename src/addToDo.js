@@ -20,13 +20,4 @@ function listenForCloseModalClick() {
   });
 }
 
-// function listenForSubmitBtnClick() {
-//   const submitBtn = document.getElementById("submitBtn");
-//   submitBtn.addEventListener("click", () => {
-//     console.log("Works");
-//   });
-// }
-
-
-
-export { listenForOpenModalBtnClick, listenForCloseModalClick };
+export { addToDoFormModal, listenForOpenModalBtnClick, listenForCloseModalClick };
