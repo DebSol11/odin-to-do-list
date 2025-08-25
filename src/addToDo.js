@@ -1,18 +1,8 @@
-// function displayToDoButton() {
-//   const divContentWrap = document.querySelector(".content-wrap")
-//   let toDoBtn = document.createElement("button");
-//   toDoBtn.textContent = "Add to do";
-//   toDoBtn.setAttribute("id", "toDoBtn");
-//   divContentWrap.appendChild(toDoBtn);
-// }
-
 const addToDoFormModal = document.getElementById("addToDoFormModal");
 
-function listenForAddToDoBtnClick() {
+function listenForOpenModalBtnClick() {
   const addToDoIcon = document.querySelector("#addToDoIcon");
-  const submitBtn = document.getElementById("submitBtn");
   addToDoIcon.addEventListener("click", () => {
-    console.log("Works");
     addToDoFormModal.classList.add("active");
     addToDoFormModal.classList.add("open");
     addToDoFormModal.style.display = "block";
@@ -30,4 +20,13 @@ function listenForCloseModalClick() {
   });
 }
 
-export { listenForAddToDoBtnClick, listenForCloseModalClick };
+// function listenForSubmitBtnClick() {
+//   const submitBtn = document.getElementById("submitBtn");
+//   submitBtn.addEventListener("click", () => {
+//     console.log("Works");
+//   });
+// }
+
+
+
+export { listenForOpenModalBtnClick, listenForCloseModalClick };

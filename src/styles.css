@@ -135,6 +135,7 @@ textarea {
   border: 1px solid silver;
   border-radius: 3px;
   margin-bottom: 5px;
+  padding: 7px;
 }
 
 select:hover,
@@ -170,6 +171,14 @@ form label {
 
 #submitBtn:hover {
   background-color: var(--button-color-hover);
+}
+
+input#title, input#dueDate {
+    font-size: 20px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: silver;
 }
 
 @keyframes slideIn {

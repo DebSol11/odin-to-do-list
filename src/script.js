@@ -5,11 +5,11 @@ import "./toDoForm.css"
 import { displayToDos } from "./displayToDos.js";
 // import { submitBtnListener } from "./createToDos.js";
 import { addProjectBtnListener } from "./addProjects.js";
-import { listenForAddToDoBtnClick, listenForCloseModalClick } from "./addToDo.js";
+import { listenForOpenModalBtnClick, listenForCloseModalClick } from "./addToDo.js";
 
 displayToDos();
 // submitBtnListener;
-listenForAddToDoBtnClick();
+listenForOpenModalBtnClick();
 listenForCloseModalClick();
 addProjectBtnListener;
 
