@@ -1,6 +1,6 @@
 // Selectors
 const addProjectBtn = document.getElementById("addProjectBtn");
-const projectDisplayDiv = document.querySelector("#projectDisplay");
+const projectsDisplayUl = document.querySelector("#projectsDisplay");
 const selectorProjects = document.querySelector("#project");
 
 // Array
@@ -19,15 +19,15 @@ function addProjectInputToProjectsArray() {
 
 function displayProjects() {
   for (let i = 0; i < projectsArray.length; i++) {
-    let newProject = document.createElement("h3");
+    let newProject = document.createElement("li");
     newProject.textContent = projectsArray[i];
-    projectDisplayDiv.appendChild(newProject);
+    projectsDisplayUl.appendChild(newProject);
   }
 }
 
 function clearProjectsDisplayDiv() {
-  while (projectDisplayDiv.hasChildNodes()) {
-    projectDisplayDiv.removeChild(projectDisplayDiv.firstChild);
+  while (projectsDisplayUl.hasChildNodes()) {
+    projectsDisplayUl.removeChild(projectsDisplayUl.firstChild);
   }
 }
 

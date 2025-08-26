@@ -1,12 +1,26 @@
-/* * {
-    border: 1px solid red;
-} */
+* {
+  border: 1px solid red;
+}
 
 :root {
   --border-black: 1px solid black;
   --button-color: rgb(169, 63, 179);
   --button-color-hover: rgb(237, 137, 247);
   --modal-font: "Poppins", sans-serif;
+}
+
+header {
+  display: flex;
+  gap: 10px;
+}
+
+#letsDoItImg {
+  width: 80px;
+  height: auto;
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
 }
 
 table {
@@ -28,8 +42,24 @@ th {
   text-align: left;
 }
 
+/* Project section */
+ul {
+  list-style-type: none;
+}
+
+li {
+  font-size: 18px;
+  margin-bottom: 7px;
+  margin-left: -15px;
+}
+
+h2 {
+  font-weight: 600;
+}
+
 div.content-wrap {
   display: flex;
+  gap: 10px;
 }
 
 .checkbox {
@@ -50,7 +80,7 @@ div.content-wrap {
 
 #addToDoIcon {
   position: fixed;
-  top: 20px;
+  top: 25px;
   right: 10px;
   width: 50px;
   height: 50px;
@@ -173,12 +203,14 @@ form label {
   background-color: var(--button-color-hover);
 }
 
-input#title, input#dueDate {
-    font-size: 20px;
+input#title,
+input#dueDate {
+  font-size: 20px;
 }
 
-input::placeholder, textarea::placeholder {
-    color: silver;
+input::placeholder,
+textarea::placeholder {
+  color: silver;
 }
 
 @keyframes slideIn {
