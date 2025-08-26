@@ -6,6 +6,7 @@ import { listenForCheckBoxClick } from "./checkbox.js";
 import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import { displayToDoButton } from "./addToDo.js";
+import { listenForDetailsBtnClick } from "./detailsBtn.js";
 
 // Selectors
 const tableBody = document.querySelector("tbody");
@@ -22,6 +23,7 @@ function displayToDos() {
   }
   listenForTrashSymbolClick();
   listenForEditPenClick();
+  listenForDetailsBtnClick();
   listenForCheckBoxClick();
 }
 
@@ -85,6 +87,7 @@ function displayCrossedToDo(index) {
 
   
   const detailsBtn = document.createElement("button");
+  detailsBtn.classList.add("detailsBtn");
   detailsBtn.textContent = "Details";
   manipulateContainerDiv.appendChild(detailsBtn);
   
@@ -151,6 +154,7 @@ function displayNormalToDo(index) {
 
   
   const detailsBtn = document.createElement("button");
+  detailsBtn.classList.add("detailsBtn");
   detailsBtn.textContent = "Details";
   manipulateContainerDiv.appendChild(detailsBtn);
   

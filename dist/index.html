@@ -9,15 +9,27 @@
     <title>odin-to-do-list</title>
   <script defer src="main.js"></script></head>
   <body>
-    <h1>To Be List</h1>
+    <header>
+      <!-- Image by <a href="https://pixabay.com/users/maklay62-182851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1432951">S K</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1432951">Pixabay</a> -->
+      <img
+        src="5dae4a70119d57c2ef20.png"
+        alt="let's do it note image"
+        id="letsDoItImg" 
+      />
+      <h1>To-Do's</h1>
+    </header>
+
     <div class="content-wrap">
       <section id="projects">
-        <h1>Projects</h1>
-        <div id="projectDisplay">
-          <h3>Life</h3>
-          <h3>Work</h3>
-          <h3>Love</h3>
+        <div>
+          <h2>Projects</h2>
+          <ul id="projectsDisplay">
+            <li>Life</li>
+            <li>Work</li>
+            <li>Love</li>
+          </ul>
         </div>
+
         <form action="example.com/path" method="post" id="addProjectForm">
           <input
             type="text"
@@ -28,7 +40,7 @@
           <button type="submit" id="addProjectBtn">Add project</button>
         </form>
       </section>
-      <table id="myTable">
+      <table id="myTable" width="100%">
         <thead>
           <tr>
             <th>Checkbox</th>
@@ -45,7 +57,11 @@
           <!-- to do objects go here -->
         </tbody>
       </table>
-        <img src="fef2f8660a8f69e6b4ca.svg" alt="Add to do" id="addToDoIcon">+
+      <img
+        src="fef2f8660a8f69e6b4ca.svg"
+        alt="Add to do"
+        id="addToDoIcon"
+      />
       <div class="modal" id="addToDoFormModal">
         <div class="modal-content">
           <div class="modal-header">
@@ -68,13 +84,34 @@
               <option value="C">C</option>
             </select>
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" placeholder="Who knows?" />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Who knows?"
+            />
             <label for="description">Description:</label>
-            <textarea name="description" id="description" rows="3" placeholder="More details?"></textarea>
+            <textarea
+              name="description"
+              id="description"
+              rows="3"
+              placeholder="More details?"
+            ></textarea>
             <label for="dueDate">Due Date:</label>
-            <input type="text" id="dueDate" name="dueDate" placeholder="YYYY-MM-DD HH:MM" onfocus="this.type='datetime-local'">
+            <input
+              type="text"
+              id="dueDate"
+              name="dueDate"
+              placeholder="YYYY-MM-DD HH:MM"
+              onfocus="this.type='datetime-local'"
+            />
             <label for="notes">Notes:</label>
-            <textarea name="notes" id="notes" rows="5" placeholder="Any notes to add?"></textarea>
+            <textarea
+              name="notes"
+              id="notes"
+              rows="5"
+              placeholder="Any notes to add?"
+            ></textarea>
             <button type="submit" id="submitBtn">Add To-Do</button>
           </form>
         </div>
