@@ -1,6 +1,6 @@
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 :root {
   --border-black: 1px solid black;
@@ -211,6 +211,21 @@ input#dueDate {
 input::placeholder,
 textarea::placeholder {
   color: silver;
+}
+
+.manipulate {
+  top: 50%;
+}
+
+#manipulateContainerDiv {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  padding: 5px;
+}
+
+tr {
+  text-align: center;
 }
 
 @keyframes slideIn {

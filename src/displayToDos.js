@@ -76,19 +76,31 @@ function displayCrossedToDo(index) {
   toDoElement.appendChild(tdNotes);
 
   const tdManipulate = document.createElement("td");
+  tdManipulate.classList.add("manipulate");
   toDoElement.appendChild(tdManipulate);
+
+  const manipulateContainerDiv = document.createElement("div");
+  manipulateContainerDiv.setAttribute("id", "manipulateContainerDiv");
+  tdManipulate.appendChild(manipulateContainerDiv);
+
+  
+  const detailsBtn = document.createElement("button");
+  detailsBtn.textContent = "Details";
+  manipulateContainerDiv.appendChild(detailsBtn);
+  
   const editPenImg = document.createElement("img");
   editPenImg.src = editPenImage;
   editPenImg.setAttribute("alt", "Edit pen SVG");
   editPenImg.setAttribute("id", `editPen${index}`);
   editPenImg.classList.add("edit-pen");
-  tdManipulate.appendChild(editPenImg);
+  manipulateContainerDiv.appendChild(editPenImg);
+
   const deleteTrashImg = document.createElement("img");
   deleteTrashImg.src = trashSymbolImage;
   deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
   deleteTrashImg.classList.add("trash-symbol");
-  tdManipulate.appendChild(deleteTrashImg);
+  manipulateContainerDiv.appendChild(deleteTrashImg);
 
   tableBody.appendChild(toDoElement);
 }
@@ -130,19 +142,31 @@ function displayNormalToDo(index) {
   toDoElement.appendChild(tdNotes);
 
   const tdManipulate = document.createElement("td");
+  tdManipulate.classList.add("manipulate");
   toDoElement.appendChild(tdManipulate);
+
+  const manipulateContainerDiv = document.createElement("div");
+  manipulateContainerDiv.setAttribute("id", "manipulateContainerDiv");
+  tdManipulate.appendChild(manipulateContainerDiv);
+
+  
+  const detailsBtn = document.createElement("button");
+  detailsBtn.textContent = "Details";
+  manipulateContainerDiv.appendChild(detailsBtn);
+  
   const editPenImg = document.createElement("img");
   editPenImg.src = editPenImage;
   editPenImg.setAttribute("alt", "Edit pen SVG");
   editPenImg.setAttribute("id", `editPen${index}`);
   editPenImg.classList.add("edit-pen");
-  tdManipulate.appendChild(editPenImg);
+  manipulateContainerDiv.appendChild(editPenImg);
+
   const deleteTrashImg = document.createElement("img");
   deleteTrashImg.src = trashSymbolImage;
   deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
   deleteTrashImg.classList.add("trash-symbol");
-  tdManipulate.appendChild(deleteTrashImg);
+  manipulateContainerDiv.appendChild(deleteTrashImg);
 
   tableBody.appendChild(toDoElement);
 }
