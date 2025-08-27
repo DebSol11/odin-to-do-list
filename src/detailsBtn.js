@@ -1,12 +1,18 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
 
 const displayDetailsModal = document.getElementById("displayDetailsModal");
+const toDoDetails = document.getElementById("toDoDetails");
+
 
 function displayDetails(index) {
-  const toDoDetails = document.getElementById("toDoDetails");
-  const paragraph = document.createElement("p");
-  paragraph.textContent = arrayOfToDoObjects[index].project;
-  toDoDetails.appendChild(paragraph);
+  let keysArray = Object.keys(arrayOfToDoObjects[index]);
+  console.log(keysArray);
+  const projectPara = document.createElement("p");
+  projectPara.textContent = keysArray[0].toUpperCase() +": "+ arrayOfToDoObjects[index].project;
+  toDoDetails.appendChild(projectPara);
+  const priorityPara = document.createElement("p");
+  priorityPara.textContent = keysArray[1].toUpperCase() +": "+ arrayOfToDoObjects[index].priority;
+  toDoDetails.appendChild(priorityPara);
 }
 
 function listenForDetailsBtnClick() {
@@ -29,8 +35,17 @@ function listenForCloseDetailsClick() {
     setTimeout(() => {
       displayDetailsModal.classList.remove("active", "slideOut");
       displayDetailsModal.style.display = "none";
+      clearChildNotes(toDoDetails);
     }, 500); // Wait for the animation to complete (500ms)
   });
 }
+
+function clearChildNotes(parentNode) {
+  while (parentNode.hasChildNodes()) {
+    parentNode.removeChild(parentNode.firstChild);
+  }
+}
+
+
 
 export { listenForDetailsBtnClick, listenForCloseDetailsClick };
