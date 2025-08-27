@@ -2,7 +2,7 @@ import { arrayOfToDoObjects } from "./createToDos.js";
 import { addToDoFormModal } from "./addToDo.js";
 
 
-function editToDo(index) {
+function displayDetails(index) {
   const project = document.getElementById("project");
   const priority = document.getElementById("priority");
   const title = document.getElementById("title");
@@ -21,7 +21,7 @@ function listenForDetailsBtnClick() {
 const detailsBtnNodeList = document.querySelectorAll(".detailsBtn");
   for (let i = 0; i < detailsBtnNodeList.length; i++) {
     detailsBtnNodeList[i].addEventListener("click", () => {
-      editToDo(i);
+      displayDetails(i);
       addToDoFormModal.classList.add("active");
       addToDoFormModal.classList.add("open");
       addToDoFormModal.style.display = "block";
