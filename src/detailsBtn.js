@@ -1,32 +1,35 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { addToDoFormModal } from "./addToDo.js";
 
+const displayDetailsModal = document.getElementById("displayDetailsModal");
 
 function displayDetails(index) {
-  const project = document.getElementById("project");
-  const priority = document.getElementById("priority");
-  const title = document.getElementById("title");
-  const description = document.getElementById("description");
-  const dueDate = document.getElementById("dueDate");
-  const notes = document.getElementById("notes");
-  project.value = arrayOfToDoObjects[index].project;
-  priority.value = arrayOfToDoObjects[index].priority;
-  title.value = arrayOfToDoObjects[index].title;
-  description.value = arrayOfToDoObjects[index].description;
-  dueDate.value = arrayOfToDoObjects[index].dueDate;
-  notes.value = arrayOfToDoObjects[index].notes;
+  const toDoDetails = document.getElementById("toDoDetails");
+  const paragraph = document.createElement("p");
+  paragraph.textContent = arrayOfToDoObjects[index].project;
+  toDoDetails.appendChild(paragraph);
 }
 
 function listenForDetailsBtnClick() {
-const detailsBtnNodeList = document.querySelectorAll(".detailsBtn");
+  const detailsBtnNodeList = document.querySelectorAll(".detailsBtn");
   for (let i = 0; i < detailsBtnNodeList.length; i++) {
     detailsBtnNodeList[i].addEventListener("click", () => {
+      displayDetailsModal.classList.add("active");
+      displayDetailsModal.classList.add("open");
+      displayDetailsModal.style.display = "block";
       displayDetails(i);
-      addToDoFormModal.classList.add("active");
-      addToDoFormModal.classList.add("open");
-      addToDoFormModal.style.display = "block";
     });
   }
 }
 
-export { listenForDetailsBtnClick };
+function listenForCloseDetailsClick() {
+  const closeDetailsModal = document.getElementById("closeDetailsModal");
+  closeDetailsModal.addEventListener("click", () => {
+    displayDetailsModal.classList.add("slideOut");
+    setTimeout(() => {
+      displayDetailsModal.classList.remove("active", "slideOut");
+      displayDetailsModal.style.display = "none";
+    }, 500); // Wait for the animation to complete (500ms)
+  });
+}
+
+export { listenForDetailsBtnClick, listenForCloseDetailsClick };
