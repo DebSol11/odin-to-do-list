@@ -12,9 +12,11 @@
     <header>
       <!-- Image by <a href="https://pixabay.com/users/maklay62-182851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1432951">S K</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1432951">Pixabay</a> -->
       <img
-        src="5dae4a70119d57c2ef20.png"
+        src="7e77473a688b6d5d4485.webp"
         alt="let's do it note image"
-        id="letsDoItImg" 
+        id="letsDoItImg"
+        height="80px"
+        width="80px"
       />
       <h1>To-Do's</h1>
     </header>
@@ -114,6 +116,18 @@
             ></textarea>
             <button type="submit" id="submitBtn">Add To-Do</button>
           </form>
+        </div>
+      </div>
+      <!-- Details display -->
+      <div class="modal" id="displayDetailsModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Details:</h2>
+            <button id="closeDetailsModal">&times;</button>
+          </div>
+          <div id="toDoDetails">
+            <!-- to do object go here -->
+          </div>
         </div>
       </div>
     </div>

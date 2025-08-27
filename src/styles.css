@@ -159,6 +159,12 @@ div.content-wrap {
   color: rgb(48, 48, 48);
 }
 
+/* detail display functionality */
+#displayDetailsModal div.modal-content{
+  background-color: yellow;
+  border-radius: 0px;
+}
+
 select,
 input,
 textarea {

@@ -6,7 +6,7 @@ import { listenForCheckBoxClick } from "./checkbox.js";
 import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import { displayToDoButton } from "./addToDo.js";
-import { listenForDetailsBtnClick } from "./detailsBtn.js";
+import { listenForDetailsBtnClick, listenForCloseDetailsClick } from "./detailsBtn.js";
 
 // Selectors
 const tableBody = document.querySelector("tbody");
@@ -25,6 +25,7 @@ function displayToDos() {
   listenForEditPenClick();
   listenForDetailsBtnClick();
   listenForCheckBoxClick();
+  listenForCloseDetailsClick();
 }
 
 function displayCrossedToDo(index) {

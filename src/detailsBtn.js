@@ -12,7 +12,8 @@ function displayDetails(index) {
 function listenForDetailsBtnClick() {
   const detailsBtnNodeList = document.querySelectorAll(".detailsBtn");
   for (let i = 0; i < detailsBtnNodeList.length; i++) {
-    detailsBtnNodeList[i].addEventListener("click", () => {
+    detailsBtnNodeList[i].addEventListener("click", (event) => {
+      console.log(event);
       displayDetailsModal.classList.add("active");
       displayDetailsModal.classList.add("open");
       displayDetailsModal.style.display = "block";
