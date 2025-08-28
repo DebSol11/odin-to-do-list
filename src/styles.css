@@ -234,6 +234,10 @@ tr {
   text-align: center;
 }
 
+.displayInline {
+  display: inline;
+}
+
 @keyframes slideIn {
   from {
     top: 5%;
