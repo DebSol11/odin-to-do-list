@@ -7,12 +7,16 @@ import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz2
 import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import { displayToDoButton } from "./addToDo.js";
 import { listenForDetailsBtnClick, listenForCloseDetailsClick } from "./detailsBtn.js";
+import { clearChildNotes } from "./detailsBtn.js";
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
 
 // Functions
 function displayToDos() {
+  const toDoContainer = document.createElement("div");
+  toDoContainer.setAttribute("id", "toDoContainer");
+  toDosSection.appendChild(toDoContainer);
   for (let i = 0; i < arrayOfToDoObjects.length; i++) {
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
     if (arrayOfToDoObjects[i].checklist == true) {
@@ -29,6 +33,7 @@ function displayToDos() {
 }
 
 function displayCrossedToDo(index) {
+  const toDoContainer = document.getElementById("toDoContainer");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
   toDoElement.setAttribute("id", `toDoEntity${index}`)
@@ -72,10 +77,11 @@ function displayCrossedToDo(index) {
   deleteTrashImg.classList.add("trash-symbol");
   manipulateContainerDiv.appendChild(deleteTrashImg);
 
-  toDosSection.appendChild(toDoElement);
+  toDoContainer.appendChild(toDoElement);
 }
 
 function displayNormalToDo(index) {
+  const toDoContainer = document.getElementById("toDoContainer");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
   toDoElement.setAttribute("id", `toDoEntity${index}`)
@@ -117,8 +123,10 @@ function displayNormalToDo(index) {
   deleteTrashImg.classList.add("trash-symbol");
   manipulateContainerDiv.appendChild(deleteTrashImg);
 
-  toDosSection.appendChild(toDoElement);
+  toDoContainer.appendChild(toDoElement);
 }
+
+
 
 function clearTable() {
   const rowCount = tableBody.rows.length; // Get the number of rows

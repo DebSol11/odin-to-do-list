@@ -117,4 +117,4 @@ function clearChildNotes(parentNode) {
   }
 }
 
-export { listenForDetailsBtnClick, listenForCloseDetailsClick };
+export { listenForDetailsBtnClick, listenForCloseDetailsClick, clearChildNotes };
