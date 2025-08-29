@@ -1,6 +1,9 @@
-/* * {
-  border: 1px solid red;
-} */
+* {
+  /* border: 1px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --border-black: 1px solid black;
@@ -11,7 +14,10 @@
 
 header {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  margin: 15px;
+  margin-left: 10px;
+  align-items: center;
 }
 
 /* #letsDoItImg {
@@ -50,16 +56,18 @@ ul {
 li {
   font-size: 18px;
   margin-bottom: 7px;
-  margin-left: -15px;
+  margin-left: 10px;
 }
 
 h2 {
   font-weight: 600;
+  margin-bottom: 7px;
 }
 
 div.content-wrap {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  margin: 15px;
 }
 
 .checkbox {
@@ -80,8 +88,8 @@ div.content-wrap {
 
 #addToDoIcon {
   position: fixed;
-  top: 25px;
-  right: 10px;
+  top: 30px;
+  right: 15px;
   width: 50px;
   height: 50px;
   background-color: var(--button-color);
@@ -234,8 +242,24 @@ tr {
   text-align: center;
 }
 
-.displayInline {
-  display: inline;
+.detailsGrid {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+
+.detailsGrid p {
+  font-size: 18.72px;
+}
+
+button {
+  background-color: var(--button-color);
+  cursor: pointer;
+  box-shadow: 0px 5px 9px 0px rgba(127, 106, 255, 0.18);
+  border-radius: 5px;
+  color: white;
 }
 
 @keyframes slideIn {
