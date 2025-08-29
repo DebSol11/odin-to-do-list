@@ -20,32 +20,8 @@ header {
   align-items: center;
 }
 
-/* #letsDoItImg {
-  width: 80px;
-  height: auto;
-} */
-
 h1 {
   font-family: "Poppins", sans-serif;
-}
-
-table {
-  border-collapse: collapse;
-}
-
-thead {
-  border: var(--border-black);
-}
-
-td {
-  vertical-align: middle;
-  border: var(--border-black);
-}
-
-th {
-  border: var(--border-black);
-  border-bottom: 2px solid black;
-  text-align: left;
 }
 
 /* Project section */
@@ -237,10 +213,6 @@ textarea::placeholder {
   justify-content: start;
   padding-top: 3px;
   padding-bottom: 3px;
-}
-
-tr {
-  text-align: center;
 }
 
 .detailsGrid {
