@@ -9,7 +9,7 @@ import { displayToDoButton } from "./addToDo.js";
 import { listenForDetailsBtnClick, listenForCloseDetailsClick } from "./detailsBtn.js";
 
 // Selectors
-const tableBody = document.querySelector("tbody");
+const toDosSection = document.querySelector("#toDos");
 
 // Functions
 function displayToDos() {
@@ -29,64 +29,30 @@ function displayToDos() {
 }
 
 function displayCrossedToDo(index) {
-  let toDoElement = document.createElement("tr");
-  toDoElement.classList.add(`toDoEntity${index}`);
-  toDoElement.classList.add("greyed")
+  let toDoElement = document.createElement("div");
+  toDoElement.classList.add(`toDoEntity`);
+  toDoElement.setAttribute("id", `toDoEntity${index}`)
+  toDoElement.classList.add("greyed");
 
-  const tdCheckbox = document.createElement("td");
-  toDoElement.appendChild(tdCheckbox);
-  const inputCheckbox = document.createElement("input");
-  inputCheckbox.setAttribute("checked", "");
-  inputCheckbox.setAttribute("type", "checkbox");
-  inputCheckbox.setAttribute("class", "checkbox");
-  inputCheckbox.setAttribute("name", "checkbox");
-  tdCheckbox.appendChild(inputCheckbox);
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("checked", "");
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.setAttribute("class", "checkbox");
+  checkbox.setAttribute("name", "checkbox");
+  toDoElement.appendChild(checkbox);
 
-  const tdProject = document.createElement("td");
-  const sProject = document.createElement("s");
-  sProject.textContent = arrayOfToDoObjects[index].project;
-  tdProject.appendChild(sProject);
-  toDoElement.appendChild(tdProject);
-
-  const tdPriority = document.createElement("td");
-  const sPriority = document.createElement("s");
-  sPriority.textContent = arrayOfToDoObjects[index].priority;
-  tdPriority.appendChild(sPriority);
-  toDoElement.appendChild(tdPriority);
-
-  const tdTitle = document.createElement("td");
   const sTitle = document.createElement("s");
   sTitle.textContent = arrayOfToDoObjects[index].title;
-  tdTitle.appendChild(sTitle);
-  toDoElement.appendChild(tdTitle);
+  toDoElement.appendChild(sTitle);
 
-  const tdDescription = document.createElement("td");
-  const sDescription = document.createElement("s");
-  sDescription.textContent = arrayOfToDoObjects[index].description;
-  tdDescription.appendChild(sDescription);
-  toDoElement.appendChild(tdDescription);
-
-  const tdDueDate = document.createElement("td");
   const sDueDate = document.createElement("s");
   sDueDate.textContent = arrayOfToDoObjects[index].dueDate;
-  tdDueDate.appendChild(sDueDate);
-  toDoElement.appendChild(tdDueDate);
-
-  const tdNotes = document.createElement("td");
-  const sNotes = document.createElement("s");
-  sNotes.textContent = arrayOfToDoObjects[index].notes;
-  tdNotes.appendChild(sNotes);
-  toDoElement.appendChild(tdNotes);
-
-  const tdManipulate = document.createElement("td");
-  tdManipulate.classList.add("manipulate");
-  toDoElement.appendChild(tdManipulate);
+  toDoElement.appendChild(sDueDate);
 
   const manipulateContainerDiv = document.createElement("div");
   manipulateContainerDiv.setAttribute("id", "manipulateContainerDiv");
-  tdManipulate.appendChild(manipulateContainerDiv);
+  toDoElement.appendChild(manipulateContainerDiv);
 
-  
   const detailsBtn = document.createElement("button");
   detailsBtn.classList.add("detailsBtn");
   detailsBtn.textContent = "Details";
@@ -106,54 +72,32 @@ function displayCrossedToDo(index) {
   deleteTrashImg.classList.add("trash-symbol");
   manipulateContainerDiv.appendChild(deleteTrashImg);
 
-  tableBody.appendChild(toDoElement);
+  toDosSection.appendChild(toDoElement);
 }
 
 function displayNormalToDo(index) {
-  let toDoElement = document.createElement("tr");
-  toDoElement.classList.add(`toDoEntity${index}`);
+  let toDoElement = document.createElement("div");
+  toDoElement.classList.add(`toDoEntity`);
+  toDoElement.setAttribute("id", `toDoEntity${index}`)
 
-  const tdCheckbox = document.createElement("td");
-  toDoElement.appendChild(tdCheckbox);
-  const inputCheckbox = document.createElement("input");
-  inputCheckbox.setAttribute("type", "checkbox");
-  inputCheckbox.setAttribute("class", "checkbox");
-  inputCheckbox.setAttribute("name", "checkbox");
-  tdCheckbox.appendChild(inputCheckbox);
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.setAttribute("class", "checkbox");
+  checkbox.setAttribute("name", "checkbox");
+  toDoElement.appendChild(checkbox);
 
-  const tdProject = document.createElement("td");
-  tdProject.textContent = arrayOfToDoObjects[index].project;
-  toDoElement.appendChild(tdProject);
+  const pTitle = document.createElement("p");
+  pTitle.textContent = arrayOfToDoObjects[index].title;
+  toDoElement.appendChild(pTitle);
 
-  const tdPriority = document.createElement("td");
-  tdPriority.textContent = arrayOfToDoObjects[index].priority;
-  toDoElement.appendChild(tdPriority);
-
-  const tdTitle = document.createElement("td");
-  tdTitle.textContent = arrayOfToDoObjects[index].title;
-  toDoElement.appendChild(tdTitle);
-
-  const tdDescription = document.createElement("td");
-  tdDescription.textContent = arrayOfToDoObjects[index].description;
-  toDoElement.appendChild(tdDescription);
-
-  const tdDueDate = document.createElement("td");
-  tdDueDate.textContent = arrayOfToDoObjects[index].dueDate;
-  toDoElement.appendChild(tdDueDate);
-
-  const tdNotes = document.createElement("td");
-  tdNotes.textContent = arrayOfToDoObjects[index].notes;
-  toDoElement.appendChild(tdNotes);
-
-  const tdManipulate = document.createElement("td");
-  tdManipulate.classList.add("manipulate");
-  toDoElement.appendChild(tdManipulate);
+  const pDueDate = document.createElement("p");
+  pDueDate.textContent = arrayOfToDoObjects[index].dueDate;
+  toDoElement.appendChild(pDueDate);
 
   const manipulateContainerDiv = document.createElement("div");
   manipulateContainerDiv.setAttribute("id", "manipulateContainerDiv");
-  tdManipulate.appendChild(manipulateContainerDiv);
+  toDoElement.appendChild(manipulateContainerDiv);
 
-  
   const detailsBtn = document.createElement("button");
   detailsBtn.classList.add("detailsBtn");
   detailsBtn.textContent = "Details";
@@ -173,8 +117,144 @@ function displayNormalToDo(index) {
   deleteTrashImg.classList.add("trash-symbol");
   manipulateContainerDiv.appendChild(deleteTrashImg);
 
-  tableBody.appendChild(toDoElement);
+  toDosSection.appendChild(toDoElement);
 }
+
+// function displayCrossedToDo(index) {
+  
+//   const tdProject = document.createElement("td");
+//   const sProject = document.createElement("s");
+//   sProject.textContent = arrayOfToDoObjects[index].project;
+//   tdProject.appendChild(sProject);
+//   toDoElement.appendChild(tdProject);
+
+//   const tdPriority = document.createElement("td");
+//   const sPriority = document.createElement("s");
+//   sPriority.textContent = arrayOfToDoObjects[index].priority;
+//   tdPriority.appendChild(sPriority);
+//   toDoElement.appendChild(tdPriority);
+
+//   const tdTitle = document.createElement("td");
+//   const sTitle = document.createElement("s");
+//   sTitle.textContent = arrayOfToDoObjects[index].title;
+//   tdTitle.appendChild(sTitle);
+//   toDoElement.appendChild(tdTitle);
+
+//   const tdDescription = document.createElement("td");
+//   const sDescription = document.createElement("s");
+//   sDescription.textContent = arrayOfToDoObjects[index].description;
+//   tdDescription.appendChild(sDescription);
+//   toDoElement.appendChild(tdDescription);
+
+//   const tdDueDate = document.createElement("td");
+//   const sDueDate = document.createElement("s");
+//   sDueDate.textContent = arrayOfToDoObjects[index].dueDate;
+//   tdDueDate.appendChild(sDueDate);
+//   toDoElement.appendChild(tdDueDate);
+
+//   const tdNotes = document.createElement("td");
+//   const sNotes = document.createElement("s");
+//   sNotes.textContent = arrayOfToDoObjects[index].notes;
+//   tdNotes.appendChild(sNotes);
+//   toDoElement.appendChild(tdNotes);
+
+//   const tdManipulate = document.createElement("td");
+//   tdManipulate.classList.add("manipulate");
+//   toDoElement.appendChild(tdManipulate);
+
+//   const manipulateContainerDiv = document.createElement("div");
+//   manipulateContainerDiv.setAttribute("id", "manipulateContainerDiv");
+//   tdManipulate.appendChild(manipulateContainerDiv);
+
+  
+//   const detailsBtn = document.createElement("button");
+//   detailsBtn.classList.add("detailsBtn");
+//   detailsBtn.textContent = "Details";
+//   manipulateContainerDiv.appendChild(detailsBtn);
+  
+//   const editPenImg = document.createElement("img");
+//   editPenImg.src = editPenImage;
+//   editPenImg.setAttribute("alt", "Edit pen SVG");
+//   editPenImg.setAttribute("id", `editPen${index}`);
+//   editPenImg.classList.add("edit-pen");
+//   manipulateContainerDiv.appendChild(editPenImg);
+
+//   const deleteTrashImg = document.createElement("img");
+//   deleteTrashImg.src = trashSymbolImage;
+//   deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
+//   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
+//   deleteTrashImg.classList.add("trash-symbol");
+//   manipulateContainerDiv.appendChild(deleteTrashImg);
+
+//   tableBody.appendChild(toDoElement);
+// }
+
+// function displayNormalToDo(index) {
+//   let toDoElement = document.createElement("tr");
+//   toDoElement.classList.add(`toDoEntity${index}`);
+
+//   const tdCheckbox = document.createElement("td");
+//   toDoElement.appendChild(tdCheckbox);
+//   const inputCheckbox = document.createElement("input");
+//   inputCheckbox.setAttribute("type", "checkbox");
+//   inputCheckbox.setAttribute("class", "checkbox");
+//   inputCheckbox.setAttribute("name", "checkbox");
+//   tdCheckbox.appendChild(inputCheckbox);
+
+//   const tdProject = document.createElement("td");
+//   tdProject.textContent = arrayOfToDoObjects[index].project;
+//   toDoElement.appendChild(tdProject);
+
+//   const tdPriority = document.createElement("td");
+//   tdPriority.textContent = arrayOfToDoObjects[index].priority;
+//   toDoElement.appendChild(tdPriority);
+
+//   const tdTitle = document.createElement("td");
+//   tdTitle.textContent = arrayOfToDoObjects[index].title;
+//   toDoElement.appendChild(tdTitle);
+
+//   const tdDescription = document.createElement("td");
+//   tdDescription.textContent = arrayOfToDoObjects[index].description;
+//   toDoElement.appendChild(tdDescription);
+
+//   const tdDueDate = document.createElement("td");
+//   tdDueDate.textContent = arrayOfToDoObjects[index].dueDate;
+//   toDoElement.appendChild(tdDueDate);
+
+//   const tdNotes = document.createElement("td");
+//   tdNotes.textContent = arrayOfToDoObjects[index].notes;
+//   toDoElement.appendChild(tdNotes);
+
+//   const tdManipulate = document.createElement("td");
+//   tdManipulate.classList.add("manipulate");
+//   toDoElement.appendChild(tdManipulate);
+
+//   const manipulateContainerDiv = document.createElement("div");
+//   manipulateContainerDiv.setAttribute("id", "manipulateContainerDiv");
+//   tdManipulate.appendChild(manipulateContainerDiv);
+
+  
+//   const detailsBtn = document.createElement("button");
+//   detailsBtn.classList.add("detailsBtn");
+//   detailsBtn.textContent = "Details";
+//   manipulateContainerDiv.appendChild(detailsBtn);
+  
+//   const editPenImg = document.createElement("img");
+//   editPenImg.src = editPenImage;
+//   editPenImg.setAttribute("alt", "Edit pen SVG");
+//   editPenImg.setAttribute("id", `editPen${index}`);
+//   editPenImg.classList.add("edit-pen");
+//   manipulateContainerDiv.appendChild(editPenImg);
+
+//   const deleteTrashImg = document.createElement("img");
+//   deleteTrashImg.src = trashSymbolImage;
+//   deleteTrashImg.setAttribute("alt", "Trash Symbol SVG");
+//   deleteTrashImg.setAttribute("id", `trashSymbol${index}`);
+//   deleteTrashImg.classList.add("trash-symbol");
+//   manipulateContainerDiv.appendChild(deleteTrashImg);
+
+//   tableBody.appendChild(toDoElement);
+// }
 
 function clearTable() {
   const rowCount = tableBody.rows.length; // Get the number of rows
@@ -187,4 +267,4 @@ function clearTable() {
 }
 
 // Export
-export { tableBody, displayToDos, clearTable, listenForTrashSymbolClick };
+export { toDosSection, displayToDos, clearTable, listenForTrashSymbolClick };

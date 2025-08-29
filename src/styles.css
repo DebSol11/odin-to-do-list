@@ -234,8 +234,9 @@ textarea::placeholder {
 #manipulateContainerDiv {
   display: flex;
   gap: 3px;
-  justify-content: center;
-  padding: 5px;
+  justify-content: start;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 tr {
@@ -260,6 +261,21 @@ button {
   box-shadow: 0px 5px 9px 0px rgba(127, 106, 255, 0.18);
   border-radius: 5px;
   color: white;
+}
+
+#toDos {
+  width: 100%;
+}
+
+#toDosHeader {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+}
+
+.toDoEntity {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  align-items: center;
 }
 
 @keyframes slideIn {
