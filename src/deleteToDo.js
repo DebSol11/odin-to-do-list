@@ -1,11 +1,13 @@
 // Import
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { displayToDos, clearTable } from "./displayToDos.js";
+import { displayToDos } from "./displayToDos.js";
+import { clearChildNotes } from "./detailsBtn.js";
 
 // Functions 
 function deleteToDo(index) {
+  const toDoContainer = document.getElementById("toDoContainer");
   arrayOfToDoObjects.splice(index, 1);
-  clearTable();
+  clearChildNotes(toDoContainer);
   displayToDos();
 }
 

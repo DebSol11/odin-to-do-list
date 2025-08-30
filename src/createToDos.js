@@ -1,16 +1,53 @@
 // Import
-import { displayToDos, clearTable } from "./displayToDos.js";
+import { displayToDos } from "./displayToDos.js";
+import { clearChildNotes } from "./detailsBtn.js";
 
 // Array containing the to do objects
 let arrayOfToDoObjects = [
   {
     project: "Life",
-    priority: "AAA",
+    priority: "AA",
     title: "Movement",
     description: "Some form of physical activity.",
     dueDate: "every day",
     notes: "Gradually increase intensity.",
     checklist: true,
+  },
+  {
+    project: "Love",
+    priority: "AAA",
+    title: "Love",
+    description: "Some form of magic.",
+    dueDate: "every day",
+    notes: "Keep it up champion",
+    checklist: false,
+  },
+  {
+    project: "Life",
+    priority: "A",
+    title: "Honor the moment",
+    description: "Keep your awareness at peek to be able to immerse in life's beauty.",
+    dueDate: "every day",
+    notes: "",
+    checklist: false,
+  },
+  {
+    project: "Life",
+    priority: "B",
+    title: "Nose grinding",
+    description: "Using the finger to dig up a bugger.",
+    dueDate: "01.01.1010",
+    notes: "Keeps the air inlet clean and working",
+    checklist: false,
+  },
+  {
+    project: "Work",
+    priority: "C",
+    title: "Just to display and practice skills",
+    description: "Colors everywhere.",
+    dueDate: "every day",
+    notes: "Gradually increase intensity.",
+    checklist: false,
   },
 ];
 
@@ -30,7 +67,7 @@ function createToDoObject(
 // Test object
 const toDo1 = createToDoObject(
   "Life",
-  "AAA",
+  "B",
   "Fart",
   "A compression of air exiting the after thereby making a noticeable sound",
   "01.01.0101",
@@ -91,8 +128,10 @@ function clearTheForm() {
 // Event listeners
 const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
+  const toDoContainer = document.getElementById("toDoContainer");
   addToDoObjectFromInputToArray();
-  clearTable();
+  // clearTable();
+  clearChildNotes(toDoContainer);
   displayToDos();
   clearTheForm();
 });

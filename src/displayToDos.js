@@ -6,11 +6,15 @@ import { listenForCheckBoxClick } from "./checkbox.js";
 import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import { displayToDoButton } from "./addToDo.js";
-import { listenForDetailsBtnClick, listenForCloseDetailsClick } from "./detailsBtn.js";
+import {
+  listenForDetailsBtnClick,
+  listenForCloseDetailsClick,
+} from "./detailsBtn.js";
 import { clearChildNotes } from "./detailsBtn.js";
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
+const toDoContainer = document.getElementById("toDoContainer");
 
 // Functions
 function displayToDos() {
@@ -20,9 +24,9 @@ function displayToDos() {
   for (let i = 0; i < arrayOfToDoObjects.length; i++) {
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
     if (arrayOfToDoObjects[i].checklist == true) {
-      displayCrossedToDo(i);
+      displayCrossedToDoColored(i);
     } else {
-      displayNormalToDo(i);
+      displayNormalToDoColored(i);
     }
   }
   listenForTrashSymbolClick();
@@ -36,7 +40,7 @@ function displayCrossedToDo(index) {
   const toDoContainer = document.getElementById("toDoContainer");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
-  toDoElement.setAttribute("id", `toDoEntity${index}`)
+  toDoElement.setAttribute("id", `${index}`);
   toDoElement.classList.add("greyed");
 
   const checkbox = document.createElement("input");
@@ -62,7 +66,7 @@ function displayCrossedToDo(index) {
   detailsBtn.classList.add("detailsBtn");
   detailsBtn.textContent = "Details";
   manipulateContainerDiv.appendChild(detailsBtn);
-  
+
   const editPenImg = document.createElement("img");
   editPenImg.src = editPenImage;
   editPenImg.setAttribute("alt", "Edit pen SVG");
@@ -80,11 +84,20 @@ function displayCrossedToDo(index) {
   toDoContainer.appendChild(toDoElement);
 }
 
+function displayCrossedToDoColored(index) {
+  displayCrossedToDo(index);
+  const id = document.getElementById(`${index}`);
+  const checkbox = document.querySelectorAll(".checkbox");
+  const colorToDo = document.createElement("span");
+  id.insertBefore(colorToDo, checkbox[index]);
+  id.classList.add("colorGrey");
+}
+
 function displayNormalToDo(index) {
   const toDoContainer = document.getElementById("toDoContainer");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
-  toDoElement.setAttribute("id", `toDoEntity${index}`)
+  toDoElement.setAttribute("id", `${index}`);
 
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
@@ -108,7 +121,7 @@ function displayNormalToDo(index) {
   detailsBtn.classList.add("detailsBtn");
   detailsBtn.textContent = "Details";
   manipulateContainerDiv.appendChild(detailsBtn);
-  
+
   const editPenImg = document.createElement("img");
   editPenImg.src = editPenImage;
   editPenImg.setAttribute("alt", "Edit pen SVG");
@@ -126,17 +139,54 @@ function displayNormalToDo(index) {
   toDoContainer.appendChild(toDoElement);
 }
 
-
-
-function clearTable() {
-  const rowCount = tableBody.rows.length; // Get the number of rows
-  // Loop through rows in reverse and delete each one
-  for (let i = rowCount - 1; i >= 0; i--) {
-    // The deleteRow method removes rows based on their index.
-    // The loop starts from the last row and goes backwards. When we loop in forward, the position (index) of the remaining rows would change after each deletion. So to prevent this issue, we loop in reverse.
-    tableBody.deleteRow(i);
+function displayNormalToDoColored(index) {
+  if (arrayOfToDoObjects[index].priority == "AAA") {
+    displayNormalToDo(index);
+    const id = document.getElementById(`${index}`);
+    const checkbox = document.querySelectorAll(".checkbox");
+    const colorToDo = document.createElement("span");
+    id.insertBefore(colorToDo, checkbox[index]);
+    id.classList.add("colorAAA");
+  } else if (arrayOfToDoObjects[index].priority == "AA") {
+    displayNormalToDo(index);
+    const id = document.getElementById(`${index}`);
+    const checkbox = document.querySelectorAll(".checkbox");
+    const colorToDo = document.createElement("span");
+    id.insertBefore(colorToDo, checkbox[index]);
+    id.classList.add("colorAA");
+  } else if (arrayOfToDoObjects[index].priority == "A") {
+    displayNormalToDo(index);
+    const id = document.getElementById(`${index}`);
+    const checkbox = document.querySelectorAll(".checkbox");
+    const colorToDo = document.createElement("span");
+    id.insertBefore(colorToDo, checkbox[index]);
+    id.classList.add("colorA");
+  } else if (arrayOfToDoObjects[index].priority == "B") {
+    displayNormalToDo(index);
+    const id = document.getElementById(`${index}`);
+    const checkbox = document.querySelectorAll(".checkbox");
+    const colorToDo = document.createElement("span");
+    id.insertBefore(colorToDo, checkbox[index]);
+    id.classList.add("colorB");
+  } else if (arrayOfToDoObjects[index].priority == "C") {
+    displayNormalToDo(index);
+    const id = document.getElementById(`${index}`);
+    const checkbox = document.querySelectorAll(".checkbox");
+    const colorToDo = document.createElement("span");
+    id.insertBefore(colorToDo, checkbox[index]);
+    id.classList.add("colorC");
   }
 }
 
+// function clearTable() {
+//   const rowCount = tableBody.rows.length; // Get the number of rows
+//   // Loop through rows in reverse and delete each one
+//   for (let i = rowCount - 1; i >= 0; i--) {
+//     // The deleteRow method removes rows based on their index.
+//     // The loop starts from the last row and goes backwards. When we loop in forward, the position (index) of the remaining rows would change after each deletion. So to prevent this issue, we loop in reverse.
+//     tableBody.deleteRow(i);
+//   }
+// }
+
 // Export
-export { toDosSection, displayToDos, clearTable, listenForTrashSymbolClick };
+export { toDosSection, toDoContainer, displayToDos, listenForTrashSymbolClick };
