@@ -1,22 +1,40 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
+import { projectsArray } from "./addProjects.js";
 
-// Selectors
-const lifeProjectCount = document.getElementById("lifeProjectCount");
+// function countLifeProjects() {
+//   const lifeArrayOfObjects = arrayOfToDoObjects.filter(
+//     (item) => item.project == "Life"
+//   );
+//   const numberOfLifeProjectToDos = lifeArrayOfObjects.length;
+//   return numberOfLifeProjectToDos;
+// }
 
-function countLifeProjects() {
-  const lifeArrayOfObjects = arrayOfToDoObjects.filter(
-    (item) => item.project == "Life"
+// function displayLifeProjectsNumber() {
+//   const lifeProjectCount = document.getElementById("lifeProjectCount");
+//   if (countLifeProjects() == 0) {
+//     lifeProjectCount.remove();
+//   } else {
+//     lifeProjectCount.textContent = countLifeProjects();
+//   }
+// }
+
+// generalized
+function countProjects(index) {
+  const arrayOfObjects = arrayOfToDoObjects.filter(
+    (item) => item.project == projectsArray[index]
   );
-  const numberOfLifeProjectToDos = lifeArrayOfObjects.length;
-  return numberOfLifeProjectToDos;
+  const numberOfProjectToDos = arrayOfObjects.length;
+  return numberOfProjectToDos;
 }
 
-function displayLifeProjectsNumber() {
-  if (countLifeProjects() == 0) {
-    lifeProjectCount.remove();
+// this function does not work as intended jet
+function displayProjectsNumber(index) {
+  const projectCount = document.getElementById(`${index}`);
+  if (countProjects() == 0) {
+    projectCount.remove();
   } else {
-    lifeProjectCount.textContent = countLifeProjects();
+    projectCount.textContent = countProjects();
   }
 }
 
-export { displayLifeProjectsNumber };
+export { countProjects, displayProjectsNumber };

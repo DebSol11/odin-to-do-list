@@ -9,8 +9,7 @@ import {
   listenForDetailsBtnClick,
   listenForCloseDetailsClick,
 } from "./detailsBtn.js";
-import { displayLifeProjectsNumber } from "./projectCountDisplay.js";
-
+import { displayProjects, clearProjectsDisplayDiv} from "./addProjects.js";
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
@@ -34,7 +33,8 @@ function displayToDos() {
   listenForDetailsBtnClick();
   listenForCheckBoxClick();
   listenForCloseDetailsClick();
-  displayLifeProjectsNumber();
+  clearProjectsDisplayDiv();
+  displayProjects();
 }
 
 function displayCrossedToDo(index) {

@@ -52,10 +52,12 @@ div.content-wrap {
   cursor: pointer;
 }
 
-/* Style the checkbox redsocks */
-input.checkbox:hover {
-  border-color: aquamarine;
+.toDoEntity:hover {
+  background-color: #f0efef;
 }
+
+/* Style the checkbox redsocks */
+
 
 .greyed {
   color: rgb(199, 199, 199);

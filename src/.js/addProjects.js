@@ -1,3 +1,5 @@
+import { displayProjectsNumber,countProjects } from "./projectCountDisplay";
+
 // Selectors
 const addProjectBtn = document.getElementById("addProjectBtn");
 const projectsDisplayUl = document.querySelector("#projectsDisplay");
@@ -21,6 +23,13 @@ function displayProjects() {
   for (let i = 0; i < projectsArray.length; i++) {
     let newProject = document.createElement("li");
     newProject.textContent = projectsArray[i];
+    newProject.setAttribute(
+      "id",
+      `${projectsArray[i].toLowerCase() + "Projects"}`
+    );
+    let newSpan = document.createElement("span");
+    newSpan.textContent = countProjects(i);
+    newProject.appendChild(newSpan);
     projectsDisplayUl.appendChild(newProject);
   }
 }
@@ -61,4 +70,4 @@ const addProjectBtnListener = addProjectBtn.addEventListener(
 );
 
 // Export
-export { projectsArray, addProjectBtnListener };
+export { projectsArray, addProjectBtnListener, displayProjects , clearProjectsDisplayDiv};
