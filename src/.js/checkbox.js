@@ -4,7 +4,7 @@ import { clearChildNotes } from "./detailsBtn.js";
 
 function listenForCheckBoxClick() {
   const checkboxNodeList = document.querySelectorAll(".checkbox");
-  const toDoContainer = document.getElementById("toDoContainer");
+  const toDoContainer = document.getElementById("toDos");
   for (let i = 0; i < checkboxNodeList.length; i++) {
     checkboxNodeList[i].addEventListener("click", () => {
       toggleChecklistValue(i);
