@@ -3,14 +3,14 @@ import { arrayOfToDoObjects } from "./createToDos.js";
 import { listenForTrashSymbolClick } from "./deleteToDo.js";
 import { listenForEditPenClick } from "./editPen.js";
 import { listenForCheckBoxClick } from "./checkbox.js";
-import trashSymbolImage from "./img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
-import editPenImage from "./img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
-import { displayToDoButton } from "./addToDo.js";
+import trashSymbolImage from "../img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
+import editPenImage from "../img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg";
 import {
   listenForDetailsBtnClick,
   listenForCloseDetailsClick,
 } from "./detailsBtn.js";
-import { clearChildNotes } from "./detailsBtn.js";
+import { displayLifeProjectsNumber } from "./projectCountDisplay.js";
+
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
@@ -34,6 +34,7 @@ function displayToDos() {
   listenForDetailsBtnClick();
   listenForCheckBoxClick();
   listenForCloseDetailsClick();
+  displayLifeProjectsNumber();
 }
 
 function displayCrossedToDo(index) {
@@ -177,16 +178,6 @@ function displayNormalToDoColored(index) {
     id.classList.add("colorC");
   }
 }
-
-// function clearTable() {
-//   const rowCount = tableBody.rows.length; // Get the number of rows
-//   // Loop through rows in reverse and delete each one
-//   for (let i = rowCount - 1; i >= 0; i--) {
-//     // The deleteRow method removes rows based on their index.
-//     // The loop starts from the last row and goes backwards. When we loop in forward, the position (index) of the remaining rows would change after each deletion. So to prevent this issue, we loop in reverse.
-//     tableBody.deleteRow(i);
-//   }
-// }
 
 // Export
 export { toDosSection, toDoContainer, displayToDos, listenForTrashSymbolClick };

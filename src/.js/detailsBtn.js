@@ -2,7 +2,6 @@ import { arrayOfToDoObjects } from "./createToDos.js";
 
 const displayDetailsModal = document.getElementById("displayDetailsModal");
 const toDoDetails = document.getElementById("toDoDetails");
-const toDoContainer = document.getElementById("toDoContainer");
 
 function displayDetails(index) {
   let keysArray = Object.keys(arrayOfToDoObjects[index]);

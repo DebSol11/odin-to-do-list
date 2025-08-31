@@ -1,5 +1,5 @@
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { displayToDos, clearTable } from "./displayToDos.js";
+import { displayToDos } from "./displayToDos.js";
 import { clearChildNotes } from "./detailsBtn.js";
 
 function listenForCheckBoxClick() {

@@ -96,7 +96,6 @@ function createToDoObjectFromInput() {
     notes.value,
     false
   );
-  // return the to do object
   return toDoObject;
 }
 
@@ -130,7 +129,6 @@ const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const toDoContainer = document.getElementById("toDoContainer");
   addToDoObjectFromInputToArray();
-  // clearTable();
   clearChildNotes(toDoContainer);
   displayToDos();
   clearTheForm();
