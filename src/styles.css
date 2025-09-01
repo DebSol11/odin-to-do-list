@@ -10,6 +10,12 @@
   --button-color: rgb(169, 63, 179);
   --button-color-hover: rgb(237, 137, 247);
   --modal-font: "Poppins", sans-serif;
+  --priorityAAA-color: rgb(255, 75, 75);
+  --priorityAA-color: rgb(255, 121, 32);
+  --priorityA-color: rgb(255, 153, 0);
+  --priorityB-color: rgb(255, 208, 0);
+  --priorityC-color: yellow;
+  --color-greyed: silver;
 }
 
 header {
@@ -152,9 +158,29 @@ div.content-wrap {
 }
 
 /* detail display functionality */
-#displayDetailsModal div.modal-content{
-  background-color: yellow;
+div.modal-content {
+  /* background-color: yellow; */
   border-radius: 0px;
+}
+
+div.modal-content.colorAAA {
+  background-color: var(--priorityAAA-color);
+}
+
+div.modal-content.colorAA {
+  background-color: var(--priorityAA-color);
+}
+
+div.modal-content.colorA {
+  background-color: var(--priorityA-color);
+}
+
+div.modal-content.colorB {
+  background-color: var(--priorityB-color);
+}
+
+div.modal-content.colorC {
+  background-color: var(--priorityC-color);
 }
 
 select,
@@ -266,37 +292,37 @@ button:hover {
 .toDoEntity.colorAAA span{
   width: 80%;
   height: 80%;
-  background-color: darkred;
+  background-color: var(--priorityAAA-color);
 }
 
 .toDoEntity.colorAA span{
   width: 80%;
   height: 80%;
-  background-color: rgb(255, 38, 0);
+  background-color: var(--priorityAA-color);
 }
 
 .toDoEntity.colorA span{
   width: 80%;
   height: 80%;
-  background-color: rgb(255, 136, 0);
+  background-color: var(--priorityA-color);
 }
 
 .toDoEntity.colorB span{
   width: 80%;
   height: 80%;
-  background-color: rgb(255, 208, 0);
+  background-color: var(--priorityB-color);
 }
 
 .toDoEntity.colorC span{
   width: 80%;
   height: 80%;
-  background-color: yellow;
+  background-color: var(--priorityC-color);
 }
 
 .toDoEntity.colorGrey span{
   width: 80%;
   height: 80%;
-  background-color: silver;
+  background-color: var(--color-greyed);
 }
 
 .edit-pen, .trash-symbol {

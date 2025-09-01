@@ -2,6 +2,7 @@ import { arrayOfToDoObjects } from "./createToDos.js";
 
 const displayDetailsModal = document.getElementById("displayDetailsModal");
 const toDoDetails = document.getElementById("toDoDetails");
+let displayDetailsId = document.querySelector("#displayDetailsId");
 
 function displayDetails(index) {
   let keysArray = Object.keys(arrayOfToDoObjects[index]);
@@ -86,6 +87,30 @@ function displayDetails(index) {
   toDoDetails.appendChild(notesContainer);
 }
 
+function displayDetailsColored(index) {
+  if (arrayOfToDoObjects[index].priority == "AAA") {
+    displayDetails(index);
+    displayDetailsId.className = 'modal-content';
+    displayDetailsId.classList.add("colorAAA");
+  } else if (arrayOfToDoObjects[index].priority == "AA") {
+    displayDetails(index);
+    displayDetailsId.className = 'modal-content';
+    displayDetailsId.classList.add("colorAA");
+  } else if (arrayOfToDoObjects[index].priority == "A") {
+    displayDetails(index);
+    displayDetailsId.className = 'modal-content';
+    displayDetailsId.classList.add("colorA");
+  } else if (arrayOfToDoObjects[index].priority == "B") {
+    displayDetails(index);
+    displayDetailsId.className = 'modal-content';
+    displayDetailsId.classList.add("colorB");
+  } else if (arrayOfToDoObjects[index].priority == "C") {
+    displayDetails(index);
+    displayDetailsId.className = 'modal-content';
+    displayDetailsId.classList.add("colorC");
+  }
+}
+
 function listenForDetailsBtnClick() {
   const detailsBtnNodeList = document.querySelectorAll(".detailsBtn");
   for (let i = 0; i < detailsBtnNodeList.length; i++) {
@@ -94,7 +119,7 @@ function listenForDetailsBtnClick() {
       displayDetailsModal.classList.add("active");
       displayDetailsModal.classList.add("open");
       displayDetailsModal.style.display = "block";
-      displayDetails(i);
+      displayDetailsColored(i);
     });
   }
 }
@@ -117,4 +142,8 @@ function clearChildNotes(parentNode) {
   }
 }
 
-export { listenForDetailsBtnClick, listenForCloseDetailsClick, clearChildNotes };
+export {
+  listenForDetailsBtnClick,
+  listenForCloseDetailsClick,
+  clearChildNotes,
+};
