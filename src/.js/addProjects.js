@@ -1,4 +1,4 @@
-import { displayProjectsNumber,countProjects } from "./projectCountDisplay";
+import { countProjects } from "./projectCountDisplay";
 
 // Selectors
 const addProjectBtn = document.getElementById("addProjectBtn");
@@ -31,6 +31,24 @@ function displayProjects() {
     newSpan.textContent = countProjects(i);
     newProject.appendChild(newSpan);
     projectsDisplayUl.appendChild(newProject);
+  }
+}
+
+// Write a function which removes the individual project from the DOM once it has no to do's any more and is not just newly created
+function checkForProjectFinished() {
+  for (let i = 0; i < projectsArray.length; i++) {
+    if (countProjects(i) == 0) {
+      projectsArray.splice(i, 1);
+    }
+  }
+}
+
+function displayProjectsNumber(index) {
+  const projectCount = document.getElementById(`${index}`);
+  if (countProjects() == 0) {
+    projectCount.remove();
+  } else {
+    projectCount.textContent = countProjects();
   }
 }
 
@@ -70,4 +88,4 @@ const addProjectBtnListener = addProjectBtn.addEventListener(
 );
 
 // Export
-export { projectsArray, addProjectBtnListener, displayProjects , clearProjectsDisplayDiv};
+export { projectsArray, addProjectBtnListener, displayProjects , clearProjectsDisplayDiv, checkForProjectFinished};

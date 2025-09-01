@@ -39,6 +39,29 @@ li {
   font-size: 18px;
   margin-bottom: 7px;
   margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+li:hover {
+  background-color: #f0efef;
+}
+
+li span {
+  display: flex;
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border: var(--border-black);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--button-color);
+  color: white;
+}
+
+li span:hover {
+  background-color: var(--button-color-hover);
 }
 
 h2 {
@@ -63,7 +86,6 @@ div.content-wrap {
 }
 
 /* Style the checkbox redsocks */
-
 
 .greyed {
   color: rgb(199, 199, 199);
@@ -237,6 +259,22 @@ textarea::placeholder {
   color: silver;
 }
 
+/* Project section*/
+input#projectCreator::placeholder {
+  font-size: 18px;
+}
+
+input#projectCreator {
+  font-size: 17px;
+  max-width: 150px;
+}
+
+button#addProjectBtn {
+  font-size: larger
+  
+  ;
+}
+
 .manipulate {
   top: 50%;
 }
@@ -279,53 +317,54 @@ button:hover {
 
 #toDosHeader {
   display: grid;
-  grid-template-columns:1fr 8fr 24fr 8fr 8fr;
+  grid-template-columns: 1fr 8fr 24fr 8fr 8fr;
 }
 
 .toDoEntity {
   display: grid;
-  grid-template-columns:1fr 8fr 24fr 8fr 8fr;
+  grid-template-columns: 1fr 8fr 24fr 8fr 8fr;
   align-items: center;
 }
 
 /* color the to do's*/
-.toDoEntity.colorAAA span{
+.toDoEntity.colorAAA span {
   width: 80%;
   height: 80%;
   background-color: var(--priorityAAA-color);
 }
 
-.toDoEntity.colorAA span{
+.toDoEntity.colorAA span {
   width: 80%;
   height: 80%;
   background-color: var(--priorityAA-color);
 }
 
-.toDoEntity.colorA span{
+.toDoEntity.colorA span {
   width: 80%;
   height: 80%;
   background-color: var(--priorityA-color);
 }
 
-.toDoEntity.colorB span{
+.toDoEntity.colorB span {
   width: 80%;
   height: 80%;
   background-color: var(--priorityB-color);
 }
 
-.toDoEntity.colorC span{
+.toDoEntity.colorC span {
   width: 80%;
   height: 80%;
   background-color: var(--priorityC-color);
 }
 
-.toDoEntity.colorGrey span{
+.toDoEntity.colorGrey span {
   width: 80%;
   height: 80%;
   background-color: var(--color-greyed);
 }
 
-.edit-pen, .trash-symbol {
+.edit-pen,
+.trash-symbol {
   cursor: pointer;
 }
 

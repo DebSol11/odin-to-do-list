@@ -9,7 +9,7 @@ import {
   listenForDetailsBtnClick,
   listenForCloseDetailsClick,
 } from "./detailsBtn.js";
-import { displayProjects, clearProjectsDisplayDiv} from "./addProjects.js";
+import { displayProjects, clearProjectsDisplayDiv, checkForProjectFinished} from "./addProjects.js";
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
@@ -35,6 +35,7 @@ function displayToDos() {
   listenForCloseDetailsClick();
   clearProjectsDisplayDiv();
   displayProjects();
+  checkForProjectFinished();
 }
 
 function displayCrossedToDo(index) {
