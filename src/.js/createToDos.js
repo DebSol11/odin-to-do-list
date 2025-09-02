@@ -130,7 +130,7 @@ const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   const toDoContainer = document.getElementById("toDoContainer");
   addToDoObjectFromInputToArray();
   clearChildNotes(toDoContainer);
-  displayToDos();
+  displayToDos(arrayOfToDoObjects);
   clearTheForm();
 });
 

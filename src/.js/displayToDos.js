@@ -10,19 +10,20 @@ import {
   listenForCloseDetailsClick,
 } from "./detailsBtn.js";
 import { clearProjectsDisplayDiv, updateProjects} from "./addProjects.js";
+import { listenForProjectLiClick } from "./projectFilterToDos.js";
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
 const toDoContainer = document.getElementById("toDoContainer");
 
 // Functions
-function displayToDos() {
+function displayToDos(array) {
   const toDoContainer = document.createElement("div");
   toDoContainer.setAttribute("id", "toDoContainer");
   toDosSection.appendChild(toDoContainer);
-  for (let i = 0; i < arrayOfToDoObjects.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
-    if (arrayOfToDoObjects[i].checklist == true) {
+    if (array[i].checklist == true) {
       displayCrossedToDoColored(i);
     } else {
       displayNormalToDoColored(i);
@@ -35,6 +36,7 @@ function displayToDos() {
   listenForCloseDetailsClick();
   clearProjectsDisplayDiv();
   updateProjects();
+  listenForProjectLiClick()
 }
 
 function displayCrossedToDo(index) {

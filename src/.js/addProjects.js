@@ -25,7 +25,7 @@ function displayProjects() {
     newProject.textContent = projectsArray[i];
     newProject.setAttribute(
       "id",
-      `${projectsArray[i].toLowerCase() + "Projects"}`
+      `${projectsArray[i]}`
     );
     let newSpan = document.createElement("span");
     newSpan.textContent = countProjects(i);
@@ -44,14 +44,14 @@ function updateProjects() {
   displayProjects();
 }
 
-function displayProjectsNumber(index) {
-  const projectCount = document.getElementById(`${index}`);
-  if (countProjects() == 0) {
-    projectCount.remove();
-  } else {
-    projectCount.textContent = countProjects();
-  }
-}
+// function displayProjectsNumber(index) {
+//   const projectCount = document.getElementById(`${index}`);
+//   if (countProjects() == 0) {
+//     projectCount.remove();
+//   } else {
+//     projectCount.textContent = countProjects();
+//   }
+// }
 
 function clearProjectsDisplayDiv() {
   while (projectsDisplayUl.hasChildNodes()) {

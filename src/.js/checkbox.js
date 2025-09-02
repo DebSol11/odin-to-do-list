@@ -9,7 +9,7 @@ function listenForCheckBoxClick() {
     checkboxNodeList[i].addEventListener("click", () => {
       toggleChecklistValue(i);
       clearChildNotes(toDoContainer);
-      displayToDos();
+      displayToDos(arrayOfToDoObjects);
     });
   }
 }

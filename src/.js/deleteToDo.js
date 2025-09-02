@@ -8,7 +8,7 @@ function deleteToDo(index) {
   const toDoContainer = document.getElementById("toDoContainer");
   arrayOfToDoObjects.splice(index, 1);
   clearChildNotes(toDoContainer);
-  displayToDos();
+  displayToDos(arrayOfToDoObjects);
 }
 
 function listenForTrashSymbolClick() {
