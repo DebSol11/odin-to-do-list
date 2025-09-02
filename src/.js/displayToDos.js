@@ -9,7 +9,7 @@ import {
   listenForDetailsBtnClick,
   listenForCloseDetailsClick,
 } from "./detailsBtn.js";
-import { displayProjects, clearProjectsDisplayDiv, checkForProjectFinished, updateProjects} from "./addProjects.js";
+import { clearProjectsDisplayDiv, updateProjects} from "./addProjects.js";
 
 // Selectors
 const toDosSection = document.querySelector("#toDos");
