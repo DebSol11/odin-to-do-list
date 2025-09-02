@@ -35,12 +35,13 @@ function displayProjects() {
 }
 
 // Write a function which removes the individual project from the DOM once it has no to do's any more and is not just newly created
-function checkForProjectFinished() {
+function updateProjects() {
   for (let i = 0; i < projectsArray.length; i++) {
     if (countProjects(i) == 0) {
       projectsArray.splice(i, 1);
     }
   }
+  displayProjects();
 }
 
 function displayProjectsNumber(index) {
@@ -88,4 +89,4 @@ const addProjectBtnListener = addProjectBtn.addEventListener(
 );
 
 // Export
-export { projectsArray, addProjectBtnListener, displayProjects , clearProjectsDisplayDiv, checkForProjectFinished};
+export { projectsArray, addProjectBtnListener, displayProjects , clearProjectsDisplayDiv, updateProjects};
