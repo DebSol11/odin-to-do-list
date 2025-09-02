@@ -5,7 +5,7 @@ import { clearChildNotes } from "./detailsBtn.js";
 
 // Functions 
 function deleteToDo(index) {
-  const toDoContainer = document.getElementById("toDoContainer");
+  const toDoContainer = document.getElementById("toDoContainer2");
   arrayOfToDoObjects.splice(index, 1);
   clearChildNotes(toDoContainer);
   displayToDos(arrayOfToDoObjects);

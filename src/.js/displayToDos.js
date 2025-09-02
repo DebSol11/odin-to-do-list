@@ -18,12 +18,17 @@ const toDoContainer = document.getElementById("toDoContainer");
 
 // Functions
 function displayToDos(array) {
+  // This to do container ID shit need's some fixation of heinz ketchup
+  // First Id is supposed to be unique 
+  // Second when (edit and submit) or delete symbol is pressed empty toDoContainer Divs are stacking up at the bottom of the to dos 
   const toDoContainer = document.createElement("div");
-  toDoContainer.setAttribute("id", "toDoContainer");
+  toDoContainer.setAttribute("id", "toDoContainer2");
   toDosSection.appendChild(toDoContainer);
   for (let i = 0; i < array.length; i++) {
+    
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
     if (array[i].checklist == true) {
+      
       displayCrossedToDoColored(i);
     } else {
       displayNormalToDoColored(i);
@@ -40,7 +45,7 @@ function displayToDos(array) {
 }
 
 function displayCrossedToDo(index) {
-  const toDoContainer = document.getElementById("toDoContainer");
+  const toDoContainer = document.getElementById("toDoContainer2");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
   toDoElement.setAttribute("id", `${index}`);
@@ -97,7 +102,7 @@ function displayCrossedToDoColored(index) {
 }
 
 function displayNormalToDo(index) {
-  const toDoContainer = document.getElementById("toDoContainer");
+  const toDoContainer = document.getElementById("toDoContainer2");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
   toDoElement.setAttribute("id", `${index}`);

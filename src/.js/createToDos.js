@@ -127,7 +127,7 @@ function clearTheForm() {
 // Event listeners
 const submitBtnListener = submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  const toDoContainer = document.getElementById("toDoContainer");
+  const toDoContainer = document.getElementById("toDoContainer2");
   addToDoObjectFromInputToArray();
   clearChildNotes(toDoContainer);
   displayToDos(arrayOfToDoObjects);
