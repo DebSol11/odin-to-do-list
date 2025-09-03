@@ -14,4 +14,18 @@ function clearChildNotes(parentNode) {
 //   }
 // }
 
-export {clearChildNotes};
+function getValuesOfObjectArrayKey(inputArray, key) {
+  let outputArray = [];
+  for (let i=0; i<inputArray.length; i++) {
+    outputArray.push(inputArray[i][key]);
+  }
+  return outputArray
+}
+
+function removeDuplicateElementsFromArray(array) {
+  let uniqueElementsArray = array.filter((item, index) => array.indexOf(item) === index);
+  console.log(uniqueElementsArray);
+  return uniqueElementsArray;
+}
+
+export {clearChildNotes, getValuesOfObjectArrayKey, removeDuplicateElementsFromArray};

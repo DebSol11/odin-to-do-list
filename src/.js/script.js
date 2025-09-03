@@ -7,10 +7,14 @@ import { displayToDos } from "./displayToDos.js";
 import { addProjectBtnListener } from "./addProjects.js";
 import { listenForOpenModalBtnClick, listenForCloseModalClick } from "./addToDo.js";
 import { listenForProjectLiClick } from "./projectFilterToDos.js";
+import { getValuesOfObjectArrayKey, removeDuplicateElementsFromArray } from "./generalFunctions.js";
 
 displayToDos(arrayOfToDoObjects);
 listenForOpenModalBtnClick();
 listenForCloseModalClick();
 addProjectBtnListener(arrayOfToDoObjects);
 listenForProjectLiClick();
+removeDuplicateElementsFromArray((getValuesOfObjectArrayKey(arrayOfToDoObjects, "project")));
+
+
 // displayToDos(arrayOfToDoObjects);

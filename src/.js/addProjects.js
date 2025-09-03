@@ -12,7 +12,6 @@ const projectsArray = ["Life", "Work", "Love"];
 // Functions
 // so you can use it dynamically in the code
 // consider the map method
-function createProjectsArrayFromArrayOfObjectsInput(array) {}
 
 function getProjectInputValue() {
   const projectCreator = document.getElementById("projectCreator");
