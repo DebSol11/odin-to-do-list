@@ -21,11 +21,4 @@ function listenForProjectLiClick() {
   }
 }
 
-// function listenForProjectLiClick() {
-//   const projectNodeList = document.querySelectorAll("li");
-//   for (let i = 0; i < projectNodeList.length; i++) {
-//     projectNodeList[i].addEventListener("click", filterArray(projectNodeList[i].id));
-//   }
-// }
-
 export { listenForProjectLiClick };

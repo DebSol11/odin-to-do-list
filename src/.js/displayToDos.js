@@ -31,7 +31,7 @@ function displayToDos(array) {
   listenForCheckBoxClick(array);
   listenForCloseDetailsClick();
   clearProjectsDisplayDiv();
-  updateProjects(arrayOfToDoObjects);
+  updateProjects(array);
   listenForProjectLiClick();
 }
 

@@ -1,5 +1,7 @@
 import { countProjects } from "./projectCountDisplay";
 import { arrayOfToDoObjects } from "./createToDos";
+import { listenForProjectLiClick } from "./projectFilterToDos";
+
 
 // Selectors
 const addProjectBtn = document.getElementById("addProjectBtn");
@@ -75,6 +77,7 @@ function addProjectBtnListener(array) {
     clearProjectsInForm();
     displayProjects(array);
     displayProjectsInForm();
+    listenForProjectLiClick();
     console.log(projectsArray);
   });
 }
