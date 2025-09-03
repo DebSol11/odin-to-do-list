@@ -28,23 +28,22 @@ function displayToDos(array) {
     
     // import this from it's own function in the checkbox.js for development it's okay to do it here.
     if (array[i].checklist == true) {
-      
-      displayCrossedToDoColored(i);
+      displayCrossedToDoColored(array, i);
     } else {
-      displayNormalToDoColored(i);
+      displayNormalToDoColored(array, i);
     }
   }
-  listenForTrashSymbolClick();
-  listenForEditPenClick();
-  listenForDetailsBtnClick();
-  listenForCheckBoxClick();
+  listenForTrashSymbolClick(array);
+  listenForEditPenClick(array);
+  listenForDetailsBtnClick(array);
+  listenForCheckBoxClick(array);
   listenForCloseDetailsClick();
   clearProjectsDisplayDiv();
-  updateProjects();
-  listenForProjectLiClick()
+  updateProjects(arrayOfToDoObjects);
+  listenForProjectLiClick();
 }
 
-function displayCrossedToDo(index) {
+function displayCrossedToDo(array, index) {
   const toDoContainer = document.getElementById("toDoContainer2");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
@@ -59,11 +58,11 @@ function displayCrossedToDo(index) {
   toDoElement.appendChild(checkbox);
 
   const sTitle = document.createElement("s");
-  sTitle.textContent = arrayOfToDoObjects[index].title;
+  sTitle.textContent = array[index].title;
   toDoElement.appendChild(sTitle);
 
   const sDueDate = document.createElement("s");
-  sDueDate.textContent = arrayOfToDoObjects[index].dueDate;
+  sDueDate.textContent = array[index].dueDate;
   toDoElement.appendChild(sDueDate);
 
   const manipulateContainerDiv = document.createElement("div");
@@ -92,8 +91,8 @@ function displayCrossedToDo(index) {
   toDoContainer.appendChild(toDoElement);
 }
 
-function displayCrossedToDoColored(index) {
-  displayCrossedToDo(index);
+function displayCrossedToDoColored(array, index) {
+  displayCrossedToDo(array, index);
   const id = document.getElementById(`${index}`);
   const checkbox = document.querySelectorAll(".checkbox");
   const colorToDo = document.createElement("span");
@@ -101,7 +100,7 @@ function displayCrossedToDoColored(index) {
   id.classList.add("colorGrey");
 }
 
-function displayNormalToDo(index) {
+function displayNormalToDo(array, index) {
   const toDoContainer = document.getElementById("toDoContainer2");
   let toDoElement = document.createElement("div");
   toDoElement.classList.add(`toDoEntity`);
@@ -114,11 +113,11 @@ function displayNormalToDo(index) {
   toDoElement.appendChild(checkbox);
 
   const pTitle = document.createElement("p");
-  pTitle.textContent = arrayOfToDoObjects[index].title;
+  pTitle.textContent = array[index].title;
   toDoElement.appendChild(pTitle);
 
   const pDueDate = document.createElement("p");
-  pDueDate.textContent = arrayOfToDoObjects[index].dueDate;
+  pDueDate.textContent = array[index].dueDate;
   toDoElement.appendChild(pDueDate);
 
   const manipulateContainerDiv = document.createElement("div");
@@ -147,37 +146,37 @@ function displayNormalToDo(index) {
   toDoContainer.appendChild(toDoElement);
 }
 
-function displayNormalToDoColored(index) {
-  if (arrayOfToDoObjects[index].priority == "AAA") {
-    displayNormalToDo(index);
+function displayNormalToDoColored(array, index) {
+  if (array[index].priority == "AAA") {
+    displayNormalToDo(array, index);
     const id = document.getElementById(`${index}`);
     const checkbox = document.querySelectorAll(".checkbox");
     const colorToDo = document.createElement("span");
     id.insertBefore(colorToDo, checkbox[index]);
     id.classList.add("colorAAA");
-  } else if (arrayOfToDoObjects[index].priority == "AA") {
-    displayNormalToDo(index);
+  } else if (array[index].priority == "AA") {
+    displayNormalToDo(array, index);
     const id = document.getElementById(`${index}`);
     const checkbox = document.querySelectorAll(".checkbox");
     const colorToDo = document.createElement("span");
     id.insertBefore(colorToDo, checkbox[index]);
     id.classList.add("colorAA");
-  } else if (arrayOfToDoObjects[index].priority == "A") {
-    displayNormalToDo(index);
+  } else if (array[index].priority == "A") {
+    displayNormalToDo(array, index);
     const id = document.getElementById(`${index}`);
     const checkbox = document.querySelectorAll(".checkbox");
     const colorToDo = document.createElement("span");
     id.insertBefore(colorToDo, checkbox[index]);
     id.classList.add("colorA");
-  } else if (arrayOfToDoObjects[index].priority == "B") {
-    displayNormalToDo(index);
+  } else if (array[index].priority == "B") {
+    displayNormalToDo(array, index);
     const id = document.getElementById(`${index}`);
     const checkbox = document.querySelectorAll(".checkbox");
     const colorToDo = document.createElement("span");
     id.insertBefore(colorToDo, checkbox[index]);
     id.classList.add("colorB");
-  } else if (arrayOfToDoObjects[index].priority == "C") {
-    displayNormalToDo(index);
+  } else if (array[index].priority == "C") {
+    displayNormalToDo(array, index);
     const id = document.getElementById(`${index}`);
     const checkbox = document.querySelectorAll(".checkbox");
     const colorToDo = document.createElement("span");

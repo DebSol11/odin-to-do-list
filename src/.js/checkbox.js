@@ -2,25 +2,24 @@ import { arrayOfToDoObjects } from "./createToDos.js";
 import { displayToDos } from "./displayToDos.js";
 import { clearChildNotes } from "./detailsBtn.js";
 
-function listenForCheckBoxClick() {
+function listenForCheckBoxClick(array) {
   const checkboxNodeList = document.querySelectorAll(".checkbox");
   const toDoContainer = document.getElementById("toDos");
   for (let i = 0; i < checkboxNodeList.length; i++) {
     checkboxNodeList[i].addEventListener("click", () => {
-      toggleChecklistValue(i);
+      toggleChecklistValue(array, i);
       clearChildNotes(toDoContainer);
-      displayToDos(arrayOfToDoObjects);
+      displayToDos(array);
     });
   }
 }
 
-function toggleChecklistValue(index) {
-  if (arrayOfToDoObjects[index].checklist == true) {
-    arrayOfToDoObjects[index].checklist = false;
-  } else if (arrayOfToDoObjects[index].checklist == false) {
-    arrayOfToDoObjects[index].checklist = true;
+function toggleChecklistValue(array, index) {
+  if (array[index].checklist == true) {
+    array[index].checklist = false;
+  } else if (array[index].checklist == false) {
+    array[index].checklist = true;
   }
-  console.log(arrayOfToDoObjects);
 }
 
 export { listenForCheckBoxClick };

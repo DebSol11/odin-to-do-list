@@ -4,8 +4,8 @@ const displayDetailsModal = document.getElementById("displayDetailsModal");
 const toDoDetails = document.getElementById("toDoDetails");
 let displayDetailsId = document.querySelector("#displayDetailsId");
 
-function displayDetails(index) {
-  let keysArray = Object.keys(arrayOfToDoObjects[index]);
+function displayDetails(array, index) {
+  let keysArray = Object.keys(array[index]);
   console.log(keysArray);
 
   const projectContainer = document.createElement("div");
@@ -17,7 +17,7 @@ function displayDetails(index) {
   projectContainer.appendChild(projectKey);
   const projectPara = document.createElement("p");
   projectPara.classList.add("displayInline");
-  projectPara.textContent = arrayOfToDoObjects[index].project;
+  projectPara.textContent = array[index].project;
   projectContainer.appendChild(projectPara);
   toDoDetails.appendChild(projectContainer);
 
@@ -30,7 +30,7 @@ function displayDetails(index) {
   priorityContainer.appendChild(priorityKey);
   const priorityPara = document.createElement("p");
   priorityPara.classList.add("displayInline");
-  priorityPara.textContent = arrayOfToDoObjects[index].priority;
+  priorityPara.textContent = array[index].priority;
   priorityContainer.appendChild(priorityPara);
   toDoDetails.appendChild(priorityContainer);
 
@@ -43,7 +43,7 @@ function displayDetails(index) {
   titleContainer.appendChild(titleKey);
   const titlePara = document.createElement("p");
   titlePara.classList.add("displayInline");
-  titlePara.textContent = arrayOfToDoObjects[index].title;
+  titlePara.textContent = array[index].title;
   titleContainer.appendChild(titlePara);
   toDoDetails.appendChild(titleContainer);
 
@@ -56,7 +56,7 @@ function displayDetails(index) {
   descriptionContainer.appendChild(descriptionKey);
   const descriptionPara = document.createElement("p");
   descriptionPara.classList.add("displayInline");
-  descriptionPara.textContent = arrayOfToDoObjects[index].description;
+  descriptionPara.textContent = array[index].description;
   descriptionContainer.appendChild(descriptionPara);
   toDoDetails.appendChild(descriptionContainer);
 
@@ -69,7 +69,7 @@ function displayDetails(index) {
   dueDateContainer.appendChild(dueDateKey);
   const dueDatePara = document.createElement("p");
   dueDatePara.classList.add("displayInline");
-  dueDatePara.textContent = arrayOfToDoObjects[index].dueDate;
+  dueDatePara.textContent = array[index].dueDate;
   dueDateContainer.appendChild(dueDatePara);
   toDoDetails.appendChild(dueDateContainer);
 
@@ -82,36 +82,36 @@ function displayDetails(index) {
   notesContainer.appendChild(notesKey);
   const notesPara = document.createElement("p");
   notesPara.classList.add("displayInline");
-  notesPara.textContent = arrayOfToDoObjects[index].notes;
+  notesPara.textContent = array[index].notes;
   notesContainer.appendChild(notesPara);
   toDoDetails.appendChild(notesContainer);
 }
 
-function displayDetailsColored(index) {
-  if (arrayOfToDoObjects[index].priority == "AAA") {
-    displayDetails(index);
+function displayDetailsColored(array, index) {
+  if (array[index].priority == "AAA") {
+    displayDetails(array, index);
     displayDetailsId.className = 'modal-content';
     displayDetailsId.classList.add("colorAAA");
-  } else if (arrayOfToDoObjects[index].priority == "AA") {
-    displayDetails(index);
+  } else if (array[index].priority == "AA") {
+    displayDetails(array, index);
     displayDetailsId.className = 'modal-content';
     displayDetailsId.classList.add("colorAA");
-  } else if (arrayOfToDoObjects[index].priority == "A") {
-    displayDetails(index);
+  } else if (array[index].priority == "A") {
+    displayDetails(array, index);
     displayDetailsId.className = 'modal-content';
     displayDetailsId.classList.add("colorA");
-  } else if (arrayOfToDoObjects[index].priority == "B") {
-    displayDetails(index);
+  } else if (array[index].priority == "B") {
+    displayDetails(array, index);
     displayDetailsId.className = 'modal-content';
     displayDetailsId.classList.add("colorB");
-  } else if (arrayOfToDoObjects[index].priority == "C") {
-    displayDetails(index);
+  } else if (array[index].priority == "C") {
+    displayDetails(array, index);
     displayDetailsId.className = 'modal-content';
     displayDetailsId.classList.add("colorC");
   }
 }
 
-function listenForDetailsBtnClick() {
+function listenForDetailsBtnClick(array) {
   const detailsBtnNodeList = document.querySelectorAll(".detailsBtn");
   for (let i = 0; i < detailsBtnNodeList.length; i++) {
     detailsBtnNodeList[i].addEventListener("click", (event) => {
@@ -119,7 +119,7 @@ function listenForDetailsBtnClick() {
       displayDetailsModal.classList.add("active");
       displayDetailsModal.classList.add("open");
       displayDetailsModal.style.display = "block";
-      displayDetailsColored(i);
+      displayDetailsColored(array, i);
     });
   }
 }
