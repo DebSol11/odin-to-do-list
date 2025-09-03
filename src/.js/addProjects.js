@@ -2,6 +2,8 @@ import { countProjects } from "./projectCountDisplay";
 import { arrayOfToDoObjects } from "./createToDos";
 import { listenForProjectLiClick } from "./projectFilterToDos";
 
+import { removeDuplicateElementsFromArray, getValuesOfObjectArrayKey } from "./generalFunctions";
+
 
 // Selectors
 const addProjectBtn = document.getElementById("addProjectBtn");
@@ -37,7 +39,6 @@ function displayProjects(array) {
   }
 }
 
-// Write a function which removes the individual project from the DOM once it has no to do's any more and is not just newly created
 function updateProjects(array) {
   for (let i = 0; i < projectsArray.length; i++) {
     if (countProjects(array, i) == 0) {

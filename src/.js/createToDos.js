@@ -99,8 +99,12 @@ function createToDoObjectFromInput() {
   return toDoObject;
 }
 
-function addToDoObjectFromInputToArray() {
-  arrayOfToDoObjects.push(createToDoObjectFromInput());
+// function addToDoObjectFromInputToArray() {
+//   arrayOfToDoObjects.push(createToDoObjectFromInput());
+// }
+
+function addToDoObjectFromInputToArray(array) {
+  array.push(createToDoObjectFromInput());
 }
 
 function clearTheForm() {
@@ -125,14 +129,25 @@ function clearTheForm() {
 }
 
 // Event listeners
-const submitBtnListener = submitBtn.addEventListener("click", (event) => {
+// let submitBtnListener = submitBtn.addEventListener("click", (event) => {
+//   event.preventDefault();
+//   const toDoContainer = document.getElementById("toDoContainer2");
+//   addToDoObjectFromInputToArray();
+//   clearChildNotes(toDoContainer);
+//   displayToDos(arrayOfToDoObjects);
+//   clearTheForm();
+// });
+
+function submitBtnListener (array) {
+  submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const toDoContainer = document.getElementById("toDoContainer2");
-  addToDoObjectFromInputToArray();
+  addToDoObjectFromInputToArray(array);
   clearChildNotes(toDoContainer);
-  displayToDos(arrayOfToDoObjects);
+  displayToDos(array);
   clearTheForm();
 });
+}
 
 // Export
 export { arrayOfToDoObjects, submitBtnListener };
