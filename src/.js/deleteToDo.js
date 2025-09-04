@@ -1,20 +1,22 @@
 // Import
 import { arrayOfToDoObjects } from "./createToDos.js";
-import { displayToDos, clearTable } from "./displayToDos.js";
+import { displayToDos } from "./displayToDos.js";
+import { clearChildNotes } from "./detailsBtn.js";
 
 // Functions 
-function deleteToDo(index) {
-  arrayOfToDoObjects.splice(index, 1);
-  clearTable();
-  displayToDos();
+function deleteToDo(array, index) {
+  const toDoContainer = document.getElementById("toDoContainer2");
+  array.splice(index, 1);
+  clearChildNotes(toDoContainer);
+  displayToDos(array);
 }
 
-function listenForTrashSymbolClick() {
+function listenForTrashSymbolClick(array) {
   const trashSymbolNodeList = document.querySelectorAll(".trash-symbol");
   for (let j = 0; j < trashSymbolNodeList.length; j++) {
     trashSymbolNodeList[j].addEventListener("click", (event) => {
       console.log(event);
-      deleteToDo(j);
+      deleteToDo(array, j);
     });
   }
 }
