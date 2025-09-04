@@ -45,6 +45,7 @@ li {
 
 li:hover {
   background-color: #f0efef;
+  cursor: pointer;
 }
 
 li span {
@@ -370,6 +371,10 @@ button:hover {
 .edit-pen,
 .trash-symbol {
   cursor: pointer;
+}
+
+.active-project {
+  background-color: greenyellow;
 }
 
 @keyframes slideIn {
