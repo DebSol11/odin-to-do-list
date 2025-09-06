@@ -50,7 +50,79 @@
       </section>
 
       <section id="toDos">
-        <div id="toDoContainer2" data-project-display-container></div>
+        <div id="toDoContainer2" data-project-display-container>
+
+
+          <!-- Example To-Dos -->
+          <div class="toDoEntity greyed colorGrey" id="0">
+            <span></span
+            ><input
+              checked=""
+              type="checkbox"
+              class="checkbox"
+              name="checkbox"
+            /><s>Movement</s><s>every day</s>
+            <div id="manipulateContainerDiv">
+              <button class="detailsBtn">Details</button
+              ><img
+                src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Edit pen SVG"
+                id="editPen0"
+                class="edit-pen"
+              /><img
+                src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Trash Symbol SVG"
+                id="trashSymbol0"
+                class="trash-symbol"
+              />
+            </div>
+          </div>
+          
+          <!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
+          src="http://localhost:8080/251faea5cd165a759f34.svg" -->
+          <div class="toDoEntity colorAAA" id="1">
+            <span></span
+            ><input type="checkbox" class="checkbox" name="checkbox" />
+            <p>Love</p>
+            <p>every day</p>
+            <div id="manipulateContainerDiv">
+              <button class="detailsBtn">Details</button
+              ><img
+                src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Edit pen SVG"
+                id="editPen1"
+                class="edit-pen"
+              /><img
+                src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Trash Symbol SVG"
+                id="trashSymbol1"
+                class="trash-symbol"
+              />
+            </div>
+          </div>
+          <div class="toDoEntity colorA" id="2">
+            <span></span
+            ><input type="checkbox" class="checkbox" name="checkbox" />
+            <p>Honor the moment</p>
+            <p>every day</p>
+            <div id="manipulateContainerDiv">
+              <button class="detailsBtn">Details</button
+              ><img
+                src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Edit pen SVG"
+                id="editPen2"
+                class="edit-pen"
+              /><img
+                src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Trash Symbol SVG"
+                id="trashSymbol2"
+                class="trash-symbol"
+              />
+            </div>
+          </div>
+
+          
+        </div>
       </section>
       <img
         src="img/format_list_bulleted_add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
@@ -126,7 +198,32 @@
     </div>
     <div class="delete-stuff">
       <button class="btn delete">Clear completed tasks</button>
-      <button class="btn delete" data-delete-project-button>Delete selected project</button>
+      <button class="btn delete" data-delete-project-button>
+        Delete selected project
+      </button>
     </div>
   </body>
+
+  <template>
+    <div class="toDoEntity" id="">
+            <span></span>
+            <input type="checkbox" class="checkbox" name="checkbox" />
+            <p></p>
+            <p></p>
+            <div id="manipulateContainerDiv">
+              <button class="detailsBtn">Details</button
+              ><img
+                src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Edit pen SVG"
+                id="editPen1"
+                class="edit-pen"
+              /><img
+                src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                alt="Trash Symbol SVG"
+                id="trashSymbol1"
+                class="trash-symbol"
+              />
+            </div>
+          </div>
+  </template>
 </html>

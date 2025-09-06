@@ -18,7 +18,6 @@ import "../../src/toDoForm.css";
 // listenForProjectLiClick();
 // removeDuplicateElementsFromArray((getValuesOfObjectArrayKey(arrayOfToDoObjects, "project")));
 
-console.log("test");
 // displayToDos(arrayOfToDoObjects);
 
 // compared to removing, simplifying and increasing speed, adding extra functionality is a piece of cake
@@ -134,3 +133,6 @@ function clearElement(element) {
 
 // Function calls
 render();
+
+
+// Implementation of the second part
