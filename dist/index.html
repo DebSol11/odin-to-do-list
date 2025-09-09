@@ -51,77 +51,79 @@
 
       <section id="toDos">
         <div id="toDoContainer2" data-project-display-container>
-
-
+          <div class="todo-header">
+            <h2 class="project-title" data-project-title>Life</h2>
+            <p class="task-count" data-project-count>3 tasks remaining</p>
+          </div>
           <!-- Example To-Dos -->
-          <div class="toDoEntity greyed colorGrey" id="0">
-            <span></span
-            ><input
-              checked=""
-              type="checkbox"
-              class="checkbox"
-              name="checkbox"
-            /><s>Movement</s><s>every day</s>
-            <div id="manipulateContainerDiv">
-              <button class="detailsBtn">Details</button
-              ><img
-                src="251faea5cd165a759f34.svg"
-                alt="Edit pen SVG"
-                id="editPen0"
-                class="edit-pen"
-              /><img
-                src="8ecd64da803eb54a3a5b.svg"
-                alt="Trash Symbol SVG"
-                id="trashSymbol0"
-                class="trash-symbol"
-              />
+          <div class="todo-body" data-tasks>
+            <div class="toDoEntity greyed colorGrey" id="0">
+              <span></span
+              ><input
+                checked=""
+                type="checkbox"
+                class="checkbox"
+                name="checkbox"
+              /><s>Movement</s><s>every day</s>
+              <div id="manipulateContainerDiv">
+                <button class="detailsBtn">Details</button
+                ><img
+                  src="251faea5cd165a759f34.svg"
+                  alt="Edit pen SVG"
+                  id="editPen0"
+                  class="edit-pen"
+                /><img
+                  src="8ecd64da803eb54a3a5b.svg"
+                  alt="Trash Symbol SVG"
+                  id="trashSymbol0"
+                  class="trash-symbol"
+                />
+              </div>
             </div>
-          </div>
-          
-          <!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
-          src="http://localhost:8080/251faea5cd165a759f34.svg" -->
-          <div class="toDoEntity colorAAA" id="1">
-            <span></span
-            ><input type="checkbox" class="checkbox" name="checkbox" />
-            <p>Love</p>
-            <p>every day</p>
-            <div id="manipulateContainerDiv">
-              <button class="detailsBtn">Details</button
-              ><img
-                src="251faea5cd165a759f34.svg"
-                alt="Edit pen SVG"
-                id="editPen1"
-                class="edit-pen"
-              /><img
-                src="8ecd64da803eb54a3a5b.svg"
-                alt="Trash Symbol SVG"
-                id="trashSymbol1"
-                class="trash-symbol"
-              />
-            </div>
-          </div>
-          <div class="toDoEntity colorA" id="2">
-            <span></span
-            ><input type="checkbox" class="checkbox" name="checkbox" />
-            <p>Honor the moment</p>
-            <p>every day</p>
-            <div id="manipulateContainerDiv">
-              <button class="detailsBtn">Details</button
-              ><img
-                src="251faea5cd165a759f34.svg"
-                alt="Edit pen SVG"
-                id="editPen2"
-                class="edit-pen"
-              /><img
-                src="8ecd64da803eb54a3a5b.svg"
-                alt="Trash Symbol SVG"
-                id="trashSymbol2"
-                class="trash-symbol"
-              />
-            </div>
-          </div>
 
-          
+            <!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
+            src="http://localhost:8080/251faea5cd165a759f34.svg" -->
+            <div class="toDoEntity colorAAA" id="1">
+              <span></span
+              ><input type="checkbox" class="checkbox" name="checkbox" />
+              <p>Love</p>
+              <p>every day</p>
+              <div id="manipulateContainerDiv">
+                <button class="detailsBtn">Details</button
+                ><img
+                  src="251faea5cd165a759f34.svg"
+                  alt="Edit pen SVG"
+                  id="editPen1"
+                  class="edit-pen"
+                /><img
+                  src="8ecd64da803eb54a3a5b.svg"
+                  alt="Trash Symbol SVG"
+                  id="trashSymbol1"
+                  class="trash-symbol"
+                />
+              </div>
+            </div>
+            <div class="toDoEntity colorA" id="2">
+              <span></span
+              ><input type="checkbox" class="checkbox" name="checkbox" />
+              <p>Honor the moment</p>
+              <p>every day</p>
+              <div id="manipulateContainerDiv">
+                <button class="detailsBtn">Details</button
+                ><img
+                  src="251faea5cd165a759f34.svg"
+                  alt="Edit pen SVG"
+                  id="editPen2"
+                  class="edit-pen"
+                /><img
+                  src="8ecd64da803eb54a3a5b.svg"
+                  alt="Trash Symbol SVG"
+                  id="trashSymbol2"
+                  class="trash-symbol"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <img
@@ -202,28 +204,29 @@
         Delete selected project
       </button>
     </div>
-  </body>
 
-  <template>
-    <div class="toDoEntity" id="">
-            <span></span>
-            <input type="checkbox" class="checkbox" name="checkbox" />
-            <p></p>
-            <p></p>
-            <div id="manipulateContainerDiv">
-              <button class="detailsBtn">Details</button
-              ><img
-                src="251faea5cd165a759f34.svg"
-                alt="Edit pen SVG"
-                id="editPen1"
-                class="edit-pen"
-              /><img
-                src="8ecd64da803eb54a3a5b.svg"
-                alt="Trash Symbol SVG"
-                id="trashSymbol1"
-                class="trash-symbol"
-              />
-            </div>
-          </div>
-  </template>
+    <template id="task-template">
+      <div class="toDoEntity">
+        <span></span>
+        <input type="checkbox" class="checkbox" name="checkbox" />
+        <p></p>
+        <p></p>
+        <div id="manipulateContainerDiv">
+          <button class="detailsBtn">Details</button>
+          <img
+            src="251faea5cd165a759f34.svg"
+            alt="Edit pen SVG"
+            id="editPen1"
+            class="edit-pen"
+          />
+          <img
+            src="8ecd64da803eb54a3a5b.svg"
+            alt="Trash Symbol SVG"
+            id="trashSymbol1"
+            class="trash-symbol"
+          />
+        </div>
+      </div>
+    </template>
+  </body>
 </html>

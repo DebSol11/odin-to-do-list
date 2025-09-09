@@ -1,24 +1,5 @@
-// COMMENTED OUT FOR DEVELOPMENT
-// HOW TO IMPORT CSS IN WEBPACK?
 import "../../src/styles.css";
 import "../../src/toDoForm.css";
-// import { arrayOfToDoObjects } from "./createToDos.js";
-// import { displayToDos } from "./displayToDos.js";
-// import { addProjectBtnListener } from "./addProjects.js";
-// import { listenForOpenModalBtnClick, listenForCloseModalClick } from "./addToDo.js";
-// import { listenForProjectLiClick } from "./projectFilterToDos.js";
-// import { getValuesOfObjectArrayKey, removeDuplicateElementsFromArray } from "./generalFunctions.js";
-// import { submitBtnListener } from "./createToDos.js";
-
-// displayToDos(arrayOfToDoObjects);
-// listenForOpenModalBtnClick();
-// listenForCloseModalClick();
-// submitBtnListener(arrayOfToDoObjects);
-// addProjectBtnListener(arrayOfToDoObjects);
-// listenForProjectLiClick();
-// removeDuplicateElementsFromArray((getValuesOfObjectArrayKey(arrayOfToDoObjects, "project")));
-
-// displayToDos(arrayOfToDoObjects);
 
 // compared to removing, simplifying and increasing speed, adding extra functionality is a piece of cake
 
@@ -37,6 +18,7 @@ import "../../src/toDoForm.css";
 //
 // The code is highly influenced by the video on YouTube from Web Dev Simplified - How to Code A Better To-Do List - Tutorial
 // https://www.youtube.com/watch?v=W7FaYfuwu70 (visited on 2025-09-04)
+// Thank you Kyle
 
 // Selectors
 const projectsArrayContainer = document.querySelector("[data-projectsArray]");
@@ -45,6 +27,21 @@ const newProjectInput = document.querySelector("[data-new-project-input");
 const deleteProjectButton = document.querySelector(
   "[data-delete-project-button]"
 );
+
+const projectDisplayContainer = document.querySelector(
+  "[data-project-display-container]"
+);
+const projectTitleElement = document.querySelector("[data-project-title]");
+const projectCountElement = document.querySelector("[data-project-count]");
+const tasksContainer = document.querySelector("[data-tasks]");
+const taskTemplate = document.getElementById("task-template");
+
+const displayNewToDoModal = document.getElementById("addToDoIcon");
+const closeNewToDoModal = document.getElementById("closeModal");
+const addToDoFormModal = document.getElementById("addToDoFormModal");
+
+const newTaskForm = document.querySelector("[data-new-task-form]");
+const newTaskTitleInput = document.querySelector("[data-new-task-title-input]");
 
 // Local storage key value pairs
 // We create a NAMESPACE here to reduce the risk of collisions for the user
@@ -61,6 +58,8 @@ let selectedProjectId = localStorage.getItem(
 );
 
 // When you dynamically add an element to the page in this case a project you need to always add an event listener to it, but there is a way around it. By adding an event Listener to the container that contains all the projects you are dynamically adding. This way you can also get around the nodeList/ querySelectorAll usage. What this does is essentially adding an event Listener to all the elements inside the container
+
+// Event Listeners
 projectsArrayContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "li") {
     selectedProjectId = e.target.dataset.projectId;
@@ -68,7 +67,6 @@ projectsArrayContainer.addEventListener("click", (e) => {
   }
 });
 
-// Event Listeners
 newProjectForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const projectName = newProjectInput.value;
@@ -82,7 +80,7 @@ newProjectForm.addEventListener("submit", (e) => {
 });
 
 // We create a new projectsArray with the matching criteria in the filter function
-deleteProjectButton.addEventListener("click", (e) => {
+deleteProjectButton.addEventListener("click", () => {
   projectsArray = projectsArray.filter(
     (project) => project.id !== selectedProjectId
   );
@@ -91,10 +89,51 @@ deleteProjectButton.addEventListener("click", (e) => {
   saveAndRender();
 });
 
+displayNewToDoModal.addEventListener("click", () => {
+  addToDoFormModal.classList.add("active");
+  addToDoFormModal.classList.add("open");
+  addToDoFormModal.style.display = "block";
+});
+
+closeNewToDoModal.addEventListener("click", () => {
+  addToDoFormModal.classList.add("slideOut");
+  setTimeout(() => {
+    addToDoFormModal.classList.remove("active", "slideOut");
+    addToDoFormModal.style.display = "none";
+  }, 500); // Wait for the animation to complete (500ms)
+});
+
+newTaskForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const taskName = newTaskTitleInput.value;
+  // check if an actual name was passed in
+  if (taskName == null || taskName === "") return;
+  const task = createTask(taskName);
+  // now we clear out the input field for a better user experience
+  newTaskTitleInput.value = null;
+  const selectedProject = projectsArray.find(
+    (project) => project.id === selectedProjectId
+  );
+  selectedProject.tasks.push(task);
+  saveAndRender();
+});
+
 // Function definitions
 function createProject(name) {
   // make a unique id very easily using the current date and time
-  return { id: Date.now().toString(), name: name, tasks: [] };
+  return {
+    id: Date.now().toString(),
+    name: name,
+    tasks: [],
+  };
+}
+
+function createTask(name) {
+  return {
+    id: Date.now().toString(),
+    name: name,
+    complete: false,
+  };
 }
 
 function saveAndRender() {
@@ -113,9 +152,59 @@ function save() {
 
 function render() {
   clearElement(projectsArrayContainer);
+  renderProjects();
+
+  const selectedProject = projectsArray.find(
+    (project) => project.id === selectedProjectId
+  );
+
+  if (selectedProjectId == null) {
+    projectDisplayContainer.style.display = "none";
+  } else {
+    projectDisplayContainer.style.display = "";
+    projectTitleElement.innerText = selectedProject.name;
+    renderTaskCount(selectedProject);
+    clearElement(tasksContainer);
+    renderTasks(selectedProject);
+  }
+}
+
+function renderTasks(selectedProject) {
+  selectedProject.tasks.forEach((task) => {
+    const taskElement = document.importNode(taskTemplate.content, true);
+
+    const prioritySpan = taskElement.querySelector(".task-priority");
+    prioritySpan.id = task.id;
+
+    const checkbox = taskElement.querySelector("input");
+    checkbox.id = task.id;
+    // task.complete likely needs to be changed based on the array of objects i use
+    // this checks all the completed tasks for us
+    checkbox.checked = task.complete;
+
+    const title = taskElement.querySelector(".taskTitle");
+    title.id = task.id;
+    title.append(task.name);
+
+    const dueDate = taskElement.querySelector(".taskDueDate");
+    dueDate.id = task.id;
+
+    tasksContainer.appendChild(taskElement);
+  });
+}
+
+function renderTaskCount(selectedProject) {
+  const incompleteTaskCount = selectedProject.tasks.filter(
+    (task) => !task.complete
+  ).length;
+  const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
+  projectCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+}
+
+function renderProjects() {
   projectsArray.forEach((project) => {
     const projectElement = document.createElement("li");
-    projectElement.dataset.projectId = project.id;
+    projectElement.dataset.projectId = project.id; // This creates a data-project-id and property for the current list element and assigns the id of the project to it
     projectElement.classList.add("project-name");
     projectElement.innerText = project.name;
     if (project.id === selectedProjectId) {
@@ -134,5 +223,6 @@ function clearElement(element) {
 // Function calls
 render();
 
-
 // Implementation of the second part
+
+// Selectors

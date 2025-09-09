@@ -377,6 +377,11 @@ button:hover {
   background-color: greenyellow;
 }
 
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 @keyframes slideIn {
   from {
     top: 5%;
