@@ -67,6 +67,17 @@ projectsArrayContainer.addEventListener("click", (e) => {
   }
 });
 
+tasksContainer.addEventListener("click",(e) => {
+  if (e.target.tagName.toLowerCase() === "input") {
+    const selectedProject = projectsArray.find(project => project.id === selectedProjectId);
+    console.log(selectedProject.tasks);
+    const selectedTask = selectedProject.tasks.find(task => task.id === e.target.id);
+    selectedTask.complete = e.target.checked;
+    save();
+    renderTaskCount(selectedProject);
+  }
+});
+
 newProjectForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const projectName = newProjectInput.value;
@@ -112,7 +123,7 @@ newTaskForm.addEventListener("submit", (e) => {
   // now we clear out the input field for a better user experience
   newTaskTitleInput.value = null;
   const selectedProject = projectsArray.find(
-    (project) => project.id === selectedProjectId
+    project => project.id === selectedProjectId
   );
   selectedProject.tasks.push(task);
   saveAndRender();
@@ -173,8 +184,9 @@ function renderTasks(selectedProject) {
   selectedProject.tasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
 
-    const prioritySpan = taskElement.querySelector(".task-priority");
-    prioritySpan.id = task.id;
+    console.log(task.id)
+    // const prioritySpan = taskElement.querySelector(".task-priority");
+    // prioritySpan.id = task.id;
 
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
@@ -186,8 +198,8 @@ function renderTasks(selectedProject) {
     title.id = task.id;
     title.append(task.name);
 
-    const dueDate = taskElement.querySelector(".taskDueDate");
-    dueDate.id = task.id;
+    // const dueDate = taskElement.querySelector(".taskDueDate");
+    // dueDate.id = task.id;
 
     tasksContainer.appendChild(taskElement);
   });

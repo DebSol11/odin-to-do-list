@@ -137,7 +137,7 @@
             <h2>Create a new to do:</h2>
             <button id="closeModal">&times;</button>
           </div>
-          <form action="example.com/path" method="post" id="formToggle">
+          <form action="example.com/path" method="post" id="formToggle" data-new-task-form>
             <label for="project">Project:</label>
             <select name="project" id="project">
               <option value="Life" selected>Life</option>
@@ -158,6 +158,7 @@
               id="title"
               name="title"
               placeholder="Who knows?"
+              data-new-task-title-input
             />
             <label for="description">Description:</label>
             <textarea
@@ -181,7 +182,8 @@
               rows="5"
               placeholder="Any notes to add?"
             ></textarea>
-            <button type="button" id="submitBtn">Add To-Do</button>
+            <!-- change the button type from button to submit -->
+            <button type="submit" id="submitBtn">Add To-Do</button>
           </form>
         </div>
       </div>
@@ -207,10 +209,10 @@
 
     <template id="task-template">
       <div class="toDoEntity">
-        <span></span>
+        <span class="task-priority"></span>
         <input type="checkbox" class="checkbox" name="checkbox" />
-        <p></p>
-        <p></p>
+        <p class="taskTitle"></p>
+        <p class="taskDueDate"></p>
         <div id="manipulateContainerDiv">
           <button class="detailsBtn">Details</button>
           <img
