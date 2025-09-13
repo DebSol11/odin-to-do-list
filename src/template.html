@@ -26,15 +26,6 @@
         <div>
           <h2>Projects</h2>
           <ul id="projectsDisplay" data-projectsArray>
-            <!-- <li id="lifeProjects">Life
-              <span id="lifeProjectCount"></span>
-            </li>
-            <li id="workProjects">Work
-              <span id="workProjectCount"></span>
-            </li>
-            <li id="loveProjects">Love
-              <span id="loveProjectCount"></span>
-            </li> -->
           </ul>
         </div>
         <form action="" id="addProjectForm" data-new-project-form>
@@ -43,7 +34,8 @@
             id="projectCreator"
             data-new-project-input
             name="projectCreator"
-            placeholder="project name"
+            placeholder="new project name"
+            aria-label="new project name"
           />
           <button type="submit" id="addProjectBtn">Add project</button>
         </form>
@@ -57,7 +49,128 @@
           </div>
           <!-- Example To-Dos -->
           <div class="todo-body" data-tasks>
-            <div class="toDoEntity greyed colorGrey" id="0">
+          </div>
+        </div>
+      </section>
+      <img
+        src="img/format_list_bulleted_add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
+        alt="Add to do"
+        id="addToDoIcon"
+      />
+      <div class="modal" id="addToDoFormModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>Create a new to do:</h2>
+            <button id="closeModal">&times;</button>
+          </div>
+          <form action="example.com/path" method="post" id="formToggle" data-new-task-form>
+            <label for="project">Project:</label>
+            <p 
+            class="selectedProjectDisplayPara"
+            data-new-task-selected-project></p>
+            <label for="priority">Priority:</label>
+            <select name="priority" id="priority" data-new-task-priority-input>
+              <option value="AAA">AAA</option>
+              <option value="AA">AA</option>
+              <option value="A" selected>A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+            <label for="title">Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Who knows?"
+              data-new-task-title-input
+            />
+            <label for="description">Description:</label>
+            <textarea
+              name="description"
+              id="description"
+              rows="3"
+              placeholder="More details?"
+              data-new-task-description-input
+            ></textarea>
+            <label for="dueDate">Due Date:</label>
+            <input
+              type="text"
+              id="dueDate"
+              name="dueDate"
+              placeholder="YYYY-MM-DD HH:MM"
+              onfocus="this.type='datetime-local'"
+              data-new-task-dueDate-input
+            />
+            <label for="notes">Notes:</label>
+            <textarea
+              name="notes"
+              id="notes"
+              rows="5"
+              placeholder="Any notes to add?"
+              data-new-task-notes-input
+            ></textarea>
+            <!-- change the button type from button to submit -->
+            <button type="submit" id="submitBtn">Add To-Do</button>
+          </form>
+        </div>
+      </div>
+      <!-- Details display -->
+      <div class="modal" id="displayDetailsModal">
+        <div class="modal-content" id="displayDetailsId">
+          <div class="modal-header">
+            <h2>Details:</h2>
+            <button id="closeDetailsModal">&times;</button>
+          </div>
+          <div id="toDoDetails">
+            <!-- to do object go here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="delete-stuff">
+      <button class="btn delete" data-clear-complete-tasks-button>Clear completed tasks</button>
+      <button class="btn delete" data-delete-project-button>
+        Delete selected project
+      </button>
+    </div>
+
+    <template id="task-template">
+      <div class="toDoEntity">
+        <div class="toDoEntityLeft">
+          <span class="task-priority"></span>
+          <input type="checkbox" class="checkbox" name="checkbox" />
+          <label class="taskTitle">
+            <span class="custom-checkbox"></span>
+          </label>
+          <!-- <p class="taskDueDate"></p> -->
+        </div>
+        <div id="manipulateContainerDiv">
+          <button class="detailsBtn">Details</button>
+          <img
+            src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+            alt="Edit pen SVG"
+            id="editPen1"
+            class="edit-pen"
+          />
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
+
+<!-- For reverence, delete after incorporating -->
+
+<!-- <li id="lifeProjects">Life
+              <span id="lifeProjectCount"></span>
+            </li>
+            <li id="workProjects">Work
+              <span id="workProjectCount"></span>
+            </li>
+            <li id="loveProjects">Love
+              <span id="loveProjectCount"></span>
+            </li> -->
+
+<!-- <div class="toDoEntity greyed colorGrey" id="0">
               <span></span
               ><input
                 checked=""
@@ -79,11 +192,11 @@
                   class="trash-symbol"
                 />
               </div>
-            </div>
+            </div> -->
 
             <!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
             src="http://localhost:8080/251faea5cd165a759f34.svg" -->
-            <div class="toDoEntity colorAAA" id="1">
+            <!-- <div class="toDoEntity colorAAA" id="1">
               <span></span
               ><input type="checkbox" class="checkbox" name="checkbox" />
               <p>Love</p>
@@ -122,113 +235,4 @@
                   class="trash-symbol"
                 />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <img
-        src="img/format_list_bulleted_add_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg"
-        alt="Add to do"
-        id="addToDoIcon"
-      />
-      <div class="modal" id="addToDoFormModal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h2>Create a new to do:</h2>
-            <button id="closeModal">&times;</button>
-          </div>
-          <form action="example.com/path" method="post" id="formToggle" data-new-task-form>
-            <label for="project">Project:</label>
-            <select name="project" id="project">
-              <option value="Life" selected>Life</option>
-              <option value="Work">Work</option>
-              <option value="Love">Love</option>
-            </select>
-            <label for="priority">Priority:</label>
-            <select name="priority" id="priority">
-              <option value="AAA">AAA</option>
-              <option value="AA">AA</option>
-              <option value="A" selected>A</option>
-              <option value="B">B</option>
-              <option value="C">C</option>
-            </select>
-            <label for="title">Title:</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              placeholder="Who knows?"
-              data-new-task-title-input
-            />
-            <label for="description">Description:</label>
-            <textarea
-              name="description"
-              id="description"
-              rows="3"
-              placeholder="More details?"
-            ></textarea>
-            <label for="dueDate">Due Date:</label>
-            <input
-              type="text"
-              id="dueDate"
-              name="dueDate"
-              placeholder="YYYY-MM-DD HH:MM"
-              onfocus="this.type='datetime-local'"
-            />
-            <label for="notes">Notes:</label>
-            <textarea
-              name="notes"
-              id="notes"
-              rows="5"
-              placeholder="Any notes to add?"
-            ></textarea>
-            <!-- change the button type from button to submit -->
-            <button type="submit" id="submitBtn">Add To-Do</button>
-          </form>
-        </div>
-      </div>
-      <!-- Details display -->
-      <div class="modal" id="displayDetailsModal">
-        <div class="modal-content" id="displayDetailsId">
-          <div class="modal-header">
-            <h2>Details:</h2>
-            <button id="closeDetailsModal">&times;</button>
-          </div>
-          <div id="toDoDetails">
-            <!-- to do object go here -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="delete-stuff">
-      <button class="btn delete" >Clear completed tasks</button>
-      <button class="btn delete" data-delete-project-button>
-        Delete selected project
-      </button>
-    </div>
-
-    <template id="task-template">
-      <div class="toDoEntity">
-        <span class="task-priority"></span>
-        <input type="checkbox" class="checkbox" name="checkbox" />
-        <p class="taskTitle"></p>
-        <p class="taskDueDate"></p>
-        <div id="manipulateContainerDiv">
-          <button class="detailsBtn">Details</button>
-          <img
-            src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-            alt="Edit pen SVG"
-            id="editPen1"
-            class="edit-pen"
-          />
-          <img
-            src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
-            alt="Trash Symbol SVG"
-            id="trashSymbol1"
-            class="trash-symbol"
-          />
-        </div>
-      </div>
-    </template>
-  </body>
-</html>
+            </div> --> 

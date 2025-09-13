@@ -41,7 +41,24 @@ const closeNewToDoModal = document.getElementById("closeModal");
 const addToDoFormModal = document.getElementById("addToDoFormModal");
 
 const newTaskForm = document.querySelector("[data-new-task-form]");
+const newTaskSelectedProject = document.querySelector(
+  "[data-new-task-selected-project]"
+);
 const newTaskTitleInput = document.querySelector("[data-new-task-title-input]");
+const newTaskPriorityInput = document.querySelector(
+  "[data-new-task-priority-input]"
+);
+const newTaskDescriptionInput = document.querySelector(
+  "[data-new-task-description-input]"
+);
+const newTaskDueDateInput = document.querySelector(
+  "[data-new-task-dueDate-input]"
+);
+const newTaskNotesInput = document.querySelector("[data-new-task-notes-input]");
+
+const clearCompleteTasksButton = document.querySelector(
+  "[data-clear-complete-tasks-button]"
+);
 
 // Local storage key value pairs
 // We create a NAMESPACE here to reduce the risk of collisions for the user
@@ -67,11 +84,15 @@ projectsArrayContainer.addEventListener("click", (e) => {
   }
 });
 
-tasksContainer.addEventListener("click",(e) => {
+tasksContainer.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "input") {
-    const selectedProject = projectsArray.find(project => project.id === selectedProjectId);
+    const selectedProject = projectsArray.find(
+      (project) => project.id === selectedProjectId
+    );
     console.log(selectedProject.tasks);
-    const selectedTask = selectedProject.tasks.find(task => task.id === e.target.id);
+    const selectedTask = selectedProject.tasks.find(
+      (task) => task.id === e.target.id
+    );
     selectedTask.complete = e.target.checked;
     save();
     renderTaskCount(selectedProject);
@@ -90,6 +111,17 @@ newProjectForm.addEventListener("submit", (e) => {
   saveAndRender();
 });
 
+clearCompleteTasksButton.addEventListener("click", (e) => {
+  const selectedProject = projectsArray.find(
+    (project) => project.id === selectedProjectId
+  );
+  // Overwrite the tasks array
+  selectedProject.tasks = selectedProject.tasks.filter(
+    (task) => !task.complete
+  );
+  saveAndRender();
+});
+
 // We create a new projectsArray with the matching criteria in the filter function
 deleteProjectButton.addEventListener("click", () => {
   projectsArray = projectsArray.filter(
@@ -101,6 +133,10 @@ deleteProjectButton.addEventListener("click", () => {
 });
 
 displayNewToDoModal.addEventListener("click", () => {
+  const selectedProject = projectsArray.find(
+    (project) => project.id === selectedProjectId
+  );
+  newTaskSelectedProject.innerText = selectedProject.name;
   addToDoFormModal.classList.add("active");
   addToDoFormModal.classList.add("open");
   addToDoFormModal.style.display = "block";
@@ -116,16 +152,34 @@ closeNewToDoModal.addEventListener("click", () => {
 
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const taskName = newTaskTitleInput.value;
-  // check if an actual name was passed in
-  if (taskName == null || taskName === "") return;
-  const task = createTask(taskName);
-  // now we clear out the input field for a better user experience
-  newTaskTitleInput.value = null;
   const selectedProject = projectsArray.find(
-    project => project.id === selectedProjectId
+    (project) => project.id === selectedProjectId
   );
+  const taskSelectedProjectName = selectedProject.name;
+  const taskPriority = newTaskPriorityInput.value;
+  const taskTitle = newTaskTitleInput.value;
+  const taskDescription = newTaskDescriptionInput.value;
+  const taskDueDate = newTaskDueDateInput.value;
+  const taskNotes = newTaskNotesInput.value;
+  // check if an actual name was passed in
+  if (taskTitle == null || taskTitle === "") return;
+  const task = createTask(
+    taskSelectedProjectName,
+    taskPriority,
+    taskTitle,
+    taskDescription,
+    taskDueDate,
+    taskNotes
+  );
+  // now we clear out the input field for a better user experience
+  newTaskPriorityInput.value = "A";
+  newTaskTitleInput.value = null;
+  newTaskDescriptionInput.value = null;
+  newTaskDueDateInput.value = null;
+  newTaskNotesInput.value = null;
+
   selectedProject.tasks.push(task);
+  console.log(selectedProject);
   saveAndRender();
 });
 
@@ -139,10 +193,15 @@ function createProject(name) {
   };
 }
 
-function createTask(name) {
+function createTask(project, priority, name, description, dueDate, notes) {
   return {
     id: Date.now().toString(),
+    project: project,
+    priority: priority,
     name: name,
+    description: description,
+    dueDate: dueDate,
+    notes: notes,
     complete: false,
   };
 }
@@ -184,7 +243,6 @@ function renderTasks(selectedProject) {
   selectedProject.tasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
 
-    console.log(task.id)
     // const prioritySpan = taskElement.querySelector(".task-priority");
     // prioritySpan.id = task.id;
 
@@ -195,7 +253,7 @@ function renderTasks(selectedProject) {
     checkbox.checked = task.complete;
 
     const title = taskElement.querySelector(".taskTitle");
-    title.id = task.id;
+    title.htmlFor = task.id;
     title.append(task.name);
 
     // const dueDate = taskElement.querySelector(".taskDueDate");
