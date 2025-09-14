@@ -243,8 +243,8 @@ function renderTasks(selectedProject) {
   selectedProject.tasks.forEach((task) => {
     const taskElement = document.importNode(taskTemplate.content, true);
 
-    // const prioritySpan = taskElement.querySelector(".task-priority");
-    // prioritySpan.id = task.id;
+    const prioritySpan = taskElement.querySelector(".task-priority");
+    colorTasks(prioritySpan, task);
 
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
@@ -261,6 +261,22 @@ function renderTasks(selectedProject) {
 
     tasksContainer.appendChild(taskElement);
   });
+}
+
+function colorTasks(element, task) {
+  if (task.priority === "AAA") {
+      element.classList.add("colorAAA");
+    } else if (task.priority === "AA") {
+      element.classList.add("colorAA");
+    } else if (task.priority === "A") {
+      element.classList.add("colorA");
+    } else if (task.priority === "B") {
+      element.classList.add("colorB");
+    } else if (task.priority === "C") {
+      element.classList.add("colorC");
+    } else {
+      alert("Shit happened!");
+    }
 }
 
 function renderTaskCount(selectedProject) {

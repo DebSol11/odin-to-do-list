@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  /* border: 1px solid red; */
+  border: 1px solid red;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -103,6 +103,38 @@ button#addProjectBtn {
   justify-content: space-between;
 }
 
+/* Priority color span */
+.task-priority {
+  display: block;
+  width: 10px;
+  height: 23px;
+  margin-right: 6px;
+}
+
+.colorAAA {
+  background-color: var(--priorityAAA-color);
+}
+
+.colorAA {
+  background-color: var(--priorityAA-color);
+}
+
+.colorA {
+  background-color: var(--priorityA-color);
+}
+
+.colorB {
+  background-color: var(--priorityB-color);
+}
+
+.colorC {
+  background-color: var(--priorityC-color);
+}
+
+.colorGrey {
+  background-color: var(--color-greyed);
+}
+
 /* Custom checkbox */
 
 .checkbox {
@@ -186,6 +218,10 @@ button#addProjectBtn {
 
 .toDoEntity:hover {
   background-color: #f0efef;
+}
+
+.toDoEntityLeft {
+  display: flex;
 }
 
 /* Add new to do button icon */
@@ -389,43 +425,6 @@ div.modal-content.colorC {
 .edit-pen,
 .trash-symbol {
   cursor: pointer;
-}
-
-/* Color the to do's*/
-.toDoEntity.colorAAA span {
-  width: 80%;
-  height: 80%;
-  background-color: var(--priorityAAA-color);
-}
-
-.toDoEntity.colorAA span {
-  width: 80%;
-  height: 80%;
-  background-color: var(--priorityAA-color);
-}
-
-.toDoEntity.colorA span {
-  width: 80%;
-  height: 80%;
-  background-color: var(--priorityA-color);
-}
-
-.toDoEntity.colorB span {
-  width: 80%;
-  height: 80%;
-  background-color: var(--priorityB-color);
-}
-
-.toDoEntity.colorC span {
-  width: 80%;
-  height: 80%;
-  background-color: var(--priorityC-color);
-}
-
-.toDoEntity.colorGrey span {
-  width: 80%;
-  height: 80%;
-  background-color: var(--color-greyed);
 }
 
 /* delete stuff divs */
