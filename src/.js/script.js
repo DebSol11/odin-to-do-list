@@ -94,8 +94,9 @@ tasksContainer.addEventListener("click", (e) => {
       (task) => task.id === e.target.id
     );
     selectedTask.complete = e.target.checked;
-    save();
-    renderTaskCount(selectedProject);
+    saveAndRender();
+    // save();
+    // renderTaskCount(selectedProject);
   }
 });
 
@@ -264,19 +265,25 @@ function renderTasks(selectedProject) {
 }
 
 function colorTasks(element, task) {
+  // if (task.complete === true) {
+  //   element.classList.add("colorGrey")
+  // }
+  if (task.complete === true) {
+    element.classList.add("colorGrey");
+  }
   if (task.priority === "AAA") {
-      element.classList.add("colorAAA");
-    } else if (task.priority === "AA") {
-      element.classList.add("colorAA");
-    } else if (task.priority === "A") {
-      element.classList.add("colorA");
-    } else if (task.priority === "B") {
-      element.classList.add("colorB");
-    } else if (task.priority === "C") {
-      element.classList.add("colorC");
-    } else {
-      alert("Shit happened!");
-    }
+    element.classList.add("colorAAA");
+  } else if (task.priority === "AA") {
+    element.classList.add("colorAA");
+  } else if (task.priority === "A") {
+    element.classList.add("colorA");
+  } else if (task.priority === "B") {
+    element.classList.add("colorB");
+  } else if (task.priority === "C") {
+    element.classList.add("colorC");
+  } else {
+    alert("Shit happened!");
+  }
 }
 
 function renderTaskCount(selectedProject) {

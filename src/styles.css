@@ -1,7 +1,7 @@
 *,
 *::before,
 *::after {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -154,7 +154,7 @@ button#addProjectBtn {
   border-radius: 50%;
   margin-right: var(--size);
   transform: scale(1);
-  transition: transform 50ms ease-in-out;
+  /* transition: transform 50ms ease-in-out; */
 }
 
 .toDoEntity:hover .custom-checkbox {
@@ -182,7 +182,7 @@ button#addProjectBtn {
   background: currentColor;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 150ms ease-in-out;
+  /* transition: transform 150ms ease-in-out; */
 }
 
 [type="checkbox"]:checked + label::after {
@@ -408,7 +408,7 @@ div.modal-content.colorC {
   background-color: var(--priorityC-color);
 }
 
-
+/* ---------------------------------------- */
 /* Edit functionality */
 .manipulate {
   top: 50%;
