@@ -19,6 +19,10 @@ import "../../src/toDoForm.css";
 // The code is highly influenced by the video on YouTube from Web Dev Simplified - How to Code A Better To-Do List - Tutorial
 // https://www.youtube.com/watch?v=W7FaYfuwu70 (visited on 2025-09-04)
 // Thank you Kyle
+// As well as the video
+// Creating a better todo app - the HTML and CSS
+// https://www.youtube.com/watch?v=IhmSidOJSeE
+// by Kevin Powell
 
 // Selectors
 const projectsArrayContainer = document.querySelector("[data-projectsArray]");
@@ -184,6 +188,10 @@ newTaskForm.addEventListener("submit", (e) => {
   saveAndRender();
 });
 
+
+
+
+
 // Function definitions
 function createProject(name) {
   // make a unique id very easily using the current date and time
@@ -315,7 +323,3 @@ function clearElement(element) {
 
 // Function calls
 render();
-
-// Implementation of the second part
-
-// Selectors
