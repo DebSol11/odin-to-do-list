@@ -60,6 +60,9 @@ const newTaskDueDateInput = document.querySelector(
 );
 const newTaskNotesInput = document.querySelector("[data-new-task-notes-input]");
 
+const htmlBody = document.querySelector("body");
+const detailsTemplate = document.getElementById("details-template");
+
 const clearCompleteTasksButton = document.querySelector(
   "[data-clear-complete-tasks-button]"
 );
@@ -101,8 +104,52 @@ tasksContainer.addEventListener("click", (e) => {
     saveAndRender();
     // save();
     // renderTaskCount(selectedProject);
+  } else if (e.target.tagName.toLowerCase() === "button") {
+    console.log("button pressed");
+    const selectedProject = projectsArray.find(
+      (project) => project.id === selectedProjectId
+    );
+    console.log(selectedProject.tasks);
+    const selectedTask = selectedProject.tasks.find(
+      (task) => task.id === e.target.id
+    );
+    displayDetails(selectedTask);
   }
 });
+
+function displayDetails(task) {
+  console.log(task);
+
+  const taskDetails = document.importNode(detailsTemplate.content, true);
+
+  const detailsProject = taskDetails.querySelector("[data-details-project]");
+  detailsProject.innerText = task.project;
+
+  const detailsPriority = taskDetails.querySelector("[data-details-priority]");
+  detailsPriority.innerText = task.priority;
+  //   colorDetails();
+
+  const detailsTitle = taskDetails.querySelector("[data-details-title]");
+  detailsTitle.innerText = task.name;
+
+  const detailsDescription = taskDetails.querySelector(
+    "[data-details-description]"
+  );
+  detailsDescription.innerText = task.description;
+
+  const detailsDueDate = taskDetails.querySelector("[data-details-dueDate]");
+  detailsDueDate.innerText = task.dueDate;
+
+  const detailsNotes = taskDetails.querySelector("[data-details-notes]");
+  detailsNotes.innerText = task.notes;
+
+  const displayDetailsModal = taskDetails.getElementById("displayDetailsModal");
+  displayDetailsModal.classList.add("active");
+  displayDetailsModal.classList.add("open");
+  displayDetailsModal.style.display = "block";
+
+  htmlBody.appendChild(taskDetails);
+}
 
 newProjectForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -188,10 +235,6 @@ newTaskForm.addEventListener("submit", (e) => {
   saveAndRender();
 });
 
-
-
-
-
 // Function definitions
 function createProject(name) {
   // make a unique id very easily using the current date and time
@@ -265,6 +308,8 @@ function renderTasks(selectedProject) {
     title.htmlFor = task.id;
     title.append(task.name);
 
+    const detailsButton = taskElement.querySelector(".detailsBtn");
+    detailsButton.id = task.id;
     // const dueDate = taskElement.querySelector(".taskDueDate");
     // dueDate.id = task.id;
 

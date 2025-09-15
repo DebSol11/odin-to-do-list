@@ -25,8 +25,7 @@
       <section id="projects">
         <div>
           <h2>Projects</h2>
-          <ul id="projectsDisplay" data-projectsArray>
-          </ul>
+          <ul id="projectsDisplay" data-projectsArray></ul>
         </div>
         <form action="" id="addProjectForm" data-new-project-form>
           <input
@@ -48,8 +47,7 @@
             <p class="task-count" data-project-count>3 tasks remaining</p>
           </div>
           <!-- Example To-Dos -->
-          <div class="todo-body" data-tasks>
-          </div>
+          <div class="todo-body" data-tasks></div>
         </div>
       </section>
       <img
@@ -63,11 +61,17 @@
             <h2>Create a new to do:</h2>
             <button id="closeModal">&times;</button>
           </div>
-          <form action="example.com/path" method="post" id="formToggle" data-new-task-form>
+          <form
+            action="example.com/path"
+            method="post"
+            id="formToggle"
+            data-new-task-form
+          >
             <label for="project">Project:</label>
-            <p 
-            class="selectedProjectDisplayPara"
-            data-new-task-selected-project></p>
+            <p
+              class="selectedProjectDisplayPara"
+              data-new-task-selected-project
+            ></p>
             <label for="priority">Priority:</label>
             <select name="priority" id="priority" data-new-task-priority-input>
               <option value="AAA">AAA</option>
@@ -128,7 +132,9 @@
       </div>
     </div>
     <div class="delete-stuff">
-      <button class="btn delete" data-clear-complete-tasks-button>Clear completed tasks</button>
+      <button class="btn delete" data-clear-complete-tasks-button>
+        Clear completed tasks
+      </button>
       <button class="btn delete" data-delete-project-button>
         Delete selected project
       </button>
@@ -155,6 +161,48 @@
         </div>
       </div>
     </template>
+
+    <template id="details-template">
+      <div
+        class="modal"
+        id="displayDetailsModal"
+      >
+        <div class="modal-content" id="displayDetailsId">
+          <div class="modal-header">
+            <h2>Details:</h2>
+            <button id="closeDetailsModal">×</button>
+          </div>
+          <div id="toDoDetails">
+            <!-- to do object go here -->
+            <div class="detailsGrid">
+              <h3 class="displayInline">Project:</h3>
+              <p class="displayInline detailsProject" data-details-project></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Priority:</h3>
+              <p class="displayInline" data-details-priority></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Title:</h3>
+              <p class="displayInline" data-details-title></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Description:</h3>
+              <p class="displayInline" data-details-description></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">DueDate:</h3>
+              <p class="displayInline" data-details-dueDate></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Notes:</h3>
+              <p class="displayInline" data-details-notes></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
   </body>
 </html>
 
@@ -194,9 +242,9 @@
               </div>
             </div> -->
 
-            <!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
+<!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
             src="http://localhost:8080/251faea5cd165a759f34.svg" -->
-            <!-- <div class="toDoEntity colorAAA" id="1">
+<!-- <div class="toDoEntity colorAAA" id="1">
               <span></span
               ><input type="checkbox" class="checkbox" name="checkbox" />
               <p>Love</p>
@@ -235,4 +283,4 @@
                   class="trash-symbol"
                 />
               </div>
-            </div> --> 
+            </div> -->
