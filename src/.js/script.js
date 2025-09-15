@@ -105,51 +105,16 @@ tasksContainer.addEventListener("click", (e) => {
     // save();
     // renderTaskCount(selectedProject);
   } else if (e.target.tagName.toLowerCase() === "button") {
-    console.log("button pressed");
     const selectedProject = projectsArray.find(
       (project) => project.id === selectedProjectId
     );
-    console.log(selectedProject.tasks);
     const selectedTask = selectedProject.tasks.find(
       (task) => task.id === e.target.id
     );
     displayDetails(selectedTask);
+    listenForCloseDetailsClick();
   }
 });
-
-function displayDetails(task) {
-  console.log(task);
-
-  const taskDetails = document.importNode(detailsTemplate.content, true);
-
-  const detailsProject = taskDetails.querySelector("[data-details-project]");
-  detailsProject.innerText = task.project;
-
-  const detailsPriority = taskDetails.querySelector("[data-details-priority]");
-  detailsPriority.innerText = task.priority;
-  //   colorDetails();
-
-  const detailsTitle = taskDetails.querySelector("[data-details-title]");
-  detailsTitle.innerText = task.name;
-
-  const detailsDescription = taskDetails.querySelector(
-    "[data-details-description]"
-  );
-  detailsDescription.innerText = task.description;
-
-  const detailsDueDate = taskDetails.querySelector("[data-details-dueDate]");
-  detailsDueDate.innerText = task.dueDate;
-
-  const detailsNotes = taskDetails.querySelector("[data-details-notes]");
-  detailsNotes.innerText = task.notes;
-
-  const displayDetailsModal = taskDetails.getElementById("displayDetailsModal");
-  displayDetailsModal.classList.add("active");
-  displayDetailsModal.classList.add("open");
-  displayDetailsModal.style.display = "block";
-
-  htmlBody.appendChild(taskDetails);
-}
 
 newProjectForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -262,8 +227,7 @@ function saveAndRender() {
   save();
   render();
 }
-
-// We want to safe this project to the local storage
+// We want to safe this project to the local storage for now
 function save() {
   localStorage.setItem(
     LOCAL_STORAGE_PROJECT_KEY,
@@ -364,6 +328,64 @@ function clearElement(element) {
   while (element.firstChild) {
     element.removeChild(element.firstChild);
   }
+}
+
+function displayDetails(task) {
+  const taskDetails = document.importNode(detailsTemplate.content, true);
+
+  const displayDetailsId = taskDetails.querySelector("#displayDetailsId");
+
+  const detailsProject = taskDetails.querySelector("[data-details-project]");
+  detailsProject.innerText = task.project;
+
+  const detailsPriority = taskDetails.querySelector("[data-details-priority]");
+  detailsPriority.innerText = task.priority;
+  if (task.priority === "AAA") {
+    displayDetailsId.classList.add("colorAAA");
+  } else if (task.priority === "AA") {
+    displayDetailsId.classList.add("colorAA");
+  } else if (task.priority === "A") {
+    displayDetailsId.classList.add("colorA");
+  } else if (task.priority === "B") {
+    displayDetailsId.classList.add("colorB");
+  } else if (task.priority === "C") {
+    displayDetailsId.classList.add("colorC");
+  } else {
+    alert = "Shit happened! NoNoNo!";
+  }
+
+  const detailsTitle = taskDetails.querySelector("[data-details-title]");
+  detailsTitle.innerText = task.name;
+
+  const detailsDescription = taskDetails.querySelector(
+    "[data-details-description]"
+  );
+  detailsDescription.innerText = task.description;
+
+  const detailsDueDate = taskDetails.querySelector("[data-details-dueDate]");
+  detailsDueDate.innerText = task.dueDate;
+
+  const detailsNotes = taskDetails.querySelector("[data-details-notes]");
+  detailsNotes.innerText = task.notes;
+
+  const displayDetailsModal = taskDetails.getElementById("displayDetailsModal");
+  displayDetailsModal.classList.add("active");
+  displayDetailsModal.classList.add("open");
+  displayDetailsModal.style.display = "block";
+
+  htmlBody.appendChild(taskDetails);
+}
+
+function listenForCloseDetailsClick() {
+  const closeDetailsModal = document.getElementById("closeDetailsModal");
+  const displayDetailsModal = document.getElementById("displayDetailsModal");
+  closeDetailsModal.addEventListener("click", () => {
+    console.log("close button works");
+    displayDetailsModal.classList.add("slideOut");
+    setTimeout(() => {
+      displayDetailsModal.remove();
+    }, 500);
+  });
 }
 
 // Function calls
