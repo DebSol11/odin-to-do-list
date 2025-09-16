@@ -11,44 +11,44 @@
   <body>
     <header>
       <!-- Image by <a href="https://pixabay.com/users/maklay62-182851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1432951">S K</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=image&utm_content=1432951">Pixabay</a> -->
-      <img
-        src="7e77473a688b6d5d4485.webp"
-        alt="let's do it note image"
-        id="letsDoItImg"
-        height="80px"
-        width="80px"
-      />
-      <h1>To-Do's</h1>
+        <img
+          src="7e77473a688b6d5d4485.webp"
+          alt="let's do it note image"
+          id="letsDoItImg"
+          height="80px"
+          width="80px"
+        />
+        <h1>To-Do's</h1>
     </header>
 
     <div class="content-wrap">
       <section id="projects">
         <div>
           <h2>Projects</h2>
-          <ul id="projectsDisplay">
-            <li id="lifeProjects">Life
-              <span id="lifeProjectCount"></span>
-            </li>
-            <li id="workProjects">Work
-              <span id="workProjectCount"></span>
-            </li>
-            <li id="loveProjects">Love
-              <span id="loveProjectCount"></span>
-            </li>
-          </ul>
+          <ul id="projectsDisplay" data-projectsArray></ul>
         </div>
-        <form action="example.com/path" method="post" id="addProjectForm">
+        <form action="" id="addProjectForm" data-new-project-form>
           <input
             type="text"
             id="projectCreator"
+            data-new-project-input
             name="projectCreator"
-            placeholder="project name"
+            placeholder="new project name"
+            aria-label="new project name"
           />
           <button type="submit" id="addProjectBtn">Add project</button>
         </form>
       </section>
+
       <section id="toDos">
-        <div id="toDoContainer2"></div>
+        <div id="toDoContainer2" data-project-display-container>
+          <div class="todo-header">
+            <h2 class="project-title" data-project-title>Life</h2>
+            <p class="task-count" data-project-count>3 tasks remaining</p>
+          </div>
+          <!-- Example To-Dos -->
+          <div class="todo-body" data-tasks></div>
+        </div>
       </section>
       <img
         src="fef2f8660a8f69e6b4ca.svg"
@@ -61,15 +61,19 @@
             <h2>Create a new to do:</h2>
             <button id="closeModal">&times;</button>
           </div>
-          <form action="example.com/path" method="post" id="formToggle">
+          <form
+            action="example.com/path"
+            method="post"
+            id="formToggle"
+            data-new-task-form
+          >
             <label for="project">Project:</label>
-            <select name="project" id="project">
-              <option value="Life" selected>Life</option>
-              <option value="Work">Work</option>
-              <option value="Love">Love</option>
-            </select>
+            <p
+              class="selectedProjectDisplayPara"
+              data-new-task-selected-project
+            ></p>
             <label for="priority">Priority:</label>
-            <select name="priority" id="priority">
+            <select name="priority" id="priority" data-new-task-priority-input>
               <option value="AAA">AAA</option>
               <option value="AA">AA</option>
               <option value="A" selected>A</option>
@@ -82,6 +86,7 @@
               id="title"
               name="title"
               placeholder="Who knows?"
+              data-new-task-title-input
             />
             <label for="description">Description:</label>
             <textarea
@@ -89,6 +94,7 @@
               id="description"
               rows="3"
               placeholder="More details?"
+              data-new-task-description-input
             ></textarea>
             <label for="dueDate">Due Date:</label>
             <input
@@ -97,6 +103,7 @@
               name="dueDate"
               placeholder="YYYY-MM-DD HH:MM"
               onfocus="this.type='datetime-local'"
+              data-new-task-dueDate-input
             />
             <label for="notes">Notes:</label>
             <textarea
@@ -104,23 +111,175 @@
               id="notes"
               rows="5"
               placeholder="Any notes to add?"
+              data-new-task-notes-input
             ></textarea>
-            <button type="button" id="submitBtn">Add To-Do</button>
+            <!-- change the button type from button to submit -->
+            <button type="submit" id="submitBtn">Add To-Do</button>
           </form>
         </div>
       </div>
       <!-- Details display -->
-      <div class="modal" id="displayDetailsModal">
+      <!-- <div class="modal" id="displayDetailsModal">
         <div class="modal-content" id="displayDetailsId">
           <div class="modal-header">
             <h2>Details:</h2>
             <button id="closeDetailsModal">&times;</button>
           </div>
+          <div id="toDoDetails"> -->
+            <!-- to do object go here -->
+          <!-- </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="delete-stuff">
+      <button class="btn delete" data-clear-complete-tasks-button>
+        Clear completed tasks
+      </button>
+      <button class="btn delete" data-delete-project-button>
+        Delete selected project
+      </button>
+    </div>
+
+    <template id="task-template">
+      <div class="toDoEntity">
+        <div class="toDoEntityLeft">
+          <div class="task-priority"></div>
+          <input type="checkbox" class="checkbox" name="checkbox" />
+          <label class="taskTitle">
+            <span class="custom-checkbox"></span>
+          </label>
+          <!-- <p class="taskDueDate"></p> -->
+        </div>
+        <div id="manipulateContainerDiv">
+          <button class="detailsBtn">Details</button>
+          <img
+            src="251faea5cd165a759f34.svg"
+            alt="Edit pen SVG"
+            class="edit-pen"
+          />
+        </div>
+      </div>
+    </template>
+
+    <template id="details-template">
+      <div
+        class="modal"
+        id="displayDetailsModal"
+      >
+        <div class="modal-content" id="displayDetailsId">
+          <div class="modal-header">
+            <h2>Details:</h2>
+            <button id="closeDetailsModal">×</button>
+          </div>
           <div id="toDoDetails">
             <!-- to do object go here -->
+            <div class="detailsGrid">
+              <h3 class="displayInline">Project:</h3>
+              <p class="displayInline detailsProject" data-details-project></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Priority:</h3>
+              <p class="displayInline" data-details-priority></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Title:</h3>
+              <p class="displayInline" data-details-title></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Description:</h3>
+              <p class="displayInline" data-details-description></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">DueDate:</h3>
+              <p class="displayInline" data-details-dueDate></p>
+            </div>
+            <div class="detailsGrid">
+              <h3 class="displayInline">Notes:</h3>
+              <p class="displayInline" data-details-notes></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </template>
+
   </body>
 </html>
+
+<!-- For reverence, delete after incorporating -->
+
+<!-- <li id="lifeProjects">Life
+              <span id="lifeProjectCount"></span>
+            </li>
+            <li id="workProjects">Work
+              <span id="workProjectCount"></span>
+            </li>
+            <li id="loveProjects">Love
+              <span id="loveProjectCount"></span>
+            </li> -->
+
+<!-- <div class="toDoEntity greyed colorGrey" id="0">
+              <span></span
+              ><input
+                checked=""
+                type="checkbox"
+                class="checkbox"
+                name="checkbox"
+              /><s>Movement</s><s>every day</s>
+              <div id="manipulateContainerDiv">
+                <button class="detailsBtn">Details</button
+                ><img
+                  src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="Edit pen SVG"
+                  id="editPen0"
+                  class="edit-pen"
+                /><img
+                  src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="Trash Symbol SVG"
+                  id="trashSymbol0"
+                  class="trash-symbol"
+                />
+              </div>
+            </div> -->
+
+<!-- pictures were imported via Javascript before this generates a copy of the image in the dist folder .. for further information how this is done
+            src="http://localhost:8080/251faea5cd165a759f34.svg" -->
+<!-- <div class="toDoEntity colorAAA" id="1">
+              <span></span
+              ><input type="checkbox" class="checkbox" name="checkbox" />
+              <p>Love</p>
+              <p>every day</p>
+              <div id="manipulateContainerDiv">
+                <button class="detailsBtn">Details</button
+                ><img
+                  src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="Edit pen SVG"
+                  id="editPen1"
+                  class="edit-pen"
+                /><img
+                  src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="Trash Symbol SVG"
+                  id="trashSymbol1"
+                  class="trash-symbol"
+                />
+              </div>
+            </div>
+            <div class="toDoEntity colorA" id="2">
+              <span></span
+              ><input type="checkbox" class="checkbox" name="checkbox" />
+              <p>Honor the moment</p>
+              <p>every day</p>
+              <div id="manipulateContainerDiv">
+                <button class="detailsBtn">Details</button
+                ><img
+                  src="img/edit_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="Edit pen SVG"
+                  id="editPen2"
+                  class="edit-pen"
+                /><img
+                  src="img/delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  alt="Trash Symbol SVG"
+                  id="trashSymbol2"
+                  class="trash-symbol"
+                />
+              </div>
+            </div> -->
