@@ -102,8 +102,6 @@ tasksContainer.addEventListener("click", (e) => {
     );
     selectedTask.complete = e.target.checked;
     saveAndRender();
-    // save();
-    // renderTaskCount(selectedProject);
   } else if (e.target.tagName.toLowerCase() === "button") {
     const selectedProject = projectsArray.find(
       (project) => project.id === selectedProjectId
@@ -113,6 +111,15 @@ tasksContainer.addEventListener("click", (e) => {
     );
     displayDetails(selectedTask);
     listenForCloseDetailsClick();
+  } else if (e.target.tagName.toLowerCase() === "img") {
+    const selectedProject = projectsArray.find(
+      (project) => project.id === selectedProjectId
+    );
+    console.log(selectedProject.tasks);
+    const selectedTask = selectedProject.tasks.find(
+      (task) => task.id === e.target.id
+    );
+    editTask(selectedProject, selectedTask);
   }
 });
 
@@ -264,8 +271,6 @@ function renderTasks(selectedProject) {
 
     const checkbox = taskElement.querySelector("input");
     checkbox.id = task.id;
-    // task.complete likely needs to be changed based on the array of objects i use
-    // this checks all the completed tasks for us
     checkbox.checked = task.complete;
 
     const title = taskElement.querySelector(".taskTitle");
@@ -274,8 +279,9 @@ function renderTasks(selectedProject) {
 
     const detailsButton = taskElement.querySelector(".detailsBtn");
     detailsButton.id = task.id;
-    // const dueDate = taskElement.querySelector(".taskDueDate");
-    // dueDate.id = task.id;
+
+    const editPen = taskElement.querySelector(".edit-pen");
+    editPen.id = task.id;
 
     tasksContainer.appendChild(taskElement);
   });
@@ -386,6 +392,28 @@ function listenForCloseDetailsClick() {
       displayDetailsModal.remove();
     }, 500);
   });
+}
+
+function editTask(project, task) {
+  const projectText = document.querySelector(".selectedProjectDisplayPara");
+  const priority = document.getElementById("priority");
+  const title = document.getElementById("title");
+  const description = document.getElementById("description");
+  const dueDate = document.getElementById("dueDate");
+  const notes = document.getElementById("notes");
+  projectText.innerText = task.project;
+  priority.value = task.priority;
+  title.value = task.name;
+  description.value = task.description;
+  dueDate.value = task.dueDate;
+  notes.value = task.notes;
+  const index = project.tasks.findIndex(
+    (item) => item.id === task.id
+  );
+  project.tasks.splice(index, 1);
+  addToDoFormModal.classList.add("active");
+  addToDoFormModal.classList.add("open");
+  addToDoFormModal.style.display = "block";
 }
 
 // Function calls

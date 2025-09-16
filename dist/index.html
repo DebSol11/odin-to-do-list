@@ -119,17 +119,17 @@
         </div>
       </div>
       <!-- Details display -->
-      <div class="modal" id="displayDetailsModal">
+      <!-- <div class="modal" id="displayDetailsModal">
         <div class="modal-content" id="displayDetailsId">
           <div class="modal-header">
             <h2>Details:</h2>
             <button id="closeDetailsModal">&times;</button>
           </div>
-          <div id="toDoDetails">
+          <div id="toDoDetails"> -->
             <!-- to do object go here -->
-          </div>
+          <!-- </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="delete-stuff">
       <button class="btn delete" data-clear-complete-tasks-button>
@@ -164,11 +164,10 @@
 
     <template id="details-template">
       <div
-        class="modal active open"
+        class="modal"
         id="displayDetailsModal"
-        style="display: block"
       >
-        <div class="modal-content colorB" id="displayDetailsId">
+        <div class="modal-content" id="displayDetailsId">
           <div class="modal-header">
             <h2>Details:</h2>
             <button id="closeDetailsModal">×</button>
@@ -177,32 +176,33 @@
             <!-- to do object go here -->
             <div class="detailsGrid">
               <h3 class="displayInline">Project:</h3>
-              <p class="displayInline">Life</p>
+              <p class="displayInline detailsProject" data-details-project></p>
             </div>
             <div class="detailsGrid">
               <h3 class="displayInline">Priority:</h3>
-              <p class="displayInline">B</p>
+              <p class="displayInline" data-details-priority></p>
             </div>
             <div class="detailsGrid">
               <h3 class="displayInline">Title:</h3>
-              <p class="displayInline">Nose grinding</p>
+              <p class="displayInline" data-details-title></p>
             </div>
             <div class="detailsGrid">
               <h3 class="displayInline">Description:</h3>
-              <p class="displayInline">Using the finger to dig up a bugger.</p>
+              <p class="displayInline" data-details-description></p>
             </div>
             <div class="detailsGrid">
               <h3 class="displayInline">DueDate:</h3>
-              <p class="displayInline">01.01.1010</p>
+              <p class="displayInline" data-details-dueDate></p>
             </div>
             <div class="detailsGrid">
               <h3 class="displayInline">Notes:</h3>
-              <p class="displayInline">Keeps the air inlet clean and working</p>
+              <p class="displayInline" data-details-notes></p>
             </div>
           </div>
         </div>
       </div>
     </template>
+
   </body>
 </html>
 

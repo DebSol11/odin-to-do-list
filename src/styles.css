@@ -34,6 +34,8 @@ button:hover {
 }
 
 /* Header */
+
+
 header {
   display: flex;
   gap: 15px;
@@ -228,7 +230,7 @@ button#addProjectBtn {
 #addToDoIcon {
   position: fixed;
   top: 33px;
-  right: 18px;
+  right: 35px;
   width: 50px;
   height: 50px;
   background-color: var(--button-color);
