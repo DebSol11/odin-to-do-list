@@ -34,8 +34,6 @@ button:hover {
 }
 
 /* Header */
-
-
 header {
   display: flex;
   gap: 15px;
@@ -54,6 +52,7 @@ div.content-wrap {
   gap: 15px;
   margin: 15px;
 }
+
 /* Section Projects*/
 h2 {
   font-weight: 600;
