@@ -1,5 +1,4 @@
 import "../../src/styles.css";
-import "../../src/toDoForm.css";
 
 // compared to removing, simplifying and increasing speed, adding extra functionality is a piece of cake
 

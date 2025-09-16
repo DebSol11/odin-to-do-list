@@ -245,6 +245,11 @@ button#addProjectBtn {
 
 /* ---------------------------------------- */
 /* Modal design */
+[data-new-task-form] {
+  display: flex;
+  flex-direction: column;
+}
+
 .modal {
   display: none;
   position: fixed;
