@@ -197,6 +197,10 @@ button#addProjectBtn {
   position: relative;
 }
 
+.taskTitle:hover {
+  cursor: pointer;
+}
+
 /* To-Do Body */
 
 .toDoEntity {

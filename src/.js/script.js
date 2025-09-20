@@ -406,13 +406,20 @@ function editTask(project, task) {
   description.value = task.description;
   dueDate.value = task.dueDate;
   notes.value = task.notes;
-  const index = project.tasks.findIndex(
-    (item) => item.id === task.id
-  );
-  project.tasks.splice(index, 1);
+  // SOLID principal violated
+  // put this into extra function
+  // + Bug when edit button is pressed than closed without changes and the same edit button pressed again
+  // const index = project.tasks.findIndex(
+  //   (item) => item.id === task.id
+  // );
+  // project.tasks.splice(index, 1);
   addToDoFormModal.classList.add("active");
   addToDoFormModal.classList.add("open");
   addToDoFormModal.style.display = "block";
+}
+
+function removeEditedTask() {
+
 }
 
 // Function calls
