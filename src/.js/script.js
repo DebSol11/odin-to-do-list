@@ -1,4 +1,5 @@
-import "../../src/styles.css";
+// commented out import for live-preview on TOPn
+// import "../../src/styles.css";
 
 // compared to removing, simplifying and increasing speed, adding extra functionality is a piece of cake
 
@@ -134,7 +135,7 @@ newProjectForm.addEventListener("submit", (e) => {
   saveAndRender();
 });
 
-clearCompleteTasksButton.addEventListener("click", (e) => {
+clearCompleteTasksButton.addEventListener("click", () => {
   const selectedProject = projectsArray.find(
     (project) => project.id === selectedProjectId
   );
@@ -216,6 +217,7 @@ function createProject(name) {
   };
 }
 
+// Factory function
 function createTask(project, priority, name, description, dueDate, notes) {
   return {
     id: Date.now().toString(),
@@ -356,7 +358,7 @@ function displayDetails(task) {
   } else if (task.priority === "C") {
     displayDetailsId.classList.add("colorC");
   } else {
-    alert = "Shit happened! NoNoNo!";
+    console.log("Shit happened! NoNoNo!");
   }
 
   const detailsTitle = taskDetails.querySelector("[data-details-title]");
@@ -418,9 +420,8 @@ function editTask(project, task) {
   addToDoFormModal.style.display = "block";
 }
 
-function removeEditedTask() {
-
-}
+// function removeEditedTask() {
+// }
 
 // Function calls
 render();
