@@ -1,4 +1,4 @@
-// commented out import for live-preview on TOPn
+// commented out import for live-preview on TOP
 // import "../../src/styles.css";
 
 // compared to removing, simplifying and increasing speed, adding extra functionality is a piece of cake
